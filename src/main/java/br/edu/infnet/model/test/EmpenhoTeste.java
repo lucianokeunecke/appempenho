@@ -1,10 +1,18 @@
 package br.edu.infnet.model.test;
 
+import java.time.LocalDateTime;
+
 public class EmpenhoTeste {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		int numero;
+		LocalDateTime data = LocalDateTime.now();
+		float valor;
+		
+		
+		
+		
 	}
 
 }

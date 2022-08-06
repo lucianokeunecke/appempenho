@@ -13,7 +13,6 @@
 	  <p>Projeto de Gestão de Empenhos</p>
 	  
 	  <h3>Classe: Empenho</h3>
-	              
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
@@ -24,23 +23,51 @@
 	    </thead>
 	    <tbody>
 	      <tr>
-	        <td>Numero</td>
-	        <td>Integer</td>
+	        <td>numero</td>
+	        <td>int</td>
 	        <td>Número do Empenho</td>
 	      </tr>
 	      <tr>
-	        <td>Data</td>
+	        <td>data</td>
 	        <td>LocalDateTime</td>
 	        <td>Data da Emissão do Empenho</td>
 	      </tr>
 	      <tr>
-	        <td>Valor</td>
-	        <td>Float</td>
+	        <td>valor</td>
+	        <td>float</td>
 	        <td>Valor do Empenho</td>
 	      </tr>
 	    </tbody>
 	  </table>
 	  
+	  
+	  <h3>Classe: Fornecedor</h3>
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Atributo</th>
+	        <th>Tipo</th>
+	        <th>Descrição</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>codigo</td>
+	        <td>int</td>
+	        <td>Código do Fornecedor</td>
+	      </tr>
+	      <tr>
+	        <td>nome</td>
+	        <td>String</td>
+	        <td>Nome/Razão Social do Fornecedor</td>
+	      </tr>
+	      <tr>
+	        <td>cnpjCpf</td>
+	        <td>float</td>
+	        <td>CNPJ/CPF do Fornecedor</td>
+	      </tr>
+	    </tbody>
+	  </table>
 	  
 	  
 	  
