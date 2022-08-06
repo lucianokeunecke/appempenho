@@ -23,27 +23,27 @@ public class PregaoTeste implements ApplicationRunner {
 		pregao1.setNumero(356);
 		pregao1.setDataExpedicao(LocalDateTime.now());
 		pregao1.setObjetoLicitacao("Contratação de materiais de consumo");
-		pregao1.registroPreco = true;
-		pregao1.criterioJulgamento = "Menor Preço";
-		pregao1.valorEstimadoEdital = 450000;		
+		pregao1.setRegistroPreco(true);
+		pregao1.setCriterioJulgamento("Menor Preço");
+		pregao1.setValorEstimadoEdital(450000);		
 		System.out.println(pregao1);		
 		
 		Pregao pregao2 = new Pregao();
 		pregao2.setNumero(376);
 		pregao2.setDataExpedicao(LocalDateTime.now());
 		pregao2.setObjetoLicitacao("Contratação de materiais de expediente");
-		pregao2.registroPreco = false;
-		pregao2.criterioJulgamento = "Maior Desconto";
-		pregao2.valorEstimadoEdital = 700000;		
+		pregao2.setRegistroPreco(false);
+		pregao2.setCriterioJulgamento("Maior Desconto");
+		pregao2.setValorEstimadoEdital(700000);		
 		System.out.println(pregao2);		
 		
 		Pregao pregao3 = new Pregao();
 		pregao3.setNumero(397);
 		pregao3.setDataExpedicao(LocalDateTime.now());
 		pregao3.setObjetoLicitacao("Contratação de materiais de escritório");
-		pregao3.registroPreco = false;
-		pregao3.criterioJulgamento = "Maior Lance ou Oferta";
-		pregao3.valorEstimadoEdital = 1500000;		
+		pregao3.setRegistroPreco(false);
+		pregao3.setCriterioJulgamento("Maior Lance ou Oferta");
+		pregao3.setValorEstimadoEdital(1500000);		
 		System.out.println(pregao3);		
 		
 	}
