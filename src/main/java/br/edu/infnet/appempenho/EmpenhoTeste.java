@@ -16,6 +16,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
+		System.out.println("==========================================================");
 		System.out.println("#empenho");
 		
 		Empenho empenho1 = new Empenho();

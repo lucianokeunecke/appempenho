@@ -14,6 +14,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
+		System.out.println("==========================================================");
 		System.out.println("#concorrencia");
 		
 		Concorrencia concorrencia1 = new Concorrencia();
