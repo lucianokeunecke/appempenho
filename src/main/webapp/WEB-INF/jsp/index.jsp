@@ -63,7 +63,7 @@
 	      </tr>
 	      <tr>
 	        <td>cnpjCpf</td>
-	        <td>float</td>
+	        <td>long</td>
 	        <td>CNPJ/CPF do Fornecedor</td>
 	      </tr>
 	    </tbody>
