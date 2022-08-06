@@ -15,7 +15,7 @@ public class FornecedorTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 
 		System.out.println("==========================================================");
-		System.out.println("#fornecedor");
+		System.out.println("#Fornecedor");
 		
 		Fornecedor fornecedor1 = new Fornecedor();
 		fornecedor1.setCodigo(15);

@@ -15,7 +15,7 @@ public class PregaoTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		
 		System.out.println("==========================================================");
-		System.out.println("#pregao");
+		System.out.println("#Pregão");
 		
 		Pregao pregao1 = new Pregao();
 		pregao1.setRegistroPreco(true);

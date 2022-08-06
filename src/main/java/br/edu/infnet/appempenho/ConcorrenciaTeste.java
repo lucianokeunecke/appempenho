@@ -15,7 +15,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		
 		System.out.println("==========================================================");
-		System.out.println("#concorrencia");
+		System.out.println("#Concorrência");
 		
 		Concorrencia concorrencia1 = new Concorrencia();
 		concorrencia1.setEletronica(true);
