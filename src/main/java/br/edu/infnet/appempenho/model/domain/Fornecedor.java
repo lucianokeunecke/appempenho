@@ -2,31 +2,13 @@ package br.edu.infnet.appempenho.model.domain;
 
 public class Fornecedor {
 	
-	private int codigo;
-	private String nome;
-	private long cnpjCpf;
+	public int codigo;
+	public String nome;
+	public long cnpjCpf;
 	
-	public int getCodigo() {
-		return codigo;
-	}
-	
-	public void setCodigo(int codigo) {
+	public Fornecedor(int codigo, String nome, long cnpjCpf) {
 		this.codigo = codigo;
-	}
-	
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public long getCnpjCpf() {
-		return cnpjCpf;
-	}
-
-	public void setCnpjCpf(long cnpjCpf) {
 		this.cnpjCpf = cnpjCpf;
 	}
 
