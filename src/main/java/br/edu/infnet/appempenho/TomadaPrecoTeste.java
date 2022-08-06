@@ -5,7 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.model.domain.TomadaPreco;
+import br.edu.infnet.appempenho.model.domain.TomadaPreco;
 
 @Component
 @Order(5)

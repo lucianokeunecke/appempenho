@@ -5,7 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.model.domain.Pregao;
+import br.edu.infnet.appempenho.model.domain.Pregao;
 
 @Component
 @Order(4)

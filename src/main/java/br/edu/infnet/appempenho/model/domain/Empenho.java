@@ -1,4 +1,4 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.appempenho.model.domain;
 
 import java.time.LocalDateTime;
 

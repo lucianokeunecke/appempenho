@@ -1,6 +1,6 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.appempenho.model.domain;
 
-public class Pregao {
+public class Pregao extends ProcessoLicitatorio {
 	
 	private boolean registroPreco;
 	private String criterioJulgamento;
@@ -32,7 +32,7 @@ public class Pregao {
 	
 	@Override
 	public String toString() {
-		return registroPreco + ";" + criterioJulgamento + ";" + valorEstimadoEdital;
+		return registroPreco + ";" + criterioJulgamento + ";" + valorEstimadoEdital + super.toString();
 	}	
 
 }

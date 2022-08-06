@@ -1,6 +1,6 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.appempenho.model.domain;
 
-public class TomadaPreco {
+public class TomadaPreco extends ProcessoLicitatorio {
 	
 	private boolean permiteSubcontratacao;
 	private String condicaoPagamento;
@@ -32,7 +32,7 @@ public class TomadaPreco {
 	
 	@Override
 	public String toString() {
-		return permiteSubcontratacao + ";" + condicaoPagamento + ";" + valorEstimadoDotacaoOrcamentaria;
+		return permiteSubcontratacao + ";" + condicaoPagamento + ";" + valorEstimadoDotacaoOrcamentaria + super.toString();
 	}	
 
 }

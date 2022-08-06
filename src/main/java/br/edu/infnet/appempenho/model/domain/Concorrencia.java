@@ -1,6 +1,6 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.appempenho.model.domain;
 
-public class Concorrencia {
+public class Concorrencia extends ProcessoLicitatorio {
 	
 	private boolean eletronica;
 	private String prazoExecucao;
@@ -32,7 +32,7 @@ public class Concorrencia {
 	
 	@Override
 	public String toString() {
-		return eletronica + ";" + prazoExecucao + ";" + valorMinimoCapital;
+		return eletronica + ";" + prazoExecucao + ";" + valorMinimoCapital + super.toString();
 	}		
 
 }
