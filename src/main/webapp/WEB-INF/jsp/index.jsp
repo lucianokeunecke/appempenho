@@ -70,6 +70,65 @@
 	  </table>
 	  
 	  
+	  <h3>Classe: ProcessoLicitatorio</h3>
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Atributo</th>
+	        <th>Tipo</th>
+	        <th>Descrição</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>numero</td>
+	        <td>int</td>
+	        <td>Número do Processo Licitatório</td>
+	      </tr>
+	      <tr>
+	        <td>dataExpedicao</td>
+	        <td>LocalDateTime</td>
+	        <td>Data da Expedição do Processo Licitatório</td>
+	      </tr>
+	      <tr>
+	        <td>objetoLicitacao</td>
+	        <td>String</td>
+	        <td>Descrição do Objeto da Licitação</td>
+	      </tr>
+	    </tbody>
+	  </table>	 
+	  
+	  
+	  <h3>Classe: Concorrencia</h3>
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Atributo</th>
+	        <th>Tipo</th>
+	        <th>Descrição</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>eletronica</td>
+	        <td>boolean</td>
+	        <td>Indica se a Modalidade de Concorrência é eletrônica</td>
+	      </tr>
+	      <tr>
+	        <td>prazoExecucao</td>
+	        <td>String</td>
+	        <td>Descrição do prazo da execução</td>
+	      </tr>
+	      <tr>
+	        <td>valorMinimoCapital</td>
+	        <td>float</td>
+	        <td>Valor mínimo do capital</td>
+	      </tr>
+	    </tbody>
+	  </table>	  
+	   
+	  
+	  
 	  
 	</div>
 </body>
