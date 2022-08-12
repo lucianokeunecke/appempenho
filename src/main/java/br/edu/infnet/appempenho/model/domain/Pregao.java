@@ -4,7 +4,7 @@ public class Pregao extends ProcessoLicitatorio {
 	
 	private boolean registroPreco;
 	private String criterioJulgamento;
-	private float valorEstimadoEdital;
+	private float indiceReajuste;
 		
 	public boolean isRegistroPreco() {
 		return registroPreco;
@@ -20,19 +20,19 @@ public class Pregao extends ProcessoLicitatorio {
 
 	public void setCriterioJulgamento(String criterioJulgamento) {
 		this.criterioJulgamento = criterioJulgamento;
+	}	
+
+	public float getIndiceReajuste() {
+		return indiceReajuste;
 	}
 
-	public float getValorEstimadoEdital() {
-		return valorEstimadoEdital;
-	}
-
-	public void setValorEstimadoEdital(float valorEstimadoEdital) {
-		this.valorEstimadoEdital = valorEstimadoEdital;
+	public void setIndiceReajuste(float indiceReajuste) {
+		this.indiceReajuste = indiceReajuste;
 	}
 
 	@Override
 	public String toString() {
-		return registroPreco + ";" + criterioJulgamento + ";" + valorEstimadoEdital + super.toString();
+		return registroPreco + ";" + criterioJulgamento + ";" + indiceReajuste + super.toString();
 	}	
 
 }

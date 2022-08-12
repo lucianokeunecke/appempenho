@@ -7,6 +7,7 @@ public class ProcessoLicitatorio {
 	private int numero;
 	private LocalDateTime dataExpedicao;
 	private String objetoLicitacao;
+	 
 	
 	public int getNumero() {
 		return numero;
