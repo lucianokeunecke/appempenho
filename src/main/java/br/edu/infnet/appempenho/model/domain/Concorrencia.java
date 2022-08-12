@@ -9,8 +9,6 @@ public class Concorrencia extends ProcessoLicitatorio {
 	@Override
 	public float calcularValorEstimadoEdital() {
 		
-		System.out.println("Calcular valor estimado - Concorrência");		
-		
 		float valorEletronica = eletronica ? 3 : 7;
 		
 		float valorCapital = valorMinimoCapital * 0.01f;

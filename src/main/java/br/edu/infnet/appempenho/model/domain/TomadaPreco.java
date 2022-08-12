@@ -6,6 +6,14 @@ public class TomadaPreco extends ProcessoLicitatorio {
 	private String condicaoPagamento;
 	private float valorEstimadoDotacaoOrcamentaria;	
 	
+	@Override
+	public float calcularValorEstimadoEdital() {
+		
+		float indiceSubcontratacao = permiteSubcontratacao ? 3 : 2; 
+		
+		return getValorEstimadoEdital() * indiceSubcontratacao;
+	}
+	
 	public boolean isPermiteSubcontratacao() {
 		return permiteSubcontratacao;
 	}
