@@ -10,6 +10,9 @@ public class ProcessoLicitatorio {
 	private float valorEstimadoEdital;	
 	
 	public float calcularValorEstimadoEdital() {
+		
+		System.out.println("Calcular valor estimado mãe");
+		
 		return valorEstimadoEdital * 2;
 	}	
 	

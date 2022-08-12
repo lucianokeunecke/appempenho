@@ -4,7 +4,19 @@ public class Concorrencia extends ProcessoLicitatorio {
 	
 	private boolean eletronica;
 	private String prazoExecucao;
-	private float valorMinimoCapital;		
+	private float valorMinimoCapital;
+	
+	@Override
+	public float calcularValorEstimadoEdital() {
+		
+		System.out.println("Calcular valor estimado - Concorrência");		
+		
+		float valorEletronica = eletronica ? 3 : 7;
+		
+		float valorCapital = valorMinimoCapital * 0.01f;
+		
+		return super.calcularValorEstimadoEdital() + valorEletronica + valorCapital;
+	}
 	
 	public boolean isEletronica() {
 		return eletronica;
