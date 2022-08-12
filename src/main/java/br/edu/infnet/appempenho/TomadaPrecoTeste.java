@@ -23,6 +23,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco1.setNumero(750);
 		tomadaPreco1.setDataExpedicao(LocalDateTime.now());
 		tomadaPreco1.setObjetoLicitacao("Contratação de empresa especializada em serviço de limpeza");
+		tomadaPreco1.setValorEstimadoEdital(200000);
 		tomadaPreco1.setPermiteSubcontratacao(false);
 		tomadaPreco1.setCondicaoPagamento("30/60/90 dias");
 		tomadaPreco1.setValorEstimadoDotacaoOrcamentaria(150000);		
@@ -32,6 +33,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco2.setNumero(755);
 		tomadaPreco2.setDataExpedicao(LocalDateTime.now());
 		tomadaPreco2.setObjetoLicitacao("Contratação de exames laboratoriais");
+		tomadaPreco2.setValorEstimadoEdital(290000);
 		tomadaPreco2.setPermiteSubcontratacao(true);
 		tomadaPreco2.setCondicaoPagamento("15/30/45/60 dias");
 		tomadaPreco2.setValorEstimadoDotacaoOrcamentaria(350000);		
@@ -41,6 +43,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco3.setNumero(796);
 		tomadaPreco3.setDataExpedicao(LocalDateTime.now());
 		tomadaPreco3.setObjetoLicitacao("Contratação de empresa especializada em serviços de contrução civil");
+		tomadaPreco3.setValorEstimadoEdital(740500);
 		tomadaPreco3.setPermiteSubcontratacao(false);
 		tomadaPreco3.setCondicaoPagamento("45/90 dias");
 		tomadaPreco3.setValorEstimadoDotacaoOrcamentaria(175000);		

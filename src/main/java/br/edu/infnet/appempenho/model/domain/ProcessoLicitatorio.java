@@ -7,7 +7,7 @@ public class ProcessoLicitatorio {
 	private int numero;
 	private LocalDateTime dataExpedicao;
 	private String objetoLicitacao;
-	 
+	private float valorEstimadoEdital;	 
 	
 	public int getNumero() {
 		return numero;
@@ -33,9 +33,17 @@ public class ProcessoLicitatorio {
 		this.objetoLicitacao = objetoLicitacao;
 	}
 
+	public float getValorEstimadoEdital() {
+		return valorEstimadoEdital;
+	}
+
+	public void setValorEstimadoEdital(float valorEstimadoEdital) {
+		this.valorEstimadoEdital = valorEstimadoEdital;
+	}
+
 	@Override
 	public String toString() {
-		return numero + ";" + dataExpedicao + ";" + objetoLicitacao;
+		return numero + ";" + dataExpedicao + ";" + objetoLicitacao + ";" + valorEstimadoEdital;
 	}	
 
 }

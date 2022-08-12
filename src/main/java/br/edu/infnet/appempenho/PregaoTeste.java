@@ -23,6 +23,7 @@ public class PregaoTeste implements ApplicationRunner {
 		pregao1.setNumero(356);
 		pregao1.setDataExpedicao(LocalDateTime.now());
 		pregao1.setObjetoLicitacao("Contratação de materiais de consumo");
+		pregao1.setValorEstimadoEdital(550000);
 		pregao1.setRegistroPreco(true);
 		pregao1.setCriterioJulgamento("Menor Preço");
 		pregao1.setIndiceReajuste(1.5f);		
@@ -32,6 +33,7 @@ public class PregaoTeste implements ApplicationRunner {
 		pregao2.setNumero(376);
 		pregao2.setDataExpedicao(LocalDateTime.now());
 		pregao2.setObjetoLicitacao("Contratação de materiais de expediente");
+		pregao2.setValorEstimadoEdital(750000);
 		pregao2.setRegistroPreco(false);
 		pregao2.setCriterioJulgamento("Maior Desconto");
 		pregao2.setIndiceReajuste(2.35f);		
@@ -41,6 +43,7 @@ public class PregaoTeste implements ApplicationRunner {
 		pregao3.setNumero(397);
 		pregao3.setDataExpedicao(LocalDateTime.now());
 		pregao3.setObjetoLicitacao("Contratação de materiais de escritório");
+		pregao3.setValorEstimadoEdital(850000);
 		pregao3.setRegistroPreco(false);
 		pregao3.setCriterioJulgamento("Maior Lance ou Oferta");
 		pregao3.setIndiceReajuste(0.75f);		
