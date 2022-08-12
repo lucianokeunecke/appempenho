@@ -34,7 +34,7 @@ public class Empenho {
 	
 	@Override
 	public String toString() {
-		return numero + ";" + data + ";" + valor;
+		return "Nº do Empenho: " + numero + "; Data da Emissão: " + data + "; Valor do Empenho: R$ " + valor;
 	}	
 
 }

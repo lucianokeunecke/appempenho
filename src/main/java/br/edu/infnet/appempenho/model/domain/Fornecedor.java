@@ -14,7 +14,7 @@ public class Fornecedor {
 
 	@Override
 	public String toString() {
-		return codigo + ";" + nome + ";" + cnpjCpf;
+		return "Código: " + codigo + "; Nome: " + nome + "; CNPJ/CPF: " + cnpjCpf;
 	}		
 
 }

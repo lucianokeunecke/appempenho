@@ -7,7 +7,11 @@ public class ProcessoLicitatorio {
 	private int numero;
 	private LocalDateTime dataExpedicao;
 	private String objetoLicitacao;
-	private float valorEstimadoEdital;	 
+	private float valorEstimadoEdital;	
+	
+	public float calcularValorEstimadoEdital() {
+		return valorEstimadoEdital * 2;
+	}	
 	
 	public int getNumero() {
 		return numero;
@@ -43,7 +47,7 @@ public class ProcessoLicitatorio {
 
 	@Override
 	public String toString() {
-		return numero + ";" + dataExpedicao + ";" + objetoLicitacao + ";" + valorEstimadoEdital;
+		return "Nº Processo: " + numero + "; Data da Expedição: " + dataExpedicao + "; Objeto da Licitação: " + objetoLicitacao + "; Valor Estimado do Edital: R$ " + calcularValorEstimadoEdital();
 	}	
 
 }
