@@ -38,42 +38,42 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Classe: Concorrencia</h3>
+	  <h3>Classe: TomadaPreco</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
-	        <th>Eletrônica</th>
-	        <th>Prazo de Execução</th>
-	        <th>Valor Mínimo de Capital</th>
+	        <th>Permite Subcontratação</th>
+	        <th>Condição de Pagamento</th>
+	        <th>Valor Estimado Dotação Orçamentária</th>
 	      </tr>
 	    </thead>
 	    <tbody>
 	      <tr>
-	        <td>150</td>
-	        <td>10/07/2022</td>
-	        <td>Contratação de empresa especializada para execução de serviço de capeamento asfáltico</td>
+	        <td>501</td>
+	        <td>08/07/2022</td>
+	        <td>Contratação de empresa especializada em serviço de limpeza</td>
 	        <td>Sim</td>
-	        <td>30/60 Dias</td>
-	        <td>150000</td>
+	        <td>30/60/90 dias</td>
+	        <td>150.000,00</td>
 	      </tr>
 	      <tr>
-	        <td>175</td>
-	        <td>03/08/2022</td>
-	        <td>Contratação de empresa especializada para execução de serviço de engenharia</td>
+	        <td>515</td>
+	        <td>18/07/2022</td>
+	        <td>Contratação de exames laboratoriais</td>
 	        <td>Não</td>
-	        <td>45 Dias</td>
-	        <td>175000</td>
+	        <td>45/90 dias</td>
+	        <td>475.000,00</td>
 	      </tr>
 	      <tr>
-	        <td>197</td>
+	        <td>527</td>
 	        <td>13/08/2022</td>
-	        <td>Contratação de empresa especializada para execução de obra</td>
-	        <td>Sim</td>
-	        <td>30/60/90/120 Dias</td>
-	        <td>375000</td>
+	        <td>Contratação de empresa especializada em serviços de contrução civil</td>
+	        <td>Não</td>
+	        <td>15/30/45/60/75/90 dias</td>
+	        <td>650.000,00</td>
 	      </tr>
 	    </tbody>
 	  </table>

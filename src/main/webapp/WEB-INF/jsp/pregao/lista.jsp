@@ -21,7 +21,7 @@
 	        <a class="nav-link" href="/pregao/lista">Pregão</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Tomada de Preço</a>
+	        <a class="nav-link" href="/tomadaPreco/lista">Tomada de Preço</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Processo Licitatório</a>
