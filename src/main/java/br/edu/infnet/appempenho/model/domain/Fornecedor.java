@@ -14,6 +14,18 @@ public class Fornecedor implements IPrinter {
 		this.cnpjCpf = cnpjCpf;
 	}
 
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public long getCnpjCpf() {
+		return cnpjCpf;
+	}
+
 	@Override
 	public String toString() {
 		return "Código: " + codigo + "; Nome: " + nome + "; CNPJ/CPF: " + cnpjCpf;

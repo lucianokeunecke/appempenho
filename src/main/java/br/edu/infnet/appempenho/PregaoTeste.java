@@ -17,7 +17,7 @@ public class PregaoTeste implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		System.out.println("==========================================================");
+		System.out.println("====================================================================================================================");
 		
 		Pregao pregao1 = new Pregao();
 		pregao1.setNumero(356);
