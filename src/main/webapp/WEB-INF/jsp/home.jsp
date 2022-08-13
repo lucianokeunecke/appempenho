@@ -18,7 +18,7 @@
 	        <a class="nav-link" href="/concorrencia/lista">Concorrência</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Pregão</a>
+	        <a class="nav-link" href="pregao/lista">Pregão</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Tomada de Preço</a>

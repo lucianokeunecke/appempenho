@@ -38,42 +38,42 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Classe: Concorrencia</h3>
+	  <h3>Classe: Pregao</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
-	        <th>Eletrônica</th>
-	        <th>Prazo de Execução</th>
-	        <th>Valor Mínimo de Capital</th>
+	        <th>Registro de Preço</th>
+	        <th>Critério de Julgamento</th>
+	        <th>Indice de Reajuste</th>
 	      </tr>
 	    </thead>
 	    <tbody>
 	      <tr>
-	        <td>150</td>
-	        <td>10/07/2022</td>
-	        <td>Contratação de empresa especializada para execução de serviço de capeamento asfáltico</td>
+	        <td>356</td>
+	        <td>03/07/2022</td>
+	        <td>Contratação de materiais de consumo</td>
 	        <td>Sim</td>
-	        <td>30/60 Dias</td>
-	        <td>150000</td>
+	        <td>Menor Preço</td>
+	        <td>3,50</td>
 	      </tr>
 	      <tr>
-	        <td>175</td>
-	        <td>03/08/2022</td>
-	        <td>Contratação de empresa especializada para execução de serviço de engenharia</td>
+	        <td>475</td>
+	        <td>21/07/2022</td>
+	        <td>Contratação de materiais de expediente</td>
 	        <td>Não</td>
-	        <td>45 Dias</td>
-	        <td>175000</td>
+	        <td>Maior Desconto</td>
+	        <td>1,75</td>
 	      </tr>
 	      <tr>
-	        <td>197</td>
-	        <td>13/08/2022</td>
-	        <td>Contratação de empresa especializada para execução de obra</td>
+	        <td>490</td>
+	        <td>01/08/2022</td>
+	        <td>Contratação de materiais de escritório</td>
 	        <td>Sim</td>
-	        <td>30/60/90/120 Dias</td>
-	        <td>375000</td>
+	        <td>Maior Lance ou Oferta</td>
+	        <td>0,75</td>
 	      </tr>
 	    </tbody>
 	  </table>
