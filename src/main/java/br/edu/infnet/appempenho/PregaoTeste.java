@@ -37,7 +37,7 @@ public class PregaoTeste implements ApplicationRunner {
 		pregao2.setRegistroPreco(false);
 		pregao2.setCriterioJulgamento("Maior Desconto");
 		pregao2.setIndiceReajuste(2.35f);		
-		AppProcessoLicitatorio.relatorio("Inclusão do Pregão Nº " + pregao2.getNumero(), pregao1);
+		AppProcessoLicitatorio.relatorio("Inclusão do Pregão Nº " + pregao2.getNumero(), pregao2);
 		
 		Pregao pregao3 = new Pregao();
 		pregao3.setNumero(397);
