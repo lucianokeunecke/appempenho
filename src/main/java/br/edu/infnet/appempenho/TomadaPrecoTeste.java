@@ -27,7 +27,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco1.setPermiteSubcontratacao(false);
 		tomadaPreco1.setCondicaoPagamento("30/60/90 dias");
 		tomadaPreco1.setValorEstimadoDotacaoOrcamentaria(150000);		
-		new AppProcessoLicitatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco1.getNumero()).relatorio(tomadaPreco1);
+		AppProcessoLicitatorio.relatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco1.getNumero(), tomadaPreco1);
 		
 		TomadaPreco tomadaPreco2 = new TomadaPreco();
 		tomadaPreco2.setNumero(755);
@@ -37,7 +37,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco2.setPermiteSubcontratacao(true);
 		tomadaPreco2.setCondicaoPagamento("15/30/45/60 dias");
 		tomadaPreco2.setValorEstimadoDotacaoOrcamentaria(350000);		
-		new AppProcessoLicitatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco2.getNumero()).relatorio(tomadaPreco2);
+		AppProcessoLicitatorio.relatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco2.getNumero(), tomadaPreco2);
 		
 		TomadaPreco tomadaPreco3 = new TomadaPreco();
 		tomadaPreco3.setNumero(796);
@@ -47,7 +47,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco3.setPermiteSubcontratacao(false);
 		tomadaPreco3.setCondicaoPagamento("45/90 dias");
 		tomadaPreco3.setValorEstimadoDotacaoOrcamentaria(175000);		
-		new AppProcessoLicitatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco3.getNumero()).relatorio(tomadaPreco3);
+		AppProcessoLicitatorio.relatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco3.getNumero(), tomadaPreco3);
 		
 	}
 }
