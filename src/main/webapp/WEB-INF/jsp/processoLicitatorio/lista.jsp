@@ -27,7 +27,7 @@
 	        <a class="nav-link" href="/processoLicitatorio/lista">Processo Licitatório</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Empenho</a>
+	        <a class="nav-link" href="/empenho/lista">Empenho</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Fornecedor</a>
