@@ -38,34 +38,30 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Classe: ProcessoLicitatorio</h3>
+	  <h3>Classe: Fornecedor</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
-	        <th>Número</th>
-	        <th>Data da Expedição</th>
-	        <th>Objeto da Licitação</th>
-	        <th>Valor Estimado do Edital</th>
+	        <th>Código</th>
+	        <th>Razão Social/Nome do Fornecedor</th>
+	        <th>CNPJ/CPF</th>
 	      </tr>
 	    </thead>
 	    <tbody>
 	      <tr>
-	        <td>701</td>
-	        <td>15/07/2022</td>
-	        <td>Aquisição de bens patrimoniais</td>
-	        <td>75.000,00</td>
+	        <td>156</td>
+	        <td>Luciano Keunecke</td>
+	        <td>031.897.456-07</td>
 	      </tr>
 	      <tr>
-	        <td>713</td>
-	        <td>19/07/2022</td>
-	        <td>Aquisição de peças de veículos</td>
-	        <td>105.000,00</td>
+	        <td>274</td>
+	        <td>Indústria e Comércio Arno Gartner Ltda</td>
+	        <td>04.962.441/0001-52</td>
 	      </tr>
 	      <tr>
-	        <td>737</td>
-	        <td>31/07/2022</td>
-	        <td>Aquisição de materiais elétricos</td>
-	        <td>145.000,00</td>
+	        <td>297</td>
+	        <td>Cia Hering</td>
+	        <td>07.765.631/0001-74</td>
 	      </tr>
 	    </tbody>
 	  </table>

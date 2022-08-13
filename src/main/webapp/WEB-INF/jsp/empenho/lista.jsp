@@ -30,7 +30,7 @@
 	        <a class="nav-link" href="/empenho/lista">Empenho</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Fornecedor</a>
+	        <a class="nav-link" href="/fornecedor/lista">Fornecedor</a>
 	      </li>
 	    </ul>
 	  </div>
