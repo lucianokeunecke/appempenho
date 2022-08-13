@@ -24,7 +24,7 @@
 	        <a class="nav-link" href="/tomadaPreco/lista">Tomada de Preço</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Processo Licitatório</a>
+	        <a class="nav-link" href="/processoLicitatorio/lista">Processo Licitatório</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Empenho</a>

@@ -38,42 +38,34 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Classe: Concorrencia</h3>
+	  <h3>Classe: ProcessoLicitatorio</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
-	        <th>Eletrônica</th>
-	        <th>Prazo de Execução</th>
-	        <th>Valor Mínimo de Capital</th>
+	        <th>Valor Estimado do Edital</th>
 	      </tr>
 	    </thead>
 	    <tbody>
 	      <tr>
-	        <td>150</td>
-	        <td>10/07/2022</td>
-	        <td>Contratação de empresa especializada para execução de serviço de capeamento asfáltico</td>
-	        <td>Sim</td>
-	        <td>30/60 Dias</td>
-	        <td>150.000,00</td>
+	        <td>701</td>
+	        <td>15/07/2022</td>
+	        <td>Aquisição de bens patrimoniais</td>
+	        <td>75.000,00</td>
 	      </tr>
 	      <tr>
-	        <td>175</td>
-	        <td>03/08/2022</td>
-	        <td>Contratação de empresa especializada para execução de serviço de engenharia</td>
-	        <td>Não</td>
-	        <td>45 Dias</td>
-	        <td>175.000,00</td>
+	        <td>713</td>
+	        <td>19/07/2022</td>
+	        <td>Aquisição de peças de veículos</td>
+	        <td>105.000,00</td>
 	      </tr>
 	      <tr>
-	        <td>197</td>
-	        <td>13/08/2022</td>
-	        <td>Contratação de empresa especializada para execução de obra</td>
-	        <td>Sim</td>
-	        <td>30/60/90/120 Dias</td>
-	        <td>375.000,00</td>
+	        <td>737</td>
+	        <td>31/07/2022</td>
+	        <td>Aquisição de materiais elétricos</td>
+	        <td>145.000,00</td>
 	      </tr>
 	    </tbody>
 	  </table>
