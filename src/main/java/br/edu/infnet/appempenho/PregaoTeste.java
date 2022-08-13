@@ -8,7 +8,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appempenho.model.domain.Pregao;
-import br.edu.infnet.appempenho.model.test.AppProcessoLicitatorio;
+import br.edu.infnet.appempenho.model.test.AppImpressao;
 
 @Component
 @Order(4)
@@ -27,7 +27,7 @@ public class PregaoTeste implements ApplicationRunner {
 		pregao1.setRegistroPreco(true);
 		pregao1.setCriterioJulgamento("Menor Preço");
 		pregao1.setIndiceReajuste(1.5f);		
-		AppProcessoLicitatorio.relatorio("Inclusão do Pregão Nº " + pregao1.getNumero(), pregao1);
+		AppImpressao.relatorio("Inclusão do Pregão Nº " + pregao1.getNumero(), pregao1);
 		
 		Pregao pregao2 = new Pregao();
 		pregao2.setNumero(376);
@@ -37,7 +37,7 @@ public class PregaoTeste implements ApplicationRunner {
 		pregao2.setRegistroPreco(false);
 		pregao2.setCriterioJulgamento("Maior Desconto");
 		pregao2.setIndiceReajuste(2.35f);		
-		AppProcessoLicitatorio.relatorio("Inclusão do Pregão Nº " + pregao2.getNumero(), pregao2);
+		AppImpressao.relatorio("Inclusão do Pregão Nº " + pregao2.getNumero(), pregao2);
 		
 		Pregao pregao3 = new Pregao();
 		pregao3.setNumero(397);
@@ -47,7 +47,7 @@ public class PregaoTeste implements ApplicationRunner {
 		pregao3.setRegistroPreco(false);
 		pregao3.setCriterioJulgamento("Maior Lance ou Oferta");
 		pregao3.setIndiceReajuste(0.75f);		
-		AppProcessoLicitatorio.relatorio("Inclusão do Pregão Nº " + pregao3.getNumero(), pregao3);
+		AppImpressao.relatorio("Inclusão do Pregão Nº " + pregao3.getNumero(), pregao3);
 		
 	}
 

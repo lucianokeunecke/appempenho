@@ -8,7 +8,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appempenho.model.domain.Concorrencia;
-import br.edu.infnet.appempenho.model.test.AppProcessoLicitatorio;
+import br.edu.infnet.appempenho.model.test.AppImpressao;
 
 @Component
 @Order(3)
@@ -27,7 +27,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 		concorrencia1.setEletronica(true);
 		concorrencia1.setPrazoExecucao("30 dias");
 		concorrencia1.setValorMinimoCapital(500000);
-		AppProcessoLicitatorio.relatorio("Inclusão da Concorrência Nº " + concorrencia1.getNumero(), concorrencia1);
+		AppImpressao.relatorio("Inclusão da Concorrência Nº " + concorrencia1.getNumero(), concorrencia1);
 		
 		Concorrencia concorrencia2 = new Concorrencia();
 		concorrencia2.setNumero(153);
@@ -37,7 +37,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 		concorrencia2.setEletronica(false);
 		concorrencia2.setPrazoExecucao("45 dias");
 		concorrencia2.setValorMinimoCapital(700000);		
-		AppProcessoLicitatorio.relatorio("Inclusão da Concorrência Nº " + concorrencia2.getNumero(), concorrencia2);
+		AppImpressao.relatorio("Inclusão da Concorrência Nº " + concorrencia2.getNumero(), concorrencia2);
 		
 		Concorrencia concorrencia3 = new Concorrencia();
 		concorrencia3.setNumero(175);
@@ -47,7 +47,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 		concorrencia3.setEletronica(true);
 		concorrencia3.setPrazoExecucao("1 ano e 2 meses");
 		concorrencia3.setValorMinimoCapital(1000000);		
-		AppProcessoLicitatorio.relatorio("Inclusão da Concorrência Nº " + concorrencia3.getNumero(), concorrencia3);
+		AppImpressao.relatorio("Inclusão da Concorrência Nº " + concorrencia3.getNumero(), concorrencia3);
 		
 	}
 
