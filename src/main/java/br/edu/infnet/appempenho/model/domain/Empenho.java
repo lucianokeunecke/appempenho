@@ -2,7 +2,9 @@ package br.edu.infnet.appempenho.model.domain;
 
 import java.time.LocalDateTime;
 
-public class Empenho {
+import br.edu.infnet.appempenho.interfaces.IPrinter;
+
+public class Empenho implements IPrinter {
 	
 	private int numero;
 	private LocalDateTime data;
@@ -35,11 +37,12 @@ public class Empenho {
 	@Override
 	public String toString() {
 		return "Nº do Empenho: " + numero + "; Data da Emissão: " + data + "; Valor do Empenho: R$ " + valor;
-	}	
-	
+	}
+
+	@Override
 	public void impressao() {
 		System.out.println("#Empenho");
 		System.out.println(this);
-	}
+	}	
 
 }

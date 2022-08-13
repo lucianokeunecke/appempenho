@@ -1,6 +1,8 @@
 package br.edu.infnet.appempenho.model.domain;
 
-public class Fornecedor {
+import br.edu.infnet.appempenho.interfaces.IPrinter;
+
+public class Fornecedor implements IPrinter {
 	
 	private int codigo;
 	private String nome;
@@ -16,10 +18,11 @@ public class Fornecedor {
 	public String toString() {
 		return "Código: " + codigo + "; Nome: " + nome + "; CNPJ/CPF: " + cnpjCpf;
 	}
-	
+
+	@Override
 	public void impressao() {
 		System.out.println("#Fornecedor");
 		System.out.println(this);
 	}
-
+	
 }
