@@ -2,18 +2,16 @@ package br.edu.infnet.appempenho.model.domain;
 
 import java.time.LocalDateTime;
 
-public abstract class ProcessoLicitatorio {
+import br.edu.infnet.appempenho.interfaces.IPrinter;
+
+public abstract class ProcessoLicitatorio implements IPrinter {
 	
 	private int numero;
 	private LocalDateTime dataExpedicao;
 	private String objetoLicitacao;
-	private float valorEstimadoEdital;	
+	private float valorEstimadoEdital;
 	
-	public float calcularValorEstimadoEdital() {		
-		return valorEstimadoEdital * 3;
-	}
-	
-	public abstract void impressao(); 
+	public abstract float calcularValorEstimadoEdital(); 
 	
 	public int getNumero() {
 		return numero;

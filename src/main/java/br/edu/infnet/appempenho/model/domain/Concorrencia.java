@@ -13,7 +13,7 @@ public class Concorrencia extends ProcessoLicitatorio {
 		
 		float valorCapital = valorMinimoCapital * 0.01f;
 		
-		return super.calcularValorEstimadoEdital() + valorEletronica + valorCapital;
+		return (getValorEstimadoEdital() * 2) + valorEletronica + valorCapital;
 	}
 	
 	public boolean isEletronica() {

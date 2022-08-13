@@ -39,6 +39,11 @@ public class Pregao extends ProcessoLicitatorio {
 	public void impressao() {
 		System.out.println("#Pregão");
 		System.out.println(this);
+	}
+
+	@Override
+	public float calcularValorEstimadoEdital() {
+		return getValorEstimadoEdital() * 2;
 	}	
 
 }
