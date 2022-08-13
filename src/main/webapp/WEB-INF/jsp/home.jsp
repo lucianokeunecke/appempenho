@@ -12,10 +12,10 @@
 	  <div class="container-fluid">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
-	        <a class="nav-link active" href="#">Home</a>
+	        <a class="nav-link active" href="/">Home</a>
 	      </li>
-	     <li class="nav-item">
-	        <a class="nav-link" href="#">Concorrência</a>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/concorrencia/lista">Concorrência</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Pregão</a>
