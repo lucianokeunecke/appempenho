@@ -2,7 +2,7 @@ package br.edu.infnet.appempenho.model.domain;
 
 import java.time.LocalDateTime;
 
-public class ProcessoLicitatorio {
+public abstract class ProcessoLicitatorio {
 	
 	private int numero;
 	private LocalDateTime dataExpedicao;
@@ -10,8 +10,10 @@ public class ProcessoLicitatorio {
 	private float valorEstimadoEdital;	
 	
 	public float calcularValorEstimadoEdital() {		
-		return valorEstimadoEdital * 2;
-	}	
+		return valorEstimadoEdital * 3;
+	}
+	
+	public abstract void impressao(); 
 	
 	public int getNumero() {
 		return numero;

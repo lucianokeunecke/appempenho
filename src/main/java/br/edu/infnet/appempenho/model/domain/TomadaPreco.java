@@ -41,6 +41,12 @@ public class TomadaPreco extends ProcessoLicitatorio {
 	@Override
 	public String toString() {
 		return "Permite Sibcontratação: " + permiteSubcontratacao + "; Condição de Pagamento: " + condicaoPagamento + "; Valor Estimado da Dotação Orçamentária: R$ " + valorEstimadoDotacaoOrcamentaria + "; " +  super.toString();
+	}
+
+	@Override
+	public void impressao() {
+		System.out.println("#Tomada de Preço");
+		System.out.println(this);
 	}	
 
 }

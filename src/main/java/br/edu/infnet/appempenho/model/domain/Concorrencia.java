@@ -43,6 +43,12 @@ public class Concorrencia extends ProcessoLicitatorio {
 	@Override
 	public String toString() {
 		return "Eletrônica: " + eletronica + "; Prazo de Execução: " + prazoExecucao + "; Valor Mínimo de Capital: R$ " + valorMinimoCapital + "; " + super.toString();
+	}
+
+	@Override
+	public void impressao() {
+		System.out.println("#Concorrencia");
+		System.out.println(this);		
 	}		
 
 }

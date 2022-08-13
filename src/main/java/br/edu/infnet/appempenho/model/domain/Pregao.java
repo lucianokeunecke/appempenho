@@ -33,6 +33,12 @@ public class Pregao extends ProcessoLicitatorio {
 	@Override
 	public String toString() {
 		return "Registro de Preço: " + registroPreco + "; Critério de Julgamento: " + criterioJulgamento + "; Índice de Reajuste: " + indiceReajuste + "; " +  super.toString();
+	}
+
+	@Override
+	public void impressao() {
+		System.out.println("#Pregão");
+		System.out.println(this);
 	}	
 
 }
