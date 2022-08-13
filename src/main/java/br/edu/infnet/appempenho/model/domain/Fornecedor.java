@@ -18,14 +18,6 @@ public class Fornecedor implements IPrinter {
 		return codigo;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public long getCnpjCpf() {
-		return cnpjCpf;
-	}
-
 	@Override
 	public String toString() {
 		return "Código: " + codigo + "; Nome: " + nome + "; CNPJ/CPF: " + cnpjCpf;
