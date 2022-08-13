@@ -15,6 +15,11 @@ public class Fornecedor {
 	@Override
 	public String toString() {
 		return "Código: " + codigo + "; Nome: " + nome + "; CNPJ/CPF: " + cnpjCpf;
-	}		
+	}
+	
+	public void impressao() {
+		System.out.println("#Fornecedor");
+		System.out.println(this);
+	}
 
 }

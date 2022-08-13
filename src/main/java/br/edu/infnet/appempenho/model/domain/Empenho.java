@@ -36,5 +36,10 @@ public class Empenho {
 	public String toString() {
 		return "Nº do Empenho: " + numero + "; Data da Emissão: " + data + "; Valor do Empenho: R$ " + valor;
 	}	
+	
+	public void impressao() {
+		System.out.println("#Empenho");
+		System.out.println(this);
+	}
 
 }
