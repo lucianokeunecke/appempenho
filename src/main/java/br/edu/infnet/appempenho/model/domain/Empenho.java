@@ -9,6 +9,12 @@ public class Empenho implements IPrinter {
 	private int numero;
 	private LocalDateTime data;
 	private float valor;
+	private Fornecedor fornecedor;
+	
+	public Empenho(Fornecedor fornecedor) {
+		this.data = LocalDateTime.now();
+		this.fornecedor = fornecedor;
+	} 
 	
 	public int getNumero() {
 		return numero;
@@ -18,14 +24,6 @@ public class Empenho implements IPrinter {
 		this.numero = numero;
 	}
 	
-	public LocalDateTime getData() {
-		return data;
-	}
-	
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
-	
 	public float getValor() {
 		return valor;
 	}
@@ -33,10 +31,10 @@ public class Empenho implements IPrinter {
 	public void setValor(float valor) {
 		this.valor = valor;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Nº do Empenho: " + numero + "; Data da Emissão: " + data + "; Valor do Empenho: R$ " + valor;
+		return "Nº do Empenho: " + numero + "; Data da Emissão: " + data + "; Valor do Empenho: R$ " + valor + " Fornecedor: " + fornecedor;
 	}
 
 	@Override
