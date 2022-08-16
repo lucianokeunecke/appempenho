@@ -1,8 +1,8 @@
 package br.edu.infnet.appempenho;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -53,7 +53,11 @@ public class EmpenhoTeste implements ApplicationRunner {
 
 		System.out.println("====================================================================================================================");
 		
-		List<ProcessoLicitatorio> listaProcessosLicitatorios1 = new ArrayList<ProcessoLicitatorio>();
+		Set<ProcessoLicitatorio> listaProcessosLicitatorios1 = new HashSet<ProcessoLicitatorio>();
+		listaProcessosLicitatorios1.add(concorrencia1);
+		listaProcessosLicitatorios1.add(pregao1);
+		listaProcessosLicitatorios1.add(concorrencia1);
+		listaProcessosLicitatorios1.add(pregao1);
 		listaProcessosLicitatorios1.add(concorrencia1);
 		listaProcessosLicitatorios1.add(pregao1);
 		
@@ -65,7 +69,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 		
 		
 		
-		List<ProcessoLicitatorio> listaProcessosLicitatorios2 = new ArrayList<ProcessoLicitatorio>();
+		Set<ProcessoLicitatorio> listaProcessosLicitatorios2 = new HashSet<ProcessoLicitatorio>();
 		listaProcessosLicitatorios2.add(concorrencia1);
 		listaProcessosLicitatorios2.add(tomadaPreco1);
 		
@@ -77,7 +81,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 
 		
 		
-		List<ProcessoLicitatorio> listaProcessosLicitatorios3 = new ArrayList<ProcessoLicitatorio>();
+		Set<ProcessoLicitatorio> listaProcessosLicitatorios3 = new HashSet<ProcessoLicitatorio>();
 		listaProcessosLicitatorios3.add(pregao1);
 		listaProcessosLicitatorios3.add(tomadaPreco1);
 		listaProcessosLicitatorios3.add(concorrencia1);

@@ -1,7 +1,7 @@
 package br.edu.infnet.appempenho.model.domain;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 import br.edu.infnet.appempenho.interfaces.IPrinter;
 
@@ -11,7 +11,7 @@ public class Empenho implements IPrinter {
 	private LocalDateTime data;
 	private float valor;
 	private Fornecedor fornecedor;
-	private List<ProcessoLicitatorio> listaProcessosLicitatorios;
+	private Set<ProcessoLicitatorio> listaProcessosLicitatorios;
 
 	public Empenho(Fornecedor fornecedor) {
 		this.data = LocalDateTime.now();
@@ -34,11 +34,11 @@ public class Empenho implements IPrinter {
 		this.valor = valor;
 	}
 
-	public List<ProcessoLicitatorio> getListaProcessosLicitatorios() {
+	public Set<ProcessoLicitatorio> getListaProcessosLicitatorios() {
 		return listaProcessosLicitatorios;
 	}
 
-	public void setListaProcessosLicitatorios(List<ProcessoLicitatorio> listaProcessosLicitatorios) {
+	public void setListaProcessosLicitatorios(Set<ProcessoLicitatorio> listaProcessosLicitatorios) {
 		this.listaProcessosLicitatorios = listaProcessosLicitatorios;
 	}
 
