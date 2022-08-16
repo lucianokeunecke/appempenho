@@ -62,8 +62,8 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
 		ProcessoLicitatorio other = (ProcessoLicitatorio) obj;
 		return numero == other.numero;
 	}
