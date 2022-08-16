@@ -1,6 +1,7 @@
 package br.edu.infnet.appempenho.model.domain;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import br.edu.infnet.appempenho.interfaces.IPrinter;
 
@@ -48,6 +49,23 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	@Override
 	public String toString() {
 		return "Nº Processo: " + numero + "; Data da Expedição: " + dataExpedicao + "; Objeto da Licitação: " + objetoLicitacao + "; Valor Estimado do Edital: R$ " + calcularValorEstimadoEdital();
-	}	
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(numero);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProcessoLicitatorio other = (ProcessoLicitatorio) obj;
+		return numero == other.numero;
+	}
 
 }

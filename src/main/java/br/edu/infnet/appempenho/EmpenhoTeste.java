@@ -33,8 +33,17 @@ public class EmpenhoTeste implements ApplicationRunner {
 		concorrencia1.setPrazoExecucao("30 dias");
 		concorrencia1.setValorMinimoCapital(500000);
 		
+		Concorrencia concorrencia2 = new Concorrencia();
+		concorrencia2.setNumero(150);
+		concorrencia2.setDataExpedicao(LocalDateTime.now());
+		concorrencia2.setObjetoLicitacao("Contratação de empresa especializada para execução de serviço de capeamento asfáltico");
+		concorrencia2.setValorEstimadoEdital(150000);
+		concorrencia2.setEletronica(true);
+		concorrencia2.setPrazoExecucao("30 dias");
+		concorrencia2.setValorMinimoCapital(500000);		
+		
 		Pregao pregao1 = new Pregao();
-		pregao1.setNumero(356);
+		pregao1.setNumero(150);
 		pregao1.setDataExpedicao(LocalDateTime.now());
 		pregao1.setObjetoLicitacao("Contratação de materiais de consumo");
 		pregao1.setValorEstimadoEdital(550000);
@@ -43,7 +52,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 		pregao1.setIndiceReajuste(1.5f);		
 
 		TomadaPreco tomadaPreco1 = new TomadaPreco();
-		tomadaPreco1.setNumero(750);
+		tomadaPreco1.setNumero(150);
 		tomadaPreco1.setDataExpedicao(LocalDateTime.now());
 		tomadaPreco1.setObjetoLicitacao("Contratação de empresa especializada em serviço de limpeza");
 		tomadaPreco1.setValorEstimadoEdital(200000);
@@ -55,10 +64,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 		
 		Set<ProcessoLicitatorio> listaProcessosLicitatorios1 = new HashSet<ProcessoLicitatorio>();
 		listaProcessosLicitatorios1.add(concorrencia1);
-		listaProcessosLicitatorios1.add(pregao1);
-		listaProcessosLicitatorios1.add(concorrencia1);
-		listaProcessosLicitatorios1.add(pregao1);
-		listaProcessosLicitatorios1.add(concorrencia1);
+		listaProcessosLicitatorios1.add(concorrencia2);
 		listaProcessosLicitatorios1.add(pregao1);
 		
 		Empenho empenho1 = new Empenho(new Fornecedor(15, "Luciano Keunecke", 3189734992L));
