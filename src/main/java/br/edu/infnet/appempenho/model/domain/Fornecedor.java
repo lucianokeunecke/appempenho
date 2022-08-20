@@ -4,6 +4,7 @@ import br.edu.infnet.appempenho.interfaces.IPrinter;
 
 public class Fornecedor implements IPrinter {
 	
+	private int id;
 	private int codigo;
 	private String nome;
 	private long cnpjCpf;
@@ -14,8 +15,25 @@ public class Fornecedor implements IPrinter {
 		this.cnpjCpf = cnpjCpf;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getCodigo() {
 		return codigo;
+	}	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public long getCnpjCpf() {
+		return cnpjCpf;
 	}
 
 	@Override

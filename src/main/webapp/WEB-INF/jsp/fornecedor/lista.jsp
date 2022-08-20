@@ -39,31 +39,29 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Classe: Fornecedor</h3>
+	  <h3>Cadastro de Fornecedor</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	        <th>ID</th>
 	        <th>Código</th>
 	        <th>Razão Social/Nome do Fornecedor</th>
 	        <th>CNPJ/CPF</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr>
-	        <td>156</td>
-	        <td>Luciano Keunecke</td>
-	        <td>031.897.456-07</td>
-	      </tr>
-	      <tr>
-	        <td>274</td>
-	        <td>Indústria e Comércio Arno Gartner Ltda</td>
-	        <td>04.962.441/0001-52</td>
-	      </tr>
-	      <tr>
-	        <td>297</td>
-	        <td>Cia Hering</td>
-	        <td>07.765.631/0001-74</td>
-	      </tr>
+	    
+    	  <c:forEach var="b" items="${listagem}">
+		      <tr>
+		        <td>${b.id}</td>
+		        <td>${b.codigo}</td>
+		        <td>${b.nome}</td>
+		        <td>${b.cnpjCpf}</td>
+		        <td><a href="/fornecedor/${b.id}/excluir">Excluir</a></td>
+		      </tr>    	  
+    	  </c:forEach>
+    	  
 	    </tbody>
 	  </table>
 	  
