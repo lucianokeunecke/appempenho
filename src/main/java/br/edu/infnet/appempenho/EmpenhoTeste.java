@@ -9,13 +9,13 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appempenho.controller.EmpenhoController;
 import br.edu.infnet.appempenho.model.domain.Concorrencia;
 import br.edu.infnet.appempenho.model.domain.Empenho;
 import br.edu.infnet.appempenho.model.domain.Fornecedor;
 import br.edu.infnet.appempenho.model.domain.Pregao;
 import br.edu.infnet.appempenho.model.domain.ProcessoLicitatorio;
 import br.edu.infnet.appempenho.model.domain.TomadaPreco;
-import br.edu.infnet.appempenho.model.test.AppImpressao;
 
 @Component
 @Order(1)
@@ -75,7 +75,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 		empenho1.setNumero(476);
 		empenho1.setValor(5000);
 		empenho1.setListaProcessosLicitatorios(listaProcessosLicitatorios1);
-		AppImpressao.relatorio("Inclusão do Empenho Nº " + empenho1.getNumero(), empenho1);
+		EmpenhoController.incluir(empenho1);
 		
 		
 		
@@ -87,7 +87,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 		empenho2.setNumero(843);
 		empenho2.setValor(6500);		
 		empenho2.setListaProcessosLicitatorios(listaProcessosLicitatorios2);
-		AppImpressao.relatorio("Inclusão do Empenho Nº " + empenho2.getNumero(), empenho2);
+		EmpenhoController.incluir(empenho2);
 
 		
 		
@@ -100,7 +100,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 		empenho3.setNumero(974);
 		empenho3.setValor(2700);		
 		empenho3.setListaProcessosLicitatorios(listaProcessosLicitatorios3);
-		AppImpressao.relatorio("Inclusão do Empenho Nº " + empenho3.getNumero(), empenho3);
+		EmpenhoController.incluir(empenho3);
 	}
 
 }

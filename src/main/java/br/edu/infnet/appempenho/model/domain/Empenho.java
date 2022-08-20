@@ -7,6 +7,7 @@ import br.edu.infnet.appempenho.interfaces.IPrinter;
 
 public class Empenho implements IPrinter {
 	
+	private int id;
 	private int numero;
 	private LocalDateTime data;
 	private float valor;
@@ -18,6 +19,14 @@ public class Empenho implements IPrinter {
 		this.fornecedor = fornecedor;
 	} 
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getNumero() {
 		return numero;
 	}
@@ -32,6 +41,14 @@ public class Empenho implements IPrinter {
 	
 	public void setValor(float valor) {
 		this.valor = valor;
+	}
+
+	public LocalDateTime getData() {
+		return data;
+	}
+
+	public Fornecedor getFornecedor() {
+		return fornecedor;
 	}
 
 	public Set<ProcessoLicitatorio> getListaProcessosLicitatorios() {

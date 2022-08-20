@@ -39,31 +39,29 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Classe: Empenho</h3>
+	  <h3>Cadastro de Empenho</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
-	        <th>Nº Empenho</th>
+	        <th>ID</th>
+	        <th>Nº do Empenho</th>
 	        <th>Data da Emissão</th>
 	        <th>Valor do Empenho</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr>
-	        <td>007500</td>
-	        <td>21/07/2022</td>
-	        <td>475,65</td>
-	      </tr>
-	      <tr>
-	        <td>007565</td>
-	        <td>02/08/2022</td>
-	        <td>1.754,33</td>
-	      </tr>
-	      <tr>
-	        <td>007598</td>
-	        <td>12/08/2022</td>
-	        <td>763,03</td>
-	      </tr>
+	    
+    	  <c:forEach var="b" items="${listagem}">
+		      <tr>
+		        <td>${b.id}</td>
+		        <td>${b.numero}</td>
+		        <td>${b.data}</td>
+		        <td>${b.valor}</td>
+		        <td><a href="/empenho/${b.id}/excluir">Excluir</a></td>
+		      </tr>    	  
+    	  </c:forEach>
+	    
 	    </tbody>
 	  </table>
 	  
