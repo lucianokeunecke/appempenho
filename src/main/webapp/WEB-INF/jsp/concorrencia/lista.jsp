@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -51,30 +52,18 @@
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr>
-	        <td>150</td>
-	        <td>10/07/2022</td>
-	        <td>Contratação de empresa especializada para execução de serviço de capeamento asfáltico</td>
-	        <td>Sim</td>
-	        <td>30/60 Dias</td>
-	        <td>150.000,00</td>
-	      </tr>
-	      <tr>
-	        <td>175</td>
-	        <td>03/08/2022</td>
-	        <td>Contratação de empresa especializada para execução de serviço de engenharia</td>
-	        <td>Não</td>
-	        <td>45 Dias</td>
-	        <td>175.000,00</td>
-	      </tr>
-	      <tr>
-	        <td>197</td>
-	        <td>13/08/2022</td>
-	        <td>Contratação de empresa especializada para execução de obra</td>
-	        <td>Sim</td>
-	        <td>30/60/90/120 Dias</td>
-	        <td>375.000,00</td>
-	      </tr>
+	    
+    	  <c:forEach var="b" items="${listagem}">
+		      <tr>
+		        <td>${b.numero}</td>
+		        <td>${b.dataExpedicao}</td>
+		        <td>${b.objetoLicitacao}</td>
+		        <td>${b.eletronica}</td>
+		        <td>${b.prazoExecucao}</td>
+		        <td>${b.valorMinimoCapital}</td>
+		      </tr>    	  
+    	  </c:forEach>
+	      
 	    </tbody>
 	  </table>
 	  
