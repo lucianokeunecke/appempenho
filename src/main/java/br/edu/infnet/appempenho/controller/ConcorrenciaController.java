@@ -32,6 +32,10 @@ public class ConcorrenciaController {
 		return mapaConcorrencia.values();
 	}
 	
+	public static void excluir(Integer id) {
+		mapaConcorrencia.remove(id);
+	}
+	
 	@GetMapping("/concorrencia/lista")
 	public String telaLista(Model model) {
 		
@@ -44,7 +48,7 @@ public class ConcorrenciaController {
 	@GetMapping("/concorrencia/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
 		
-		System.out.println("Exclusão " + id + " realizada com sucesso");
+		excluir(id);
 		
 		return "redirect:/concorrencia/lista";
 	}
