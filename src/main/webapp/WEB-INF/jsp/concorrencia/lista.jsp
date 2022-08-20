@@ -43,6 +43,7 @@
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	        <th>ID</th>
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
@@ -55,6 +56,7 @@
 	    
     	  <c:forEach var="b" items="${listagem}">
 		      <tr>
+		        <td>${b.id}</td>
 		        <td>${b.numero}</td>
 		        <td>${b.dataExpedicao}</td>
 		        <td>${b.objetoLicitacao}</td>

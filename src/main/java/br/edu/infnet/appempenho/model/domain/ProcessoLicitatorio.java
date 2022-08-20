@@ -7,6 +7,7 @@ import br.edu.infnet.appempenho.interfaces.IPrinter;
 
 public abstract class ProcessoLicitatorio implements IPrinter {
 	
+	private int id;
 	private int numero;
 	private LocalDateTime dataExpedicao;
 	private String objetoLicitacao;
@@ -14,6 +15,14 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	
 	public abstract float calcularValorEstimadoEdital(); 
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getNumero() {
 		return numero;
 	}
