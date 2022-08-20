@@ -39,7 +39,7 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Cadastro de Processo Licitatório: Pregao</h3>
+	  <h3>Cadastro de Processo Licitatório: Pregão</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>

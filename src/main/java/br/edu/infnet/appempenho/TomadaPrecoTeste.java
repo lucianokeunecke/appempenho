@@ -7,8 +7,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appempenho.controller.TomadaPrecoController;
 import br.edu.infnet.appempenho.model.domain.TomadaPreco;
-import br.edu.infnet.appempenho.model.test.AppImpressao;
 
 @Component
 @Order(5)
@@ -26,8 +26,8 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco1.setValorEstimadoEdital(200000);
 		tomadaPreco1.setPermiteSubcontratacao(false);
 		tomadaPreco1.setCondicaoPagamento("30/60/90 dias");
-		tomadaPreco1.setValorEstimadoDotacaoOrcamentaria(150000);		
-		AppImpressao.relatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco1.getNumero(), tomadaPreco1);
+		tomadaPreco1.setValorEstimadoDotacaoOrcamentaria(150000);
+		TomadaPrecoController.incluir(tomadaPreco1);
 		
 		TomadaPreco tomadaPreco2 = new TomadaPreco();
 		tomadaPreco2.setNumero(755);
@@ -37,7 +37,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco2.setPermiteSubcontratacao(true);
 		tomadaPreco2.setCondicaoPagamento("15/30/45/60 dias");
 		tomadaPreco2.setValorEstimadoDotacaoOrcamentaria(350000);		
-		AppImpressao.relatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco2.getNumero(), tomadaPreco2);
+		TomadaPrecoController.incluir(tomadaPreco2);
 		
 		TomadaPreco tomadaPreco3 = new TomadaPreco();
 		tomadaPreco3.setNumero(796);
@@ -47,7 +47,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		tomadaPreco3.setPermiteSubcontratacao(false);
 		tomadaPreco3.setCondicaoPagamento("45/90 dias");
 		tomadaPreco3.setValorEstimadoDotacaoOrcamentaria(175000);		
-		AppImpressao.relatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco3.getNumero(), tomadaPreco3);
+		TomadaPrecoController.incluir(tomadaPreco3);
 		
 	}
 }

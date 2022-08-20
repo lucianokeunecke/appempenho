@@ -39,43 +39,35 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Classe: TomadaPreco</h3>
+	  <h3>Cadastro de Processo Licitatório: Tomada de Preço</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	        <th>ID</th>
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
 	        <th>Permite Subcontratação</th>
 	        <th>Condição de Pagamento</th>
 	        <th>Valor Estimado Dotação Orçamentária</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr>
-	        <td>501</td>
-	        <td>08/07/2022</td>
-	        <td>Contratação de empresa especializada em serviço de limpeza</td>
-	        <td>Sim</td>
-	        <td>30/60/90 dias</td>
-	        <td>150.000,00</td>
-	      </tr>
-	      <tr>
-	        <td>515</td>
-	        <td>18/07/2022</td>
-	        <td>Contratação de exames laboratoriais</td>
-	        <td>Não</td>
-	        <td>45/90 dias</td>
-	        <td>475.000,00</td>
-	      </tr>
-	      <tr>
-	        <td>527</td>
-	        <td>13/08/2022</td>
-	        <td>Contratação de empresa especializada em serviços de contrução civil</td>
-	        <td>Não</td>
-	        <td>15/30/45/60/75/90 dias</td>
-	        <td>650.000,00</td>
-	      </tr>
+	      
+    	  <c:forEach var="b" items="${listagem}">
+		      <tr>
+		        <td>${b.id}</td>
+		        <td>${b.numero}</td>
+		        <td>${b.dataExpedicao}</td>
+		        <td>${b.objetoLicitacao}</td>
+		        <td>${b.permiteSubcontratacao}</td>
+		        <td>${b.condicaoPagamento}</td>
+		        <td>${b.valorEstimadoDotacaoOrcamentaria}</td>
+		        <td><a href="/tomadaPreco/${b.id}/excluir">Excluir</a></td>
+		      </tr>    	  
+    	  </c:forEach>
+	      
 	    </tbody>
 	  </table>
 	  
