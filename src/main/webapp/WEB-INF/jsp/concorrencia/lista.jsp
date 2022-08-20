@@ -50,6 +50,7 @@
 	        <th>Eletrônica</th>
 	        <th>Prazo de Execução</th>
 	        <th>Valor Mínimo de Capital</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -63,6 +64,7 @@
 		        <td>${b.eletronica}</td>
 		        <td>${b.prazoExecucao}</td>
 		        <td>${b.valorMinimoCapital}</td>
+		        <td><a href="/concorrencia/${b.id}/excluir">Excluir</a></td>
 		      </tr>    	  
     	  </c:forEach>
 	      

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.edu.infnet.appempenho.model.domain.Concorrencia;
 import br.edu.infnet.appempenho.model.test.AppImpressao;
@@ -38,6 +39,14 @@ public class ConcorrenciaController {
 		model.addAttribute("listagem", obterLista());
 		
 		return "concorrencia/lista";
+	}
+	
+	@GetMapping("/concorrencia/{id}/excluir")
+	public String exclusao(@PathVariable Integer id) {
+		
+		System.out.println("Exclusão " + id + " realizada com sucesso");
+		
+		return "redirect:/concorrencia/lista";
 	}
 
 }
