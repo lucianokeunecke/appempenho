@@ -28,17 +28,16 @@ public class ConcorrenciaController {
 		AppImpressao.relatorio("Inclusão da Concorrência Nº " + concorrencia.getNumero(), concorrencia);
 	}
 	
-	public static Collection<Concorrencia> obterLista(){
-		return mapaConcorrencia.values();
-	}
-	
 	public static void excluir(Integer id) {
 		mapaConcorrencia.remove(id);
 	}
 	
+	public static Collection<Concorrencia> obterLista(){
+		return mapaConcorrencia.values();
+	}	
+	
 	@GetMapping("/concorrencia/lista")
-	public String telaLista(Model model) {
-		
+	public String telaLista(Model model) {		
 		
 		model.addAttribute("listagem", obterLista());
 		

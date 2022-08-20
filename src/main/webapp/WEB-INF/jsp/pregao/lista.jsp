@@ -39,43 +39,35 @@
 
 	<div class="container mt-3">
 	  
-	  <h3>Classe: Pregao</h3>
+	  <h3>Cadastro de Processo Licitatório: Pregao</h3>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	        <th>ID</th>
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
 	        <th>Registro de Preço</th>
 	        <th>Critério de Julgamento</th>
 	        <th>Indice de Reajuste</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr>
-	        <td>356</td>
-	        <td>03/07/2022</td>
-	        <td>Contratação de materiais de consumo</td>
-	        <td>Sim</td>
-	        <td>Menor Preço</td>
-	        <td>3,50</td>
-	      </tr>
-	      <tr>
-	        <td>475</td>
-	        <td>21/07/2022</td>
-	        <td>Contratação de materiais de expediente</td>
-	        <td>Não</td>
-	        <td>Maior Desconto</td>
-	        <td>1,75</td>
-	      </tr>
-	      <tr>
-	        <td>490</td>
-	        <td>01/08/2022</td>
-	        <td>Contratação de materiais de escritório</td>
-	        <td>Sim</td>
-	        <td>Maior Lance ou Oferta</td>
-	        <td>0,75</td>
-	      </tr>
+	    
+    	  <c:forEach var="b" items="${listagem}">
+		      <tr>
+		        <td>${b.id}</td>
+		        <td>${b.numero}</td>
+		        <td>${b.dataExpedicao}</td>
+		        <td>${b.objetoLicitacao}</td>
+		        <td>${b.registroPreco}</td>
+		        <td>${b.criterioJulgamento}</td>
+		        <td>${b.indiceReajuste}</td>
+		        <td><a href="/pregao/${b.id}/excluir">Excluir</a></td>
+		      </tr>    	  
+    	  </c:forEach>	    
+	    
 	    </tbody>
 	  </table>
 	  
