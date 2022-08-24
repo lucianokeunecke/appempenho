@@ -39,11 +39,19 @@ public class FornecedorTeste implements ApplicationRunner {
 		}
 		
 		try {
-			Fornecedor fornecedor4 = new Fornecedor(193, "Adriana dos Santos", -10L);
+			Fornecedor fornecedor4 = new Fornecedor(193, "Adriana dos Santos", 0L);
 			FornecedorController.incluir(fornecedor4);
 		} catch (Exception e) {
 			System.out.println("[ERROR] " + e.getMessage());
 		}
+		
+		try {
+			Fornecedor fornecedor5 = new Fornecedor(274, "Eletrosul", -10L);
+			FornecedorController.incluir(fornecedor5);
+		} catch (Exception e) {
+			System.out.println("[ERROR] " + e.getMessage());
+		}
+		
 	}
 
 }
