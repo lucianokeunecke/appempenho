@@ -1,5 +1,7 @@
 package br.edu.infnet.appempenho.model.domain;
 
+import br.edu.infnet.appempenho.model.exception.ValorMinimoCapitalInvalidoException;
+
 public class Concorrencia extends ProcessoLicitatorio {
 	
 	private boolean eletronica;
@@ -7,7 +9,11 @@ public class Concorrencia extends ProcessoLicitatorio {
 	private float valorMinimoCapital;
 	
 	@Override
-	public float calcularValorEstimadoEdital() {
+	public float calcularValorEstimadoEdital() throws ValorMinimoCapitalInvalidoException {
+		
+		if (valorMinimoCapital < 50000) {
+			throw new ValorMinimoCapitalInvalidoException("Valor mínimo do capital R$ " + valorMinimoCapital + " não pode ser menor que R$ 50.000,00");
+		}
 		
 		float valorEletronica = eletronica ? 3 : 7;
 		
