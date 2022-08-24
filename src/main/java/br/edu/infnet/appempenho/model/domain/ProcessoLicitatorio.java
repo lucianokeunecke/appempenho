@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 import br.edu.infnet.appempenho.interfaces.IPrinter;
+import br.edu.infnet.appempenho.model.exception.IndiceReajusteZeradoNegativoException;
 import br.edu.infnet.appempenho.model.exception.ValorMinimoCapitalInvalidoException;
 
 public abstract class ProcessoLicitatorio implements IPrinter {
@@ -14,7 +15,7 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	private String objetoLicitacao;
 	private float valorEstimadoEdital;
 	
-	public abstract float calcularValorEstimadoEdital() throws ValorMinimoCapitalInvalidoException; 
+	public abstract float calcularValorEstimadoEdital() throws ValorMinimoCapitalInvalidoException, IndiceReajusteZeradoNegativoException; 
 	
 	public int getId() {
 		return id;

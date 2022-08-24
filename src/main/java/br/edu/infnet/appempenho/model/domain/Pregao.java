@@ -1,5 +1,7 @@
 package br.edu.infnet.appempenho.model.domain;
 
+import br.edu.infnet.appempenho.model.exception.IndiceReajusteZeradoNegativoException;
+
 public class Pregao extends ProcessoLicitatorio {
 	
 	private boolean registroPreco;
@@ -42,8 +44,19 @@ public class Pregao extends ProcessoLicitatorio {
 	}
 
 	@Override
-	public float calcularValorEstimadoEdital() {
-		return getValorEstimadoEdital() * 2;
+	public float calcularValorEstimadoEdital() throws IndiceReajusteZeradoNegativoException {
+		
+		if (indiceReajuste == 0) {
+			throw new IndiceReajusteZeradoNegativoException("Índice de reajuste " + indiceReajuste + " não pode igual a zero");
+		}
+		
+		if (indiceReajuste < 0) {
+			throw new IndiceReajusteZeradoNegativoException("Índice de reajuste " + indiceReajuste + " não pode ser negativo");
+		}
+		
+		float valorReajuste = indiceReajuste * 1.5f;
+		
+		return getValorEstimadoEdital() * 2 + valorReajuste;
 	}	
 
 }
