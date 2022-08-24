@@ -57,7 +57,7 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 
 	@Override
 	public String toString() {
-		return "Nº Processo: " + numero + "; Data da Expedição: " + dataExpedicao + "; Objeto da Licitação: " + objetoLicitacao + "; Valor Estimado do Edital: R$ " + calcularValorEstimadoEdital();
+		return "Nº Processo: " + numero + "; Data da Expedição: " + dataExpedicao + "; Objeto da Licitação: " + objetoLicitacao;
 	}
 
 	@Override
