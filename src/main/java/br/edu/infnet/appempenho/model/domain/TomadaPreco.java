@@ -1,5 +1,7 @@
 package br.edu.infnet.appempenho.model.domain;
 
+import br.edu.infnet.appempenho.model.exception.ValorEstimadoDotacaoOrcamentariaException;
+
 public class TomadaPreco extends ProcessoLicitatorio {
 	
 	private boolean permiteSubcontratacao;
@@ -7,11 +9,15 @@ public class TomadaPreco extends ProcessoLicitatorio {
 	private float valorEstimadoDotacaoOrcamentaria;	
 	
 	@Override
-	public float calcularValorEstimadoEdital() {
+	public float calcularValorEstimadoEdital() throws ValorEstimadoDotacaoOrcamentariaException {
+		
+		if (valorEstimadoDotacaoOrcamentaria < 0 || valorEstimadoDotacaoOrcamentaria > 500000) {
+			throw new ValorEstimadoDotacaoOrcamentariaException("Valor estimado da dotação orçamentária R$ " + valorEstimadoDotacaoOrcamentaria + " não pode ser menor que zero ou maior que R$ 500.000,00");
+		}
 		
 		float indiceSubcontratacao = permiteSubcontratacao ? 3 : 2; 
 		
-		return getValorEstimadoEdital() * indiceSubcontratacao;
+		return getValorEstimadoEdital() * indiceSubcontratacao + valorEstimadoDotacaoOrcamentaria;
 	}
 	
 	public boolean isPermiteSubcontratacao() {
