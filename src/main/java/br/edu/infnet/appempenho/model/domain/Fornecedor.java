@@ -9,7 +9,16 @@ public class Fornecedor implements IPrinter {
 	private String nome;
 	private long cnpjCpf;
 	
-	public Fornecedor(int codigo, String nome, long cnpjCpf) {
+	public Fornecedor(int codigo, String nome, long cnpjCpf) throws Exception {
+		
+		if (cnpjCpf == 0) {
+			throw new Exception("Cnpj/Cpf não informado.");
+		}
+		
+		if (cnpjCpf < 0) {
+			throw new Exception("Cnpj/Cpf não pode ser negativo.");
+		}
+		
 		this.codigo = codigo;
 		this.nome = nome;
 		this.cnpjCpf = cnpjCpf;
