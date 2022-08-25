@@ -22,7 +22,7 @@ import br.edu.infnet.appempenho.model.domain.TomadaPreco;
 public class EmpenhoTeste implements ApplicationRunner {
 
 	@Override
-	public void run(ApplicationArguments args) throws Exception {
+	public void run(ApplicationArguments args) {
 		
 		Concorrencia concorrencia1 = new Concorrencia();
 		concorrencia1.setNumero(150);
@@ -62,45 +62,50 @@ public class EmpenhoTeste implements ApplicationRunner {
 
 		System.out.println("====================================================================================================================");
 		
-		Set<ProcessoLicitatorio> listaProcessosLicitatorios1 = new HashSet<ProcessoLicitatorio>();
-		listaProcessosLicitatorios1.add(concorrencia1);
-		listaProcessosLicitatorios1.add(concorrencia2);
-		listaProcessosLicitatorios1.add(pregao1);
-		listaProcessosLicitatorios1.add(concorrencia1);
-		listaProcessosLicitatorios1.add(concorrencia2);
-		listaProcessosLicitatorios1.add(pregao1);
-		listaProcessosLicitatorios1.add(tomadaPreco1);
+		try {
+			Set<ProcessoLicitatorio> listaProcessosLicitatorios1 = new HashSet<ProcessoLicitatorio>();
+			listaProcessosLicitatorios1.add(concorrencia1);
+			listaProcessosLicitatorios1.add(concorrencia2);
+			listaProcessosLicitatorios1.add(pregao1);
+			listaProcessosLicitatorios1.add(concorrencia1);
+			listaProcessosLicitatorios1.add(concorrencia2);
+			listaProcessosLicitatorios1.add(pregao1);
+			listaProcessosLicitatorios1.add(tomadaPreco1);
+			
+			Empenho empenho1 = new Empenho(new Fornecedor(15, "Luciano Keunecke", 3189734992L), listaProcessosLicitatorios1);
+			empenho1.setNumero(476);
+			empenho1.setValor(5000);
+			EmpenhoController.incluir(empenho1);
+		} catch (Exception e) {
+			System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
+		}		
 		
-		Empenho empenho1 = new Empenho(new Fornecedor(15, "Luciano Keunecke", 3189734992L));
-		empenho1.setNumero(476);
-		empenho1.setValor(5000);
-		empenho1.setListaProcessosLicitatorios(listaProcessosLicitatorios1);
-		EmpenhoController.incluir(empenho1);
+		try {
+			Set<ProcessoLicitatorio> listaProcessosLicitatorios2 = new HashSet<ProcessoLicitatorio>();
+			listaProcessosLicitatorios2.add(concorrencia1);
+			listaProcessosLicitatorios2.add(tomadaPreco1);
+			
+			Empenho empenho2 = new Empenho(new Fornecedor(96, "Governança Brasil", 4983932000152L), listaProcessosLicitatorios2);
+			empenho2.setNumero(843);
+			empenho2.setValor(6500);		
+			EmpenhoController.incluir(empenho2);
+		} catch (Exception e) {
+			System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
+		}
 		
+		try {
+			Set<ProcessoLicitatorio> listaProcessosLicitatorios3 = new HashSet<ProcessoLicitatorio>();
+			listaProcessosLicitatorios3.add(pregao1);
+			listaProcessosLicitatorios3.add(tomadaPreco1);
+			listaProcessosLicitatorios3.add(concorrencia1);
+			
+			Empenho empenho3 = new Empenho(new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L), listaProcessosLicitatorios3);
+			empenho3.setNumero(974);
+			empenho3.setValor(2700);		
+			EmpenhoController.incluir(empenho3);
+		} catch (Exception e) {
+			System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
+		}
 		
-		
-		Set<ProcessoLicitatorio> listaProcessosLicitatorios2 = new HashSet<ProcessoLicitatorio>();
-		listaProcessosLicitatorios2.add(concorrencia1);
-		listaProcessosLicitatorios2.add(tomadaPreco1);
-		
-		Empenho empenho2 = new Empenho(new Fornecedor(96, "Governança Brasil", 4983932000152L));
-		empenho2.setNumero(843);
-		empenho2.setValor(6500);		
-		empenho2.setListaProcessosLicitatorios(listaProcessosLicitatorios2);
-		EmpenhoController.incluir(empenho2);
-
-		
-		
-		Set<ProcessoLicitatorio> listaProcessosLicitatorios3 = new HashSet<ProcessoLicitatorio>();
-		listaProcessosLicitatorios3.add(pregao1);
-		listaProcessosLicitatorios3.add(tomadaPreco1);
-		listaProcessosLicitatorios3.add(concorrencia1);
-		
-		Empenho empenho3 = new Empenho(new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L));
-		empenho3.setNumero(974);
-		empenho3.setValor(2700);		
-		empenho3.setListaProcessosLicitatorios(listaProcessosLicitatorios3);
-		EmpenhoController.incluir(empenho3);
 	}
-
 }

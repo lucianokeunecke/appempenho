@@ -14,9 +14,10 @@ public class Empenho implements IPrinter {
 	private Fornecedor fornecedor;
 	private Set<ProcessoLicitatorio> listaProcessosLicitatorios;
 
-	public Empenho(Fornecedor fornecedor) {
+	public Empenho(Fornecedor fornecedor, Set<ProcessoLicitatorio> listaProcessosLicitatorios) {
 		this.data = LocalDateTime.now();
 		this.fornecedor = fornecedor;
+		this.listaProcessosLicitatorios = listaProcessosLicitatorios;
 	} 
 	
 	public int getId() {
@@ -49,14 +50,6 @@ public class Empenho implements IPrinter {
 
 	public Fornecedor getFornecedor() {
 		return fornecedor;
-	}
-
-	public Set<ProcessoLicitatorio> getListaProcessosLicitatorios() {
-		return listaProcessosLicitatorios;
-	}
-
-	public void setListaProcessosLicitatorios(Set<ProcessoLicitatorio> listaProcessosLicitatorios) {
-		this.listaProcessosLicitatorios = listaProcessosLicitatorios;
 	}
 
 	@Override
