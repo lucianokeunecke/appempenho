@@ -1,6 +1,7 @@
 package br.edu.infnet.appempenho.model.domain;
 
 import br.edu.infnet.appempenho.interfaces.IPrinter;
+import br.edu.infnet.appempenho.model.exception.CnpjCpfInvalidoException;
 
 public class Fornecedor implements IPrinter {
 	
@@ -9,14 +10,14 @@ public class Fornecedor implements IPrinter {
 	private String nome;
 	private long cnpjCpf;
 	
-	public Fornecedor(int codigo, String nome, long cnpjCpf) throws Exception {
+	public Fornecedor(int codigo, String nome, long cnpjCpf) throws CnpjCpfInvalidoException {
 		
 		if (cnpjCpf == 0) {
-			throw new Exception("Cnpj/Cpf não informado.");
+			throw new CnpjCpfInvalidoException("Cnpj/Cpf não informado.");
 		}
 		
 		if (cnpjCpf < 0) {
-			throw new Exception("Cnpj/Cpf não pode ser negativo.");
+			throw new CnpjCpfInvalidoException("Cnpj/Cpf não pode ser negativo.");
 		}
 		
 		this.codigo = codigo;
