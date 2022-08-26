@@ -48,7 +48,7 @@
 	        <th>Data da Emissão</th>
 	        <th>Valor do Empenho</th>
 	        <th>Fornecedor</th>
-	        <th>Lista de Processos Licitatórios</th>
+	        <th>Quantidade de Processos Licitatórios</th>
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -60,8 +60,8 @@
 		        <td>${b.numero}</td>
 		        <td>${b.data}</td>
 		        <td>${b.valor}</td>
-		        <td>${b.fornecedor}</td>
-		        <td>${b.listaProcessosLicitatorios}</td>
+		        <td>${b.fornecedor.nome}</td>
+		        <td>${b.listaProcessosLicitatorios.size()}</td>
 		        <td><a href="/empenho/${b.id}/excluir">Excluir</a></td>
 		      </tr>    	  
     	  </c:forEach>

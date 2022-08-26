@@ -1,5 +1,9 @@
 package br.edu.infnet.appempenho;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -65,98 +69,58 @@ public class EmpenhoTeste implements ApplicationRunner {
 
 		System.out.println("====================================================================================================================");
 		
-		try {
-			Set<ProcessoLicitatorio> listaProcessosLicitatorios1 = new HashSet<ProcessoLicitatorio>();
-			listaProcessosLicitatorios1.add(concorrencia1);
-			listaProcessosLicitatorios1.add(concorrencia2);
-			listaProcessosLicitatorios1.add(pregao1);
-			listaProcessosLicitatorios1.add(concorrencia1);
-			listaProcessosLicitatorios1.add(concorrencia2);
-			listaProcessosLicitatorios1.add(pregao1);
-			listaProcessosLicitatorios1.add(tomadaPreco1);
-			
-			Fornecedor fornecedor1 = new Fornecedor(15, "Luciano Keunecke", 3189734992L); 
-			
-			Empenho empenho1 = new Empenho(fornecedor1, listaProcessosLicitatorios1);
-			empenho1.setNumero(476);
-			empenho1.setValor(5000);
-			EmpenhoController.incluir(empenho1);
-		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
-			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
-		}		
+		String diretorio = "D:/Temp/InfNet/";
+		
+		String arquivo = "empenhos.txt";
 		
 		try {
-			Set<ProcessoLicitatorio> listaProcessosLicitatorios2 = new HashSet<ProcessoLicitatorio>();
-			listaProcessosLicitatorios2.add(concorrencia1);
-			listaProcessosLicitatorios2.add(tomadaPreco1);
-			
-			Fornecedor fornecedor2 = new Fornecedor(96, "Governança Brasil", 4983932000152L); 
-			
-			Empenho empenho2 = new Empenho(fornecedor2, listaProcessosLicitatorios2);
-			empenho2.setNumero(843);
-			empenho2.setValor(6500);		
-			EmpenhoController.incluir(empenho2);
-		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
-			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
-		}		
-		
-		try {
-			Set<ProcessoLicitatorio> listaProcessosLicitatorios3 = new HashSet<ProcessoLicitatorio>();
-			listaProcessosLicitatorios3.add(pregao1);
-			listaProcessosLicitatorios3.add(tomadaPreco1);
-			listaProcessosLicitatorios3.add(concorrencia1);
-			
-			Fornecedor fornecedor3 = new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L); 
-			
-			Empenho empenho3 = new Empenho(fornecedor3, listaProcessosLicitatorios3);
-			empenho3.setNumero(974);
-			empenho3.setValor(2700);		
-			EmpenhoController.incluir(empenho3);
-		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
-			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
+			try {
+				FileReader fileReader = new FileReader(diretorio + arquivo);
+				
+				BufferedReader leitura = new BufferedReader(fileReader); 
+				
+				String linha = leitura.readLine();
+				
+				while(linha != null) {
+
+					try {
+						
+						String[] campos = linha.split(";");
+						
+						Set<ProcessoLicitatorio> listaProcessosLicitatorios1 = new HashSet<ProcessoLicitatorio>();
+						listaProcessosLicitatorios1.add(concorrencia1);
+						listaProcessosLicitatorios1.add(concorrencia2);
+						listaProcessosLicitatorios1.add(pregao1);
+						listaProcessosLicitatorios1.add(concorrencia1);
+						listaProcessosLicitatorios1.add(concorrencia2);
+						listaProcessosLicitatorios1.add(pregao1);
+						listaProcessosLicitatorios1.add(tomadaPreco1);
+						
+						Fornecedor fornecedor1 = new Fornecedor(Integer.parseInt(campos[3]), campos[4], Long.parseLong(campos[5])); 
+						
+						Empenho empenho1 = new Empenho(fornecedor1, listaProcessosLicitatorios1);
+						empenho1.setNumero(Integer.parseInt(campos[0]));
+						empenho1.setValor(Float.parseFloat(campos[2]));
+						EmpenhoController.incluir(empenho1);
+					} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
+						System.out.println("[ERROR - EMPENHO] " + e.getMessage());
+					}
+					
+					linha = leitura.readLine();
+				}
+				
+				leitura.close();
+				
+				fileReader.close();
+				
+			} catch (FileNotFoundException e) {
+				System.out.println("[ERRO] O arquivo não existe");
+			} catch (IOException e) {
+				System.out.println("[ERRO] Problema no fechamento do arquivo");
+			}
+		} finally {
+			System.out.println("Terminou!!!");
 		}
-		
-		try {
-			Set<ProcessoLicitatorio> listaProcessosLicitatorios4 = new HashSet<ProcessoLicitatorio>();
-			listaProcessosLicitatorios4.add(pregao1);
-			listaProcessosLicitatorios4.add(tomadaPreco1);
-			listaProcessosLicitatorios4.add(concorrencia1);
-			
-			Fornecedor fornecedor4 = new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L); 
-			
-			Empenho empenho4 = new Empenho(null, listaProcessosLicitatorios4);
-			empenho4.setNumero(974);
-			empenho4.setValor(2700);		
-			EmpenhoController.incluir(empenho4);
-		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
-			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
-		}	
-		
-		try {
-			Set<ProcessoLicitatorio> listaProcessosLicitatorios5 = new HashSet<ProcessoLicitatorio>();
-			
-			Fornecedor fornecedor5 = new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L); 
-			
-			Empenho empenho5 = new Empenho(fornecedor5, listaProcessosLicitatorios5);
-			empenho5.setNumero(974);
-			empenho5.setValor(2700);		
-			EmpenhoController.incluir(empenho5);
-		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
-			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
-		}
-		
-		try {
-			Set<ProcessoLicitatorio> listaProcessosLicitatorios6 = null;
-			
-			Fornecedor fornecedor6 = new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L); 
-			
-			Empenho empenho6 = new Empenho(fornecedor6, listaProcessosLicitatorios6);
-			empenho6.setNumero(974);
-			empenho6.setValor(2700);		
-			EmpenhoController.incluir(empenho6);
-		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
-			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
-		}		
 		
 	}
 }

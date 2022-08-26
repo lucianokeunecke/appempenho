@@ -48,7 +48,8 @@ public class Fornecedor implements IPrinter {
 
 	@Override
 	public String toString() {
-		return "Código: " + codigo + "; Nome: " + nome + "; CNPJ/CPF: " + cnpjCpf;
+		//return "Código: " + codigo + "; Nome: " + nome + "; CNPJ/CPF: " + cnpjCpf;
+		return codigo + ";" + nome + ";" + cnpjCpf;
 	}
 
 	@Override
