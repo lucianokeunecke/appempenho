@@ -67,6 +67,10 @@ public class Empenho implements IPrinter {
 		return fornecedor;
 	}
 
+	public Set<ProcessoLicitatorio> getListaProcessosLicitatorios() {
+		return listaProcessosLicitatorios;
+	}
+
 	@Override
 	public String toString() {
 		return "Nº do Empenho: " + numero + "; Data da Emissão: " + data + "; Valor do Empenho: R$ " + valor + " Fornecedor: " + fornecedor + "; Quantidade de Processos Licitatórios: " + listaProcessosLicitatorios.size();

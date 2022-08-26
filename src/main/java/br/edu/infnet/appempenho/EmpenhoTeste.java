@@ -124,10 +124,10 @@ public class EmpenhoTeste implements ApplicationRunner {
 			
 			Fornecedor fornecedor4 = new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L); 
 			
-			Empenho empenho3 = new Empenho(null, listaProcessosLicitatorios4);
-			empenho3.setNumero(974);
-			empenho3.setValor(2700);		
-			EmpenhoController.incluir(empenho3);
+			Empenho empenho4 = new Empenho(null, listaProcessosLicitatorios4);
+			empenho4.setNumero(974);
+			empenho4.setValor(2700);		
+			EmpenhoController.incluir(empenho4);
 		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
 			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
 		}	
@@ -137,10 +137,10 @@ public class EmpenhoTeste implements ApplicationRunner {
 			
 			Fornecedor fornecedor5 = new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L); 
 			
-			Empenho empenho3 = new Empenho(fornecedor5, listaProcessosLicitatorios5);
-			empenho3.setNumero(974);
-			empenho3.setValor(2700);		
-			EmpenhoController.incluir(empenho3);
+			Empenho empenho5 = new Empenho(fornecedor5, listaProcessosLicitatorios5);
+			empenho5.setNumero(974);
+			empenho5.setValor(2700);		
+			EmpenhoController.incluir(empenho5);
 		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
 			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
 		}
@@ -150,10 +150,10 @@ public class EmpenhoTeste implements ApplicationRunner {
 			
 			Fornecedor fornecedor6 = new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L); 
 			
-			Empenho empenho3 = new Empenho(fornecedor6, listaProcessosLicitatorios6);
-			empenho3.setNumero(974);
-			empenho3.setValor(2700);		
-			EmpenhoController.incluir(empenho3);
+			Empenho empenho6 = new Empenho(fornecedor6, listaProcessosLicitatorios6);
+			empenho6.setNumero(974);
+			empenho6.setValor(2700);		
+			EmpenhoController.incluir(empenho6);
 		} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
 			System.out.println("[ERROR - EMPENHO] " + e.getMessage());
 		}		
