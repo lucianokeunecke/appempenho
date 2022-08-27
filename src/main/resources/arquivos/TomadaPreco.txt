@@ -2,3 +2,5 @@ false;30/60/90 dias;150000.0;750;2022-08-27T08:08:42.388064600;Contratação de 
 true;15/30/45/60 dias;350000.0;755;2022-08-27T08:08:42.388064600;Contratação de exames laboratoriais;290000.0
 false;45/90 dias;175000.0;796;2022-08-27T08:08:42.389063800;Contratação de empresa especializada em serviços de contrução civil;740500.0
 true;120 dias;199000.0;815;2022-08-27T08:08:42.389063800;Contratação de empresa especializada em serviços de engenharia civil;415000.0
+true;teste;-150000.0;815;2022-08-27T08:08:42.389063800;teste do valor estimado da dotação orçamentária negativo;415000.0
+true;teste;501000.0;815;2022-08-27T08:08:42.389063800;teste do valor estimado da dotação orçamentária maior que R$ 500.000,00 ;415000.0
