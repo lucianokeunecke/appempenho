@@ -1,0 +1,4 @@
+true;Menor Preço;1.5;356;2022-08-27T07:58:08.413603900;Contratação de materiais de consumo;550000.0
+false;Maior Desconto;2.35;376;2022-08-27T07:58:08.413603900;Contratação de materiais de expediente;750000.0
+false;Maior Lance ou Oferta;0.75;397;2022-08-27T07:58:08.413603900;Contratação de materiais de escritório;850000.0
+true;Maior Retorno Econômico;0.33;403;2022-08-27T07:58:08.413603900;Contratação de materiais de higiene;766500.0
