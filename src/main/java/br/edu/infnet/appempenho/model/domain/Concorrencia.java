@@ -53,8 +53,8 @@ public class Concorrencia extends ProcessoLicitatorio {
 
 	@Override
 	public void impressao() {
-		System.out.println("#Concorrencia");
 		System.out.println(this);		
+		System.out.println("");
 	}		
 
 }

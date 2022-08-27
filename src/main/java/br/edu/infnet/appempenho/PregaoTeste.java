@@ -22,6 +22,9 @@ public class PregaoTeste implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) {
 		
+		System.out.println("");
+		System.out.println("====================================================================================================================");
+		System.out.println("************************************************* PREGAO ***********************************************************");
 		System.out.println("====================================================================================================================");
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";

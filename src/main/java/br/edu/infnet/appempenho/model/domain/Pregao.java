@@ -39,8 +39,8 @@ public class Pregao extends ProcessoLicitatorio {
 
 	@Override
 	public void impressao() {
-		System.out.println("#Pregão");
 		System.out.println(this);
+		System.out.println("");
 	}
 
 	@Override

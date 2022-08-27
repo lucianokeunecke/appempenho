@@ -22,6 +22,9 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) {
 		
+		System.out.println("");
+		System.out.println("====================================================================================================================");
+		System.out.println("********************************************** CONCORRENCIA ********************************************************");
 		System.out.println("====================================================================================================================");
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";

@@ -67,6 +67,9 @@ public class EmpenhoTeste implements ApplicationRunner {
 		tomadaPreco1.setCondicaoPagamento("30/60/90 dias");
 		tomadaPreco1.setValorEstimadoDotacaoOrcamentaria(150000);	
 
+		System.out.println("");
+		System.out.println("====================================================================================================================");
+		System.out.println("************************************************ EMPENHO ***********************************************************");
 		System.out.println("====================================================================================================================");
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";

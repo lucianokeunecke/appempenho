@@ -51,8 +51,8 @@ public class TomadaPreco extends ProcessoLicitatorio {
 
 	@Override
 	public void impressao() {
-		System.out.println("#Tomada de Preço");
 		System.out.println(this);
+		System.out.println("");
 	}	
 
 }

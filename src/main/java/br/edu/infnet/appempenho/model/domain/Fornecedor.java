@@ -53,8 +53,8 @@ public class Fornecedor implements IPrinter {
 
 	@Override
 	public void impressao() {
-		System.out.println("#Fornecedor");
 		System.out.println(this);
+		System.out.println("");
 	}
 	
 }

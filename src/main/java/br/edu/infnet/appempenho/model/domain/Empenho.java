@@ -78,8 +78,8 @@ public class Empenho implements IPrinter {
 
 	@Override
 	public void impressao() {
-		System.out.println("#Empenho");
 		System.out.println(this);
+		System.out.println("");
 	}	
 
 }
