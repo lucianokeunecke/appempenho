@@ -1,5 +1,9 @@
 package br.edu.infnet.appempenho;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 import org.springframework.boot.ApplicationArguments;
@@ -20,79 +24,51 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		
 		System.out.println("====================================================================================================================");
 		
-		try {
-			TomadaPreco tomadaPreco1 = new TomadaPreco();
-			tomadaPreco1.setNumero(750);
-			tomadaPreco1.setDataExpedicao(LocalDateTime.now());
-			tomadaPreco1.setObjetoLicitacao("Contratação de empresa especializada em serviço de limpeza");
-			tomadaPreco1.setValorEstimadoEdital(200000);
-			tomadaPreco1.setPermiteSubcontratacao(false);
-			tomadaPreco1.setCondicaoPagamento("30/60/90 dias");
-			tomadaPreco1.setValorEstimadoDotacaoOrcamentaria(150000);
-			System.out.println("Valor Estimado do Edital R$ " + tomadaPreco1.calcularValorEstimadoEdital());
-			TomadaPrecoController.incluir(tomadaPreco1);
-		} catch (ValorEstimadoDotacaoOrcamentariaException e) {
-			System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
-		}
+		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
+		
+		String arquivo = "TomadaPreco.txt";
 		
 		try {
-			TomadaPreco tomadaPreco2 = new TomadaPreco();
-			tomadaPreco2.setNumero(755);
-			tomadaPreco2.setDataExpedicao(LocalDateTime.now());
-			tomadaPreco2.setObjetoLicitacao("Contratação de exames laboratoriais");
-			tomadaPreco2.setValorEstimadoEdital(290000);
-			tomadaPreco2.setPermiteSubcontratacao(true);
-			tomadaPreco2.setCondicaoPagamento("15/30/45/60 dias");
-			tomadaPreco2.setValorEstimadoDotacaoOrcamentaria(350000);		
-			System.out.println("Valor Estimado do Edital R$ " + tomadaPreco2.calcularValorEstimadoEdital());
-			TomadaPrecoController.incluir(tomadaPreco2);
-		} catch (ValorEstimadoDotacaoOrcamentariaException e) {
-			System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
-		}
-		
-		try {
-			TomadaPreco tomadaPreco3 = new TomadaPreco();
-			tomadaPreco3.setNumero(796);
-			tomadaPreco3.setDataExpedicao(LocalDateTime.now());
-			tomadaPreco3.setObjetoLicitacao("Contratação de empresa especializada em serviços de contrução civil");
-			tomadaPreco3.setValorEstimadoEdital(740500);
-			tomadaPreco3.setPermiteSubcontratacao(false);
-			tomadaPreco3.setCondicaoPagamento("45/90 dias");
-			tomadaPreco3.setValorEstimadoDotacaoOrcamentaria(175000);		
-			System.out.println("Valor Estimado do Edital R$ " + tomadaPreco3.calcularValorEstimadoEdital());
-			TomadaPrecoController.incluir(tomadaPreco3);
-		} catch (ValorEstimadoDotacaoOrcamentariaException e) {
-			System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
-		}
-		
-		try {
-			TomadaPreco tomadaPreco4 = new TomadaPreco();
-			tomadaPreco4.setNumero(796);
-			tomadaPreco4.setDataExpedicao(LocalDateTime.now());
-			tomadaPreco4.setObjetoLicitacao("Contratação de empresa especializada em serviços de contrução civil");
-			tomadaPreco4.setValorEstimadoEdital(740500);
-			tomadaPreco4.setPermiteSubcontratacao(false);
-			tomadaPreco4.setCondicaoPagamento("45/90 dias");
-			tomadaPreco4.setValorEstimadoDotacaoOrcamentaria(-10);		
-			System.out.println("Valor Estimado do Edital R$ " + tomadaPreco4.calcularValorEstimadoEdital());
-			TomadaPrecoController.incluir(tomadaPreco4);
-		} catch (ValorEstimadoDotacaoOrcamentariaException e) {
-			System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
-		}
-		
-		try {
-			TomadaPreco tomadaPreco5 = new TomadaPreco();
-			tomadaPreco5.setNumero(796);
-			tomadaPreco5.setDataExpedicao(LocalDateTime.now());
-			tomadaPreco5.setObjetoLicitacao("Contratação de empresa especializada em serviços de contrução civil");
-			tomadaPreco5.setValorEstimadoEdital(740500);
-			tomadaPreco5.setPermiteSubcontratacao(false);
-			tomadaPreco5.setCondicaoPagamento("45/90 dias");
-			tomadaPreco5.setValorEstimadoDotacaoOrcamentaria(501000);		
-			System.out.println("Valor Estimado do Edital R$ " + tomadaPreco5.calcularValorEstimadoEdital());
-			TomadaPrecoController.incluir(tomadaPreco5);
-		} catch (ValorEstimadoDotacaoOrcamentariaException e) {
-			System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
+			try {
+				FileReader fileReader = new FileReader(diretorio + arquivo);
+				
+				BufferedReader leitura = new BufferedReader(fileReader); 
+				
+				String linha = leitura.readLine();
+				
+				while(linha != null) {
+
+					try {						
+						String[] campos = linha.split(";");
+						
+						TomadaPreco tomadaPreco = new TomadaPreco();
+						tomadaPreco.setNumero(Integer.parseInt(campos[3]));
+						tomadaPreco.setDataExpedicao(LocalDateTime.now());
+						tomadaPreco.setObjetoLicitacao(campos[5]);
+						tomadaPreco.setValorEstimadoEdital(200000);
+						tomadaPreco.setPermiteSubcontratacao(Boolean.parseBoolean(campos[0]));
+						tomadaPreco.setCondicaoPagamento(campos[1]);
+						tomadaPreco.setValorEstimadoDotacaoOrcamentaria(Float.parseFloat(campos[2]));
+						System.out.println("Valor Estimado do Edital R$ " + tomadaPreco.calcularValorEstimadoEdital());
+						TomadaPrecoController.incluir(tomadaPreco);
+					} catch (ValorEstimadoDotacaoOrcamentariaException e) {
+						System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
+					}
+					
+					linha = leitura.readLine();
+				}
+				
+				leitura.close();
+				
+				fileReader.close();
+				
+			} catch (FileNotFoundException e) {
+				System.out.println("[ERRO] O arquivo não existe");
+			} catch (IOException e) {
+				System.out.println("[ERRO] Problema no fechamento do arquivo");
+			}
+		} finally {
+			System.out.println("Terminou!!!");
 		}
 		
 	}

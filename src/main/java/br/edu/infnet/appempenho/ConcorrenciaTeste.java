@@ -41,15 +41,15 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 					try {						
 						String[] campos = linha.split(";");
 						
-						Concorrencia concorrencia1 = new Concorrencia();
-						concorrencia1.setNumero(Integer.parseInt(campos[3]));
-						concorrencia1.setDataExpedicao(LocalDateTime.now());
-						concorrencia1.setObjetoLicitacao(campos[5]);
-						concorrencia1.setEletronica(Boolean.parseBoolean(campos[0]));
-						concorrencia1.setPrazoExecucao(campos[1]);
-						concorrencia1.setValorMinimoCapital(Float.parseFloat(campos[2]));
-						System.out.println("Valor Estimado do Edital R$ " + concorrencia1.calcularValorEstimadoEdital());
-						ConcorrenciaController.incluir(concorrencia1);
+						Concorrencia concorrencia = new Concorrencia();
+						concorrencia.setNumero(Integer.parseInt(campos[3]));
+						concorrencia.setDataExpedicao(LocalDateTime.now());
+						concorrencia.setObjetoLicitacao(campos[5]);
+						concorrencia.setEletronica(Boolean.parseBoolean(campos[0]));
+						concorrencia.setPrazoExecucao(campos[1]);
+						concorrencia.setValorMinimoCapital(Float.parseFloat(campos[2]));
+						System.out.println("Valor Estimado do Edital R$ " + concorrencia.calcularValorEstimadoEdital());
+						ConcorrenciaController.incluir(concorrencia);
 					} catch (ValorMinimoCapitalInvalidoException e) {
 						System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
 					}
