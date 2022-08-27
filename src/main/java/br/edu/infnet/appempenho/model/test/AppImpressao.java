@@ -16,7 +16,7 @@ public class AppImpressao {
 	
 	public static void main(String[] args) {
 		
-		String diretorio = "D:/Temp/InfNet/";
+		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
 		String arquivo = "empenhos.txt";
 		
