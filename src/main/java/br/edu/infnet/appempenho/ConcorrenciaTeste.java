@@ -1,5 +1,9 @@
 package br.edu.infnet.appempenho;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 import org.springframework.boot.ApplicationArguments;
@@ -20,64 +24,50 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 		
 		System.out.println("====================================================================================================================");
 		
-		try {
-			Concorrencia concorrencia1 = new Concorrencia();
-			concorrencia1.setNumero(150);
-			concorrencia1.setDataExpedicao(LocalDateTime.now());
-			concorrencia1.setObjetoLicitacao("Contratação de empresa especializada para execução de serviço de capeamento asfáltico");
-			concorrencia1.setValorEstimadoEdital(150000);
-			concorrencia1.setEletronica(true);
-			concorrencia1.setPrazoExecucao("30 dias");
-			concorrencia1.setValorMinimoCapital(500000);
-			System.out.println("Valor Estimado do Edital R$ " + concorrencia1.calcularValorEstimadoEdital());
-			ConcorrenciaController.incluir(concorrencia1);
-		} catch (ValorMinimoCapitalInvalidoException e) {
-			System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
-		}
+		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
+		
+		String arquivo = "concorrencia.txt";
 		
 		try {
-			Concorrencia concorrencia2 = new Concorrencia();
-			concorrencia2.setNumero(153);
-			concorrencia2.setDataExpedicao(LocalDateTime.now());
-			concorrencia2.setObjetoLicitacao("Contratação de empresa especializada para execução de serviço de engenharia");
-			concorrencia2.setValorEstimadoEdital(250000);
-			concorrencia2.setEletronica(false);
-			concorrencia2.setPrazoExecucao("45 dias");
-			concorrencia2.setValorMinimoCapital(700000);		
-			System.out.println("Valor Estimado do Edital R$ " + concorrencia2.calcularValorEstimadoEdital());
-			ConcorrenciaController.incluir(concorrencia2);
-		} catch (ValorMinimoCapitalInvalidoException e) {
-			System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
-		}
-		
-		try {
-			Concorrencia concorrencia3 = new Concorrencia();
-			concorrencia3.setNumero(175);
-			concorrencia3.setDataExpedicao(LocalDateTime.now());
-			concorrencia3.setObjetoLicitacao("Contratação de empresa especializada para execução de obra");
-			concorrencia3.setValorEstimadoEdital(470000);
-			concorrencia3.setEletronica(true);
-			concorrencia3.setPrazoExecucao("1 ano e 2 meses");
-			concorrencia3.setValorMinimoCapital(1000000);		
-			System.out.println("Valor Estimado do Edital R$ " + concorrencia3.calcularValorEstimadoEdital());
-			ConcorrenciaController.incluir(concorrencia3);
-		} catch (ValorMinimoCapitalInvalidoException e) {
-			System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
-		}
-		
-		try {
-			Concorrencia concorrencia4 = new Concorrencia();
-			concorrencia4.setNumero(175);
-			concorrencia4.setDataExpedicao(LocalDateTime.now());
-			concorrencia4.setObjetoLicitacao("Contratação de empresa especializada para execução de obra");
-			concorrencia4.setValorEstimadoEdital(470000);
-			concorrencia4.setEletronica(true);
-			concorrencia4.setPrazoExecucao("1 ano e 2 meses");
-			concorrencia4.setValorMinimoCapital(49000);		
-			System.out.println("Valor Estimado do Edital R$ " + concorrencia4.calcularValorEstimadoEdital());
-			ConcorrenciaController.incluir(concorrencia4);
-		} catch (ValorMinimoCapitalInvalidoException e) {
-			System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
+			try {
+				FileReader fileReader = new FileReader(diretorio + arquivo);
+				
+				BufferedReader leitura = new BufferedReader(fileReader); 
+				
+				String linha = leitura.readLine();
+				
+				while(linha != null) {
+
+					try {						
+						String[] campos = linha.split(";");
+						
+						Concorrencia concorrencia1 = new Concorrencia();
+						concorrencia1.setNumero(Integer.parseInt(campos[3]));
+						concorrencia1.setDataExpedicao(LocalDateTime.now());
+						concorrencia1.setObjetoLicitacao(campos[5]);
+						concorrencia1.setEletronica(Boolean.parseBoolean(campos[0]));
+						concorrencia1.setPrazoExecucao(campos[1]);
+						concorrencia1.setValorMinimoCapital(Float.parseFloat(campos[2]));
+						System.out.println("Valor Estimado do Edital R$ " + concorrencia1.calcularValorEstimadoEdital());
+						ConcorrenciaController.incluir(concorrencia1);
+					} catch (ValorMinimoCapitalInvalidoException e) {
+						System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
+					}
+					
+					linha = leitura.readLine();
+				}
+				
+				leitura.close();
+				
+				fileReader.close();
+				
+			} catch (FileNotFoundException e) {
+				System.out.println("[ERRO] O arquivo não existe");
+			} catch (IOException e) {
+				System.out.println("[ERRO] Problema no fechamento do arquivo");
+			}
+		} finally {
+			System.out.println("Terminou!!!");
 		}
 		
 	}

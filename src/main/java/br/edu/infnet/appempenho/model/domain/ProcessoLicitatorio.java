@@ -60,7 +60,7 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 
 	@Override
 	public String toString() {
-		return numero + ";" + dataExpedicao + ";" + objetoLicitacao;
+		return numero + ";" + dataExpedicao + ";" + objetoLicitacao + ";" + valorEstimadoEdital;
 	}
 
 	@Override
