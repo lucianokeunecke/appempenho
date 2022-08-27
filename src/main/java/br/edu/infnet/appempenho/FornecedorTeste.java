@@ -1,5 +1,10 @@
 package br.edu.infnet.appempenho;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -18,39 +23,43 @@ public class FornecedorTeste implements ApplicationRunner {
 
 		System.out.println("====================================================================================================================");
 		
-		try {
-			Fornecedor fornecedor1 = new Fornecedor(15, "Luciano Keunecke", 3189734992L);
-			FornecedorController.incluir(fornecedor1);
-		} catch (CnpjCpfInvalidoException e) {
-			System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
-		}
+		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
+		
+		String arquivo = "Fornecedor.txt";
 		
 		try {
-			Fornecedor fornecedor2 = new Fornecedor(96, "Governança Brasil", 4983932000152L);
-			FornecedorController.incluir(fornecedor2);
-		} catch (CnpjCpfInvalidoException e) {
-			System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
-		}
+			try {
+				FileReader fileReader = new FileReader(diretorio + arquivo);
+				
+				BufferedReader leitura = new BufferedReader(fileReader); 
+				
+				String linha = leitura.readLine();
+				
+				while(linha != null) {
 
-		try {
-			Fornecedor fornecedor3 = new Fornecedor(175, "Eletrônica Blumenau", 78642321000192L);
-			FornecedorController.incluir(fornecedor3);
-		} catch (CnpjCpfInvalidoException e) {
-			System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
-		}
-		
-		try {
-			Fornecedor fornecedor4 = new Fornecedor(193, "Adriana dos Santos", 0L);
-			FornecedorController.incluir(fornecedor4);
-		} catch (CnpjCpfInvalidoException e) {
-			System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
-		}
-		
-		try {
-			Fornecedor fornecedor5 = new Fornecedor(274, "Eletrosul", -10L);
-			FornecedorController.incluir(fornecedor5);
-		} catch (CnpjCpfInvalidoException e) {
-			System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
+					try {						
+						String[] campos = linha.split(";");
+						
+						Fornecedor fornecedor1 = new Fornecedor(Integer.parseInt(campos[0]), campos[1], Long.parseLong(campos[2]));
+						FornecedorController.incluir(fornecedor1);
+					} catch (CnpjCpfInvalidoException e) {
+						System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
+					}
+					
+					linha = leitura.readLine();
+				}
+				
+				leitura.close();
+				
+				fileReader.close();
+				
+			} catch (FileNotFoundException e) {
+				System.out.println("[ERRO] O arquivo não existe");
+			} catch (IOException e) {
+				System.out.println("[ERRO] Problema no fechamento do arquivo");
+			}
+		} finally {
+			System.out.println("Terminou!!!");
 		}
 		
 	}
