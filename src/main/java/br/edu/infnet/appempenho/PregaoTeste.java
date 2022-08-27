@@ -26,7 +26,7 @@ public class PregaoTeste implements ApplicationRunner {
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
-		String arquivo = "pregao.txt";
+		String arquivo = "Pregao.txt";
 		
 		try {
 			try {

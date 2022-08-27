@@ -71,7 +71,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
-		String arquivo = "empenhos.txt";
+		String arquivo = "Empenhos.txt";
 		
 		try {
 			try {

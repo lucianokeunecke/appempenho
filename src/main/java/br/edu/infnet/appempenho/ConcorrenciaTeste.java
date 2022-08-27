@@ -26,7 +26,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
-		String arquivo = "concorrencia.txt";
+		String arquivo = "Concorrencia.txt";
 		
 		try {
 			try {
