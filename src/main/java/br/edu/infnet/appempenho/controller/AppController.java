@@ -40,7 +40,8 @@ public class AppController {
 		
 		model.addAttribute("user", "");
 		
-		return null;
+		//return "home";
+		return "redirect:/";
 	}
 
 }

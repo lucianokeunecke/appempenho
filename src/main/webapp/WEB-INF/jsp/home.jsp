@@ -15,38 +15,47 @@
 	      <li class="nav-item">
 	        <a class="nav-link active" href="/">Home</a>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/concorrencia/lista">Concorrência</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/pregao/lista">Pregão</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/tomadaPreco/lista">Tomada de Preço</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/processoLicitatorio/lista">Processo Licitatório</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/empenho/lista">Empenho</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/fornecedor/lista">Fornecedor</a>
-	      </li>
+	      
+	      <c:if test="${not empty user}">
+		      <li class="nav-item">
+		        <a class="nav-link" href="/concorrencia/lista">Concorrência</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="/pregao/lista">Pregão</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="/tomadaPreco/lista">Tomada de Preço</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="/processoLicitatorio/lista">Processo Licitatório</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="/empenho/lista">Empenho</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="/fornecedor/lista">Fornecedor</a>
+		      </li>	      
+	      </c:if>
+	      
 	    </ul>
 	    
 	    <ul class="navbar-nav">
+	    
+	    <c:if test="${empty user}">
 	      <li class="nav-item">
 	        <a class="nav-link" href="">Signup</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="/login">Login</a>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/logout">Logout ${user}</a>
-	      </li>
+	    </c:if>
+	      
+	      <c:if test="${not empty user}">
+		      <li class="nav-item">
+		        <a class="nav-link" href="/logout">Logout ${user}</a>
+		      </li>
+	      </c:if>
 	    </ul>
-	    
 	  </div>
 	</nav>
 
