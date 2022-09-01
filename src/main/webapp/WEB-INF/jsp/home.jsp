@@ -34,6 +34,19 @@
 	        <a class="nav-link" href="/fornecedor/lista">Fornecedor</a>
 	      </li>
 	    </ul>
+	    
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" href="">Signup</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/login">Login</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/logout">Logout ${user}</a>
+	      </li>
+	    </ul>
+	    
 	  </div>
 	</nav>
 
