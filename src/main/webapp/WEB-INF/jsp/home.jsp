@@ -18,6 +18,9 @@
 	      
 	      <c:if test="${not empty user}">
 		      <li class="nav-item">
+		        <a class="nav-link" href="/usuario/lista">Usuário</a>
+		      </li>
+		      <li class="nav-item">
 		        <a class="nav-link" href="/concorrencia/lista">Concorrência</a>
 		      </li>
 		      <li class="nav-item">
