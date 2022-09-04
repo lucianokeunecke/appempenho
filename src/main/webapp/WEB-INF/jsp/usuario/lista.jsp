@@ -21,6 +21,7 @@
 	        <th>Nome</th>
 	        <th>E-mail</th>
 	        <th>Senha</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -30,6 +31,7 @@
 		        <td>${u.nome}</td>
 		        <td>${u.email}</td>
 		        <td>${u.senha}</td>
+		        <td><a href="/usuario/${u.email}/excluir">excluir</a></td>
 		      </tr>    	  
     	  </c:forEach>
 	      
