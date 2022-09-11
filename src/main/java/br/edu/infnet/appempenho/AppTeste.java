@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +38,28 @@ public class AppTeste implements ApplicationRunner {
 				while(linha != null) {
 					
 					String[] campos = linha.split(";");
+					
+					switch (campos[0].toUpperCase()) {
+					case "P":
+						System.out.println("Projeto");
+						System.out.println("Nome: " + campos[1]);
+						System.out.println("Descrição: " + campos[2]);
+						break;
+					case "C":
+						System.out.println("Classe");
+						System.out.println("Nome: " + campos[1]);
+						break;
+					case "A":
+						System.out.println("Atributo");
+						System.out.println("Nome: " + campos[1]);
+						System.out.println("Tipo: " + campos[2]);
+						System.out.println("Descrição: " + campos[3]);
+						break;
+
+					default:
+						System.out.println("Opção inválida");
+						break;
+					}
 					
 					linha = leitura.readLine();
 				}
@@ -110,11 +133,5 @@ public class AppTeste implements ApplicationRunner {
 		projeto.setDescricao("Projeto de Gestão de Empenhos");
 		projeto.setListaClasses(listaClasses);
 		projeto.impressao();
-		
-		/*for (Classe itemClasse : projeto.getListaClasses()) {
-			System.out.println(" - - - " + itemClasse.getNome() + " | | " + itemClasse.getListaAtributos().size());
-		}*/
-		
-		
 	}
 }
