@@ -1,5 +1,7 @@
 package br.edu.infnet.appempenho.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.service.UsuarioService;
@@ -44,9 +47,11 @@ public class AppController {
 	}
 	
 	@GetMapping(value = "/logout")
-	public String logout(Model model) {
+	public String logout(HttpSession session, SessionStatus status) {
 		
-		model.addAttribute("user", "");
+		status.setComplete();
+		
+		session.removeAttribute("user");
 		
 		return "redirect:/";
 	}
