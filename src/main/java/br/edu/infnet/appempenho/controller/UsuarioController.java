@@ -1,5 +1,6 @@
 package br.edu.infnet.appempenho.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +13,13 @@ import br.edu.infnet.appempenho.model.service.UsuarioService;
 @Controller
 public class UsuarioController {
 	
+	@Autowired
+	private UsuarioService usuarioService;
+	
 	@GetMapping("/usuario/lista")
 	public String telaLista(Model model) {		
 		
-		model.addAttribute("listagem", UsuarioService.obterLista());
+		model.addAttribute("listagem", usuarioService.obterLista());
 		
 		return "usuario/lista";
 	}
@@ -28,7 +32,7 @@ public class UsuarioController {
 	@PostMapping(value = "/usuario/incluir")
 	public String incluir(Usuario usuario) {
 		
-		UsuarioService.incluir(usuario);
+		usuarioService.incluir(usuario);
 		
 		return "redirect:/";
 	}
@@ -36,7 +40,7 @@ public class UsuarioController {
 	@GetMapping(value = "/usuario/{email}/excluir")
 	public String excluir(@PathVariable String email) {
 		
-		UsuarioService.excluir(email);
+		usuarioService.excluir(email);
 		
 		return "redirect:/usuario/lista";
 	}
