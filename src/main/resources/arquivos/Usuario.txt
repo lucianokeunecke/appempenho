@@ -1,0 +1,4 @@
+lucianokeunecke@gmail.com;Luciano Keunecke;123456
+adrianakonell@gmail.com;Adriana Konell;102030
+adriano.santos@gmail.com;Adriano dos Santos;405060
+paulo.silva@gmail.com;Paulo da Silva;708090
