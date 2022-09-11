@@ -13,6 +13,7 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
+	
 	  <h2>Stacked form</h2>
 	  <form action="/login" method="post">
 	    <div class="mb-3 mt-3">

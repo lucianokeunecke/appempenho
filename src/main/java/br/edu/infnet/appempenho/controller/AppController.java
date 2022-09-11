@@ -6,10 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.service.UsuarioService;
 
+@SessionAttributes("user")
 @Controller
 public class AppController {
 	
@@ -33,7 +35,7 @@ public class AppController {
 		
 		if (usuario != null) {
 			
-			model.addAttribute("user", usuario.getNome());
+			model.addAttribute("user", usuario);
 			
 			return "home";
 		}
