@@ -7,16 +7,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appempenho.controller.AppController;
 import br.edu.infnet.appempenho.model.domain.app.Atributo;
 import br.edu.infnet.appempenho.model.domain.app.Classe;
 import br.edu.infnet.appempenho.model.domain.app.Projeto;
 
 @Component
 public class AppTeste implements ApplicationRunner {
+	
+	@Autowired
+	private AppController appController;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -76,7 +81,7 @@ public class AppTeste implements ApplicationRunner {
 					linha = leitura.readLine();
 				}
 				
-				projeto.impressao();
+				appController.incluir(projeto);
 				
 				leitura.close();
 				

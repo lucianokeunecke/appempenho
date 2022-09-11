@@ -14,8 +14,8 @@
 
 	<div class="container mt-3">
 	
-	  <h2>AppEmpenho</h2>
-	  <p>Projeto de Gestão de Empenhos</p>
+	  <h2>${projeto.nome}</h2>
+	  <p>${projeto.descricao}</p>
 	  
 	  <h3>Classe: Empenho</h3>
 	  <table class="table table-striped">
