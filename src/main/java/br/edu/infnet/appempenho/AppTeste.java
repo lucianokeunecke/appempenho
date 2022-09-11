@@ -12,16 +12,16 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appempenho.controller.AppController;
 import br.edu.infnet.appempenho.model.domain.app.Atributo;
 import br.edu.infnet.appempenho.model.domain.app.Classe;
 import br.edu.infnet.appempenho.model.domain.app.Projeto;
+import br.edu.infnet.appempenho.model.service.AppService;
 
 @Component
 public class AppTeste implements ApplicationRunner {
 	
 	@Autowired
-	private AppController appController;
+	private AppService appService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -81,7 +81,7 @@ public class AppTeste implements ApplicationRunner {
 					linha = leitura.readLine();
 				}
 				
-				appController.incluir(projeto);
+				appService.incluir(projeto);
 				
 				leitura.close();
 				

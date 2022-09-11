@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import br.edu.infnet.appempenho.model.domain.Usuario;
-import br.edu.infnet.appempenho.model.domain.app.Projeto;
+import br.edu.infnet.appempenho.model.service.AppService;
 import br.edu.infnet.appempenho.model.service.UsuarioService;
-import br.edu.infnet.appempenho.model.test.AppImpressao;
 
 @SessionAttributes("user")
 @Controller
@@ -23,18 +22,13 @@ public class AppController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	private Projeto projeto;
-	
-	public void incluir(Projeto projeto) {
-		this.projeto = projeto;
-		
-		AppImpressao.relatorio("Exibição do Projeto " + projeto.getNome(), projeto);
-	}
+	@Autowired
+	private AppService appService;
 	
 	@GetMapping(value = "/")
 	public String telaHome(Model model) {
 		
-		model.addAttribute("projeto", projeto);
+		model.addAttribute("projeto", appService.obterProjeto());
 		
 		return "home";
 	}
