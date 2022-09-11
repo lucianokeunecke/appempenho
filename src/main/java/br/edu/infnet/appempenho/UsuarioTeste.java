@@ -4,8 +4,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appempenho.controller.UsuarioController;
 import br.edu.infnet.appempenho.model.domain.Usuario;
+import br.edu.infnet.appempenho.model.service.UsuarioService;
 
 @Component
 public class UsuarioTeste implements ApplicationRunner {
@@ -18,7 +18,7 @@ public class UsuarioTeste implements ApplicationRunner {
 		usuario.setNome("Luciano Keunecke");
 		usuario.setSenha("123456");
 		
-		UsuarioController.incluir(usuario);
+		UsuarioService.incluir(usuario);
 		
 	}
 
