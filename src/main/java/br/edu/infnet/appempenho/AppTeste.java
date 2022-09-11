@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.boot.ApplicationArguments;
@@ -35,25 +33,39 @@ public class AppTeste implements ApplicationRunner {
 				
 				String linha = leitura.readLine();
 				
+				Projeto projeto = null;
+				List<Classe> listaClasses = null;
+				List<Atributo> listaAtributos = null;
+				
 				while(linha != null) {
 					
 					String[] campos = linha.split(";");
 					
 					switch (campos[0].toUpperCase()) {
 					case "P":
-						System.out.println("Projeto");
-						System.out.println("Nome: " + campos[1]);
-						System.out.println("Descrição: " + campos[2]);
+						listaClasses = new ArrayList<Classe>();						
+						
+						projeto = new Projeto();
+						projeto.setNome(campos[1]);
+						projeto.setDescricao(campos[2]);
+						projeto.setListaClasses(listaClasses);
+						
 						break;
 					case "C":
-						System.out.println("Classe");
-						System.out.println("Nome: " + campos[1]);
+						listaAtributos = new ArrayList<Atributo>();						
+						
+						Classe classe = new Classe();
+						classe.setNome(campos[1]);
+						classe.setListaAtributos(listaAtributos);
+						
+						listaClasses.add(classe);
+						
 						break;
 					case "A":
-						System.out.println("Atributo");
-						System.out.println("Nome: " + campos[1]);
-						System.out.println("Tipo: " + campos[2]);
-						System.out.println("Descrição: " + campos[3]);
+						Atributo atributo = new Atributo(campos[1], campos[2], campos[3]);
+						
+						listaAtributos.add(atributo);
+						
 						break;
 
 					default:
@@ -63,6 +75,8 @@ public class AppTeste implements ApplicationRunner {
 					
 					linha = leitura.readLine();
 				}
+				
+				projeto.impressao();
 				
 				leitura.close();
 				
@@ -76,62 +90,5 @@ public class AppTeste implements ApplicationRunner {
 		} finally {
 			System.out.println("Terminou!!!");
 		}
-		
-		Atributo eletronica = new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica");
-		Atributo prazoExecucao = new Atributo("prazoExecucao", "String", "Descrição do Prazo da Execução");
-		Atributo valorMinimoCapital = new Atributo("valorMinimoCapital", "float", "Valor Mínimo de Capital");
-		
-		List<Atributo> listaAtributos = new ArrayList<Atributo>();
-		listaAtributos.add(eletronica);
-		listaAtributos.add(prazoExecucao);
-		listaAtributos.add(valorMinimoCapital);
-		
-		Classe concorrencia = new Classe();
-		concorrencia.setNome("Concorrencia");
-		concorrencia.setListaAtributos(listaAtributos);
-		
-		Classe empenho = new Classe();
-		empenho.setNome("Empenho");
-		empenho.setListaAtributos(Arrays.asList(new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-												new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-												new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica")));
-		
-		Classe fornecedor = new Classe();
-		fornecedor.setNome("Fornecedor");
-		fornecedor.setListaAtributos(Arrays.asList(new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-				new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-				new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica")));
-		
-		Classe pregao = new Classe();
-		pregao.setNome("Pregao");
-		pregao.setListaAtributos(Arrays.asList(new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-				new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-				new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica")));
-		
-		Classe tomadaPreco = new Classe();
-		tomadaPreco.setNome("TomadaPreco");
-		tomadaPreco.setListaAtributos(Arrays.asList(new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-				new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-				new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica")));
-		
-		Classe usuario = new Classe();
-		usuario.setNome("Usuario");		
-		usuario.setListaAtributos(Arrays.asList(new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-				new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica"),
-				new Atributo("eletronica", "boolean", "Indica se a Modalidade de Concorrência é Eletrônica")));
-		
-		List<Classe> listaClasses = new ArrayList<Classe>();
-		listaClasses.add(concorrencia);
-		listaClasses.add(empenho);
-		listaClasses.add(fornecedor);
-		listaClasses.add(pregao);
-		listaClasses.add(tomadaPreco);
-		listaClasses.add(usuario);
-		
-		Projeto projeto = new Projeto();
-		projeto.setNome("AppEmpenho");
-		projeto.setDescricao("Projeto de Gestão de Empenhos");
-		projeto.setListaClasses(listaClasses);
-		projeto.impressao();
 	}
 }
