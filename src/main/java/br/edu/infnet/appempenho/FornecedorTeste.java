@@ -5,18 +5,22 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appempenho.controller.FornecedorController;
 import br.edu.infnet.appempenho.model.domain.Fornecedor;
 import br.edu.infnet.appempenho.model.exception.CnpjCpfInvalidoException;
+import br.edu.infnet.appempenho.model.service.FornecedorService;
 
 @Component
 @Order(2)
 public class FornecedorTeste implements ApplicationRunner {
+	
+	@Autowired
+	private FornecedorService fornecedorService;
 
 	@Override
 	public void run(ApplicationArguments args) {
@@ -43,8 +47,8 @@ public class FornecedorTeste implements ApplicationRunner {
 					try {						
 						String[] campos = linha.split(";");
 						
-						Fornecedor fornecedor1 = new Fornecedor(Integer.parseInt(campos[0]), campos[1], Long.parseLong(campos[2]));
-						FornecedorController.incluir(fornecedor1);
+						Fornecedor fornecedor = new Fornecedor(Integer.parseInt(campos[0]), campos[1], Long.parseLong(campos[2]));
+						fornecedorService.incluir(fornecedor);
 					} catch (CnpjCpfInvalidoException e) {
 						System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
 					}

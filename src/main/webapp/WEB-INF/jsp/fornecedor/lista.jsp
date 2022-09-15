@@ -15,6 +15,9 @@
 	<div class="container mt-3">
 	  
 	  <h3>Cadastro de Fornecedor</h3>
+	  
+	  <h4><a href="/fornecedor">Novo</a></h4>
+	  
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
