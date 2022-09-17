@@ -6,18 +6,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appempenho.controller.TomadaPrecoController;
 import br.edu.infnet.appempenho.model.domain.TomadaPreco;
 import br.edu.infnet.appempenho.model.exception.ValorEstimadoDotacaoOrcamentariaException;
+import br.edu.infnet.appempenho.model.service.TomadaPrecoService;
 
 @Component
 @Order(5)
 public class TomadaPrecoTeste implements ApplicationRunner {
+	
+	@Autowired
+	private TomadaPrecoService tomadaPrecoService;
 
 	@Override
 	public void run(ApplicationArguments args) {
@@ -53,7 +57,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 						tomadaPreco.setCondicaoPagamento(campos[1]);
 						tomadaPreco.setValorEstimadoDotacaoOrcamentaria(Float.parseFloat(campos[2]));
 						System.out.println("Valor Estimado do Edital R$ " + tomadaPreco.calcularValorEstimadoEdital());
-						TomadaPrecoController.incluir(tomadaPreco);
+						tomadaPrecoService.incluir(tomadaPreco);
 					} catch (ValorEstimadoDotacaoOrcamentariaException e) {
 						System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
 					}
