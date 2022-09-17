@@ -39,7 +39,7 @@ public class ConcorrenciaController {
 	}		
 	
 	@GetMapping("/concorrencia/{id}/excluir")
-	public String exclusao(@PathVariable Integer id) {
+	public String excluir(@PathVariable Integer id) {
 		
 		concorrenciaService.excluir(id);
 		

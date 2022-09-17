@@ -6,18 +6,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appempenho.controller.PregaoController;
 import br.edu.infnet.appempenho.model.domain.Pregao;
 import br.edu.infnet.appempenho.model.exception.IndiceReajusteZeradoNegativoException;
+import br.edu.infnet.appempenho.model.service.PregaoService;
 
 @Component
 @Order(4)
 public class PregaoTeste implements ApplicationRunner {
+	
+	@Autowired
+	private PregaoService pregaoService;	
 
 	@Override
 	public void run(ApplicationArguments args) {
@@ -53,7 +57,7 @@ public class PregaoTeste implements ApplicationRunner {
 						pregao.setCriterioJulgamento(campos[1]);
 						pregao.setIndiceReajuste(Float.parseFloat(campos[2]));		
 						System.out.println("Valor Estimado do Edital R$ " + pregao.calcularValorEstimadoEdital());
-						PregaoController.incluir(pregao);
+						pregaoService.incluir(pregao);
 					} catch (IndiceReajusteZeradoNegativoException e) {
 						System.out.println("[ERROR - PREGAO] " + e.getMessage());
 					}
