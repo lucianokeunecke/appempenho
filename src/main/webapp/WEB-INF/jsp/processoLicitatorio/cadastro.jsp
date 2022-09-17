@@ -9,7 +9,7 @@
 	    
 	    <div class="mb-3 mt-3">
 	      <label>Data da Expedição:</label>
-	      <input type="text" class="form-control" placeholder="Entre com a data da expedição" name="dataExpedicao">
+	      <input type="date" class="form-control" placeholder="Entre com a data da expedição" name="dataExpedicao">
 	    </div>
 	    
 	    <div class="mb-3 mt-3">

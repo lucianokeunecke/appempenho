@@ -15,6 +15,9 @@
 	<div class="container mt-3">
 	  
 	  <h3>Cadastro de Processo Licitatório: Tomada de Preço</h3>
+	  
+	  <h4><a href="/tomadaPreco">Novo</a></h4>
+	  
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
