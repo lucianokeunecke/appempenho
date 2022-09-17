@@ -6,18 +6,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appempenho.controller.ConcorrenciaController;
 import br.edu.infnet.appempenho.model.domain.Concorrencia;
 import br.edu.infnet.appempenho.model.exception.ValorMinimoCapitalInvalidoException;
+import br.edu.infnet.appempenho.model.service.ConcorrenciaService;
 
 @Component
 @Order(3)
 public class ConcorrenciaTeste implements ApplicationRunner {
+	
+	@Autowired
+	private ConcorrenciaService concorrenciaService;
 
 	@Override
 	public void run(ApplicationArguments args) {
@@ -52,7 +56,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 						concorrencia.setPrazoExecucao(campos[1]);
 						concorrencia.setValorMinimoCapital(Float.parseFloat(campos[2]));
 						System.out.println("Valor Estimado do Edital R$ " + concorrencia.calcularValorEstimadoEdital());
-						ConcorrenciaController.incluir(concorrencia);
+						concorrenciaService.incluir(concorrencia);
 					} catch (ValorMinimoCapitalInvalidoException e) {
 						System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
 					}

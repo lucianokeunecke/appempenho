@@ -16,27 +16,6 @@ public class FornecedorController {
 	@Autowired
 	private FornecedorService fornecedorService;
 	
-	//private static Map<Integer, Fornecedor> mapaFornecedor = new HashMap<Integer, Fornecedor>();
-	
-	//private static Integer id = 1;
-	
-	/*public static void incluir(Fornecedor fornecedor) {
-		
-		fornecedor.setId(id++);
-		
-		mapaFornecedor.put(fornecedor.getId(), fornecedor);
-		
-		AppImpressao.relatorio("Inclusão do Fornecedor Nº " + fornecedor.getCodigo(), fornecedor);
-	}
-	
-	public static void excluir(Integer id) {
-		mapaFornecedor.remove(id);
-	}
-	
-	public static Collection<Fornecedor> obterLista(){
-		return mapaFornecedor.values();
-	}	*/
-	
 	@GetMapping("/fornecedor/lista")
 	public String telaLista(Model model) {		
 		
@@ -44,14 +23,6 @@ public class FornecedorController {
 		
 		return "fornecedor/lista";
 	}
-	
-	/*@GetMapping("/fornecedor/{id}/excluir")
-	public String exclusao(@PathVariable Integer id) {
-		
-		excluir(id);
-		
-		return "redirect:/fornecedor/lista";
-	}*/
 	
 	@GetMapping(value = "/fornecedor")
 	public String telaCadastro() {
