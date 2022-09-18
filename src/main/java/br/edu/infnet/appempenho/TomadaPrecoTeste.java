@@ -33,7 +33,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
-		String arquivo = "TomadaPreco.txt";
+		String arquivo = "ProcessoLicitatorio.txt";
 		
 		try {
 			try {
@@ -44,23 +44,26 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 				String linha = leitura.readLine();
 				
 				while(linha != null) {
-
-					try {						
-						String[] campos = linha.split(";");
-						
-						TomadaPreco tomadaPreco = new TomadaPreco();
-						tomadaPreco.setNumero(Integer.parseInt(campos[3]));
-						tomadaPreco.setDataExpedicao(LocalDateTime.now());
-						tomadaPreco.setObjetoLicitacao(campos[5]);
-						tomadaPreco.setValorEstimadoEdital(200000);
-						tomadaPreco.setPermiteSubcontratacao(Boolean.parseBoolean(campos[0]));
-						tomadaPreco.setCondicaoPagamento(campos[1]);
-						tomadaPreco.setValorEstimadoDotacaoOrcamentaria(Float.parseFloat(campos[2]));
-						System.out.println("Valor Estimado do Edital R$ " + tomadaPreco.calcularValorEstimadoEdital());
-						tomadaPrecoService.incluir(tomadaPreco);
-					} catch (ValorEstimadoDotacaoOrcamentariaException e) {
-						System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
-					}
+					
+					String[] campos = linha.split(";");
+					
+					if ("t".equalsIgnoreCase(campos[0])) {
+						try {						
+							
+							TomadaPreco tomadaPreco = new TomadaPreco();
+							tomadaPreco.setNumero(Integer.parseInt(campos[4]));
+							tomadaPreco.setDataExpedicao(LocalDateTime.now());
+							tomadaPreco.setObjetoLicitacao(campos[6]);
+							tomadaPreco.setValorEstimadoEdital(200000);
+							tomadaPreco.setPermiteSubcontratacao(Boolean.parseBoolean(campos[1]));
+							tomadaPreco.setCondicaoPagamento(campos[2]);
+							tomadaPreco.setValorEstimadoDotacaoOrcamentaria(Float.parseFloat(campos[3]));
+							System.out.println("Valor Estimado do Edital R$ " + tomadaPreco.calcularValorEstimadoEdital());
+							tomadaPrecoService.incluir(tomadaPreco);
+						} catch (ValorEstimadoDotacaoOrcamentariaException e) {
+							System.out.println("[ERROR - TOMADA DE PRECO] " + e.getMessage());
+						}
+					}	
 					
 					linha = leitura.readLine();
 				}

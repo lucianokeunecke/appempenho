@@ -33,7 +33,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
-		String arquivo = "Concorrencia.txt";
+		String arquivo = "ProcessoLicitatorio.txt";
 		
 		try {
 			try {
@@ -45,20 +45,22 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 				
 				while(linha != null) {
 
-					try {						
-						String[] campos = linha.split(";");
-						
-						Concorrencia concorrencia = new Concorrencia();
-						concorrencia.setNumero(Integer.parseInt(campos[3]));
-						concorrencia.setDataExpedicao(LocalDateTime.now());
-						concorrencia.setObjetoLicitacao(campos[5]);
-						concorrencia.setEletronica(Boolean.parseBoolean(campos[0]));
-						concorrencia.setPrazoExecucao(campos[1]);
-						concorrencia.setValorMinimoCapital(Float.parseFloat(campos[2]));
-						System.out.println("Valor Estimado do Edital R$ " + concorrencia.calcularValorEstimadoEdital());
-						concorrenciaService.incluir(concorrencia);
-					} catch (ValorMinimoCapitalInvalidoException e) {
-						System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
+					String[] campos = linha.split(";");
+					
+					if ("c".equalsIgnoreCase(campos[0])) {
+						try {						
+							Concorrencia concorrencia = new Concorrencia();
+							concorrencia.setNumero(Integer.parseInt(campos[4]));
+							concorrencia.setDataExpedicao(LocalDateTime.now());
+							concorrencia.setObjetoLicitacao(campos[6]);
+							concorrencia.setEletronica(Boolean.parseBoolean(campos[1]));
+							concorrencia.setPrazoExecucao(campos[2]);
+							concorrencia.setValorMinimoCapital(Float.parseFloat(campos[3]));
+							System.out.println("Valor Estimado do Edital R$ " + concorrencia.calcularValorEstimadoEdital());
+							concorrenciaService.incluir(concorrencia);
+						} catch (ValorMinimoCapitalInvalidoException e) {
+							System.out.println("[ERROR - CONCORRENCIA] " + e.getMessage());
+						}
 					}
 					
 					linha = leitura.readLine();

@@ -33,7 +33,7 @@ public class PregaoTeste implements ApplicationRunner {
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
-		String arquivo = "Pregao.txt";
+		String arquivo = "ProcessoLicitatorio.txt";
 		
 		try {
 			try {
@@ -44,22 +44,24 @@ public class PregaoTeste implements ApplicationRunner {
 				String linha = leitura.readLine();
 				
 				while(linha != null) {
-
-					try {
-						String[] campos = linha.split(";");
-						
-						Pregao pregao = new Pregao();
-						pregao.setNumero(Integer.parseInt(campos[3]));
-						pregao.setDataExpedicao(LocalDateTime.now());
-						pregao.setObjetoLicitacao(campos[5]);
-						pregao.setValorEstimadoEdital(550000);
-						pregao.setRegistroPreco(Boolean.parseBoolean(campos[0]));
-						pregao.setCriterioJulgamento(campos[1]);
-						pregao.setIndiceReajuste(Float.parseFloat(campos[2]));		
-						System.out.println("Valor Estimado do Edital R$ " + pregao.calcularValorEstimadoEdital());
-						pregaoService.incluir(pregao);
-					} catch (IndiceReajusteZeradoNegativoException e) {
-						System.out.println("[ERROR - PREGAO] " + e.getMessage());
+					
+					String[] campos = linha.split(";");
+					
+					if ("p".equalsIgnoreCase(campos[0])) {
+						try {
+							Pregao pregao = new Pregao();
+							pregao.setNumero(Integer.parseInt(campos[4]));
+							pregao.setDataExpedicao(LocalDateTime.now());
+							pregao.setObjetoLicitacao(campos[6]);
+							pregao.setValorEstimadoEdital(550000);
+							pregao.setRegistroPreco(Boolean.parseBoolean(campos[1]));
+							pregao.setCriterioJulgamento(campos[2]);
+							pregao.setIndiceReajuste(Float.parseFloat(campos[3]));		
+							System.out.println("Valor Estimado do Edital R$ " + pregao.calcularValorEstimadoEdital());
+							pregaoService.incluir(pregao);
+						} catch (IndiceReajusteZeradoNegativoException e) {
+							System.out.println("[ERROR - PREGAO] " + e.getMessage());
+						}
 					}
 					
 					linha = leitura.readLine();

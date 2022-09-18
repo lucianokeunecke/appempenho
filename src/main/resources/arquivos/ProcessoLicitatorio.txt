@@ -1,0 +1,17 @@
+c;true;31 dias;500000.0;150;2022-08-27T07:45:07.505841100;Contratação de empresa especializada para execução de serviço de capeamento asfáltico
+c;false;45 dias;700000.0;153;2022-08-27T07:45:07.505841100;Contratação de empresa especializada para execução de serviço de engenharia
+c;true;1 ano e 2 meses;1000000.0;175;2022-08-27T07:45:07.506841700;Contratação de empresa especializada para execução de obra
+c;false;1 ano e 6 meses;600000.0;199;2022-08-27T07:45:07.506841700;Contratação de empresa especializada para execução de serviço de engenharia
+c;false;teste;49000.0;230;2022-08-27T07:45:07.506841700;Teste do valor minimo de capital
+p;true;Menor Preços;1.5;356;2022-08-27T07:58:08.413603900;Contratação de materiais de consumo;550000.0
+p;false;Maior Desconto;2.35;376;2022-08-27T07:58:08.413603900;Contratação de materiais de expediente;750000.0
+p;false;Maior Lance ou Oferta;0.75;397;2022-08-27T07:58:08.413603900;Contratação de materiais de escritório;850000.0
+p;true;Maior Retorno Econômico;0.33;403;2022-08-27T07:58:08.413603900;Contratação de materiais de higiene;766500.0
+p;true;teste;0.00;403;2022-08-27T07:58:08.413603900;teste do indice de reajuste zerado;766500.0
+p;true;teste;-0.45;403;2022-08-27T07:58:08.413603900;teste do indice de reajuste negativo;766500.0
+t;false;31/60/90 dias;150000.0;750;2022-08-27T08:08:42.388064600;Contratação de empresa especializada em serviço de limpeza;200000.0
+t;true;15/30/45/60 dias;350000.0;755;2022-08-27T08:08:42.388064600;Contratação de exames laboratoriais;290000.0
+t;false;45/90 dias;175000.0;796;2022-08-27T08:08:42.389063800;Contratação de empresa especializada em serviços de contrução civil;740500.0
+t;true;120 dias;199000.0;815;2022-08-27T08:08:42.389063800;Contratação de empresa especializada em serviços de engenharia civil;415000.0
+t;true;teste;-150000.0;815;2022-08-27T08:08:42.389063800;teste do valor estimado da dotação orçamentária negativo;415000.0
+t;true;teste;501000.0;815;2022-08-27T08:08:42.389063800;teste do valor estimado da dotação orçamentária maior que R$ 500.000,00 ;415000.0
