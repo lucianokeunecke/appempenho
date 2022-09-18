@@ -35,30 +35,19 @@
 	    <div class="mb-3 mt-3">
 	      <label>Fornecedor:</label>
 			  <select class="form-control" id="sel1">
-			    <option>1</option>
-			    <option>2</option>
-			    <option>3</option>
-			    <option>4</option>
+			  	<c:forEach var="f" items="${fornecedores}">
+			    	<option>${f.nome}</option>
+			  	</c:forEach>
 			  </select>	      
 	    </div>	    
 	    
 	    <div class="mb-3 mt-3">
 	      <label>Lista de Processos Licitatórios:</label>
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Option 1</label>
-			</div>	      
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Option 1</label>
-			</div>	      
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Option 1</label>
-			</div>	      
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Option 1</label>
-			</div>	      
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Option 1</label>
-			</div>	      
+		  	<c:forEach var="p" items="${processosLicitatorios}">
+				<div class="checkbox">
+				  <label><input type="checkbox" value=""> ${p.objetoLicitacao}</label>
+				</div>	      
+		  	</c:forEach>
 	    </div>	    
 	    
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>

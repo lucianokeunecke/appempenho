@@ -9,12 +9,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.appempenho.model.domain.Empenho;
 import br.edu.infnet.appempenho.model.service.EmpenhoService;
+import br.edu.infnet.appempenho.model.service.FornecedorService;
+import br.edu.infnet.appempenho.model.service.ProcessoLicitatorioService;
 
 @Controller
 public class EmpenhoController {
 	
 	@Autowired
 	private EmpenhoService empenhoService;
+	
+	@Autowired
+	private FornecedorService fornecedorService;
+	
+	@Autowired
+	private ProcessoLicitatorioService processoLicitatorioService;
 	
 	@GetMapping("/empenho/lista")
 	public String telaLista(Model model) {		
@@ -27,8 +35,8 @@ public class EmpenhoController {
 	@GetMapping(value = "/empenho")
 	public String telaCadastro(Model model) {
 		
-		model.addAttribute("fornecedores", null);
-		model.addAttribute("processosLicitatorios", null);
+		model.addAttribute("fornecedores", fornecedorService.obterLista());
+		model.addAttribute("processosLicitatorios", processoLicitatorioService.obterLista());
 		
 		return "empenho/cadastro";
 	}
