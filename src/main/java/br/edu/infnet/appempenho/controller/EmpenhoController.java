@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import br.edu.infnet.appempenho.model.domain.Empenho;
 import br.edu.infnet.appempenho.model.service.EmpenhoService;
 
 @Controller
@@ -22,8 +24,25 @@ public class EmpenhoController {
 		return "empenho/lista";
 	}
 	
+	@GetMapping(value = "/empenho")
+	public String telaCadastro(Model model) {
+		
+		model.addAttribute("fornecedores", null);
+		model.addAttribute("processosLicitatorios", null);
+		
+		return "empenho/cadastro";
+	}
+	
+	@PostMapping(value = "empenho/incluir")
+	public String incluir(Empenho empenho) {
+		
+		//empenhoService.incluir(empenho);
+		
+		return "redirect:/concorrencia/lista";
+	}	
+	
 	@GetMapping("/empenho/{id}/excluir")
-	public String exclusao(@PathVariable Integer id) {
+	public String excluir(@PathVariable Integer id) {
 		
 		empenhoService.excluir(id);
 		
