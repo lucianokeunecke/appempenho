@@ -10,12 +10,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appempenho.controller.EmpenhoController;
 import br.edu.infnet.appempenho.model.domain.Concorrencia;
 import br.edu.infnet.appempenho.model.domain.Empenho;
 import br.edu.infnet.appempenho.model.domain.Fornecedor;
@@ -25,10 +25,14 @@ import br.edu.infnet.appempenho.model.domain.TomadaPreco;
 import br.edu.infnet.appempenho.model.exception.CnpjCpfInvalidoException;
 import br.edu.infnet.appempenho.model.exception.EmpenhoSemProcessoLicitatorioException;
 import br.edu.infnet.appempenho.model.exception.FornecedorNuloException;
+import br.edu.infnet.appempenho.model.service.EmpenhoService;
 
 @Component
 @Order(1)
 public class EmpenhoTeste implements ApplicationRunner {
+	
+	@Autowired
+	private EmpenhoService empenhoService;
 
 	@Override
 	public void run(ApplicationArguments args) {
@@ -121,7 +125,7 @@ public class EmpenhoTeste implements ApplicationRunner {
 				
 				for (Empenho empenho: listaEmpenhos) {
 					
-					EmpenhoController.incluir(empenho);
+					empenhoService.incluir(empenho);
 					
 					System.out.println("Percorrendo a lista de empenhos " + empenho.getNumero());
 					System.out.println("Percorrendo a lista de empenhos " + empenho.getFornecedor().getNome());
