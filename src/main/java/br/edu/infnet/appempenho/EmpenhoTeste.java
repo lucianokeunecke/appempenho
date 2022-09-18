@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.boot.ApplicationArguments;
@@ -30,42 +32,6 @@ public class EmpenhoTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) {
-		
-		Concorrencia concorrencia1 = new Concorrencia();
-		concorrencia1.setNumero(150);
-		concorrencia1.setDataExpedicao(LocalDateTime.now());
-		concorrencia1.setObjetoLicitacao("Contratação de empresa especializada para execução de serviço de capeamento asfáltico");
-		concorrencia1.setValorEstimadoEdital(150000);
-		concorrencia1.setEletronica(true);
-		concorrencia1.setPrazoExecucao("30 dias");
-		concorrencia1.setValorMinimoCapital(500000);
-		
-		Concorrencia concorrencia2 = new Concorrencia();
-		concorrencia2.setNumero(151);
-		concorrencia2.setDataExpedicao(LocalDateTime.now());
-		concorrencia2.setObjetoLicitacao("Contratação de empresa especializada para execução de serviço de capeamento asfáltico");
-		concorrencia2.setValorEstimadoEdital(150000);
-		concorrencia2.setEletronica(true);
-		concorrencia2.setPrazoExecucao("30 dias");
-		concorrencia2.setValorMinimoCapital(500000);		
-		
-		Pregao pregao1 = new Pregao();
-		pregao1.setNumero(152);
-		pregao1.setDataExpedicao(LocalDateTime.now());
-		pregao1.setObjetoLicitacao("Contratação de materiais de consumo");
-		pregao1.setValorEstimadoEdital(550000);
-		pregao1.setRegistroPreco(true);
-		pregao1.setCriterioJulgamento("Menor Preço");
-		pregao1.setIndiceReajuste(1.5f);		
-
-		TomadaPreco tomadaPreco1 = new TomadaPreco();
-		tomadaPreco1.setNumero(153);
-		tomadaPreco1.setDataExpedicao(LocalDateTime.now());
-		tomadaPreco1.setObjetoLicitacao("Contratação de empresa especializada em serviço de limpeza");
-		tomadaPreco1.setValorEstimadoEdital(200000);
-		tomadaPreco1.setPermiteSubcontratacao(false);
-		tomadaPreco1.setCondicaoPagamento("30/60/90 dias");
-		tomadaPreco1.setValorEstimadoDotacaoOrcamentaria(150000);	
 
 		System.out.println("");
 		System.out.println("====================================================================================================================");
@@ -82,34 +48,85 @@ public class EmpenhoTeste implements ApplicationRunner {
 				
 				BufferedReader leitura = new BufferedReader(fileReader); 
 				
+				Set<ProcessoLicitatorio> listaProcessosLicitatorios = null;
+				
+				List<Empenho> listaEmpenhos = new ArrayList<Empenho>();
+				
 				String linha = leitura.readLine();
 				
 				while(linha != null) {
-
-					try {
+					
+					String[] campos = linha.split(";");
+					
+					switch (campos[0].toLowerCase()) {
+					case "e":
+						try {
+							listaProcessosLicitatorios = new HashSet<ProcessoLicitatorio>();
+							
+							Fornecedor fornecedor = new Fornecedor(Integer.parseInt(campos[4]), campos[5], Long.parseLong(campos[6])); 
+							
+							Empenho empenho = new Empenho(fornecedor, listaProcessosLicitatorios);
+							empenho.setNumero(Integer.parseInt(campos[1]));
+							empenho.setValor(Float.parseFloat(campos[3]));
+							
+							listaEmpenhos.add(empenho);
+						} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
+							System.out.println("[ERROR - EMPENHO] " + e.getMessage());
+						}
+						break;
+					case "c":
+						Concorrencia concorrencia = new Concorrencia();
+						concorrencia.setNumero(Integer.parseInt(campos[4]));
+						concorrencia.setDataExpedicao(LocalDateTime.now());
+						concorrencia.setObjetoLicitacao(campos[6]);
+						concorrencia.setEletronica(Boolean.parseBoolean(campos[1]));
+						concorrencia.setPrazoExecucao(campos[2]);
+						concorrencia.setValorMinimoCapital(Float.parseFloat(campos[3]));
 						
-						String[] campos = linha.split(";");
+						listaProcessosLicitatorios.add(concorrencia);
 						
-						Set<ProcessoLicitatorio> listaProcessosLicitatorios1 = new HashSet<ProcessoLicitatorio>();
-						listaProcessosLicitatorios1.add(concorrencia1);
-						listaProcessosLicitatorios1.add(concorrencia2);
-						listaProcessosLicitatorios1.add(pregao1);
-						listaProcessosLicitatorios1.add(concorrencia1);
-						listaProcessosLicitatorios1.add(concorrencia2);
-						listaProcessosLicitatorios1.add(pregao1);
-						listaProcessosLicitatorios1.add(tomadaPreco1);
+						break;
+					case "p":
+						Pregao pregao = new Pregao();
+						pregao.setNumero(Integer.parseInt(campos[4]));
+						pregao.setDataExpedicao(LocalDateTime.now());
+						pregao.setObjetoLicitacao(campos[6]);
+						pregao.setValorEstimadoEdital(550000);
+						pregao.setRegistroPreco(Boolean.parseBoolean(campos[1]));
+						pregao.setCriterioJulgamento(campos[2]);
+						pregao.setIndiceReajuste(Float.parseFloat(campos[3]));		
 						
-						Fornecedor fornecedor1 = new Fornecedor(Integer.parseInt(campos[3]), campos[4], Long.parseLong(campos[5])); 
+						listaProcessosLicitatorios.add(pregao);
 						
-						Empenho empenho1 = new Empenho(fornecedor1, listaProcessosLicitatorios1);
-						empenho1.setNumero(Integer.parseInt(campos[0]));
-						empenho1.setValor(Float.parseFloat(campos[2]));
-						EmpenhoController.incluir(empenho1);
-					} catch (CnpjCpfInvalidoException | FornecedorNuloException | EmpenhoSemProcessoLicitatorioException e) {
-						System.out.println("[ERROR - EMPENHO] " + e.getMessage());
+						break;
+					case "t":
+						TomadaPreco tomadaPreco = new TomadaPreco();
+						tomadaPreco.setNumero(Integer.parseInt(campos[4]));
+						tomadaPreco.setDataExpedicao(LocalDateTime.now());
+						tomadaPreco.setObjetoLicitacao(campos[6]);
+						tomadaPreco.setValorEstimadoEdital(200000);
+						tomadaPreco.setPermiteSubcontratacao(Boolean.parseBoolean(campos[1]));
+						tomadaPreco.setCondicaoPagamento(campos[2]);
+						tomadaPreco.setValorEstimadoDotacaoOrcamentaria(Float.parseFloat(campos[3]));
+						
+						listaProcessosLicitatorios.add(tomadaPreco);
+						
+						break;
+					default:
+						break;
 					}
 					
 					linha = leitura.readLine();
+				}
+				
+				for (Empenho empenho: listaEmpenhos) {
+					
+					EmpenhoController.incluir(empenho);
+					
+					System.out.println("Percorrendo a lista de empenhos " + empenho.getNumero());
+					System.out.println("Percorrendo a lista de empenhos " + empenho.getFornecedor().getNome());
+					System.out.println("Percorrendo a lista de empenhos " + empenho.getListaProcessosLicitatorios().size());
+					
 				}
 				
 				leitura.close();

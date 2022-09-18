@@ -22,13 +22,13 @@ public class Empenho implements IPrinter {
 			throw new FornecedorNuloException("Fornecedor não informado.");
 		}
 		
-		if (listaProcessosLicitatorios == null) {
+		/*if (listaProcessosLicitatorios == null) {
 			throw new EmpenhoSemProcessoLicitatorioException("Processo licitatório não informado.");
 		}
 		
 		if (listaProcessosLicitatorios.size() < 1) {
 			throw new EmpenhoSemProcessoLicitatorioException("Deve ser informado pelo menor um processo licitatório.");
-		}
+		}*/
 		
 		this.data = LocalDateTime.now();
 		this.fornecedor = fornecedor;
