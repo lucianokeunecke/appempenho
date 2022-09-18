@@ -1,15 +1,29 @@
 package br.edu.infnet.appempenho.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import br.edu.infnet.appempenho.interfaces.IPrinter;
 import br.edu.infnet.appempenho.model.exception.CnpjCpfInvalidoException;
 
+@Entity
+@Table
 public class Fornecedor implements IPrinter {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int codigo;
 	private String nome;
 	private long cnpjCpf;
-	
+
+	public Fornecedor() {
+		
+	}
+
 	public Fornecedor(int codigo, String nome, long cnpjCpf) throws CnpjCpfInvalidoException {
 		
 		if (cnpjCpf == 0) {
