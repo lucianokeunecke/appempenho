@@ -19,9 +19,9 @@ public class FornecedorController {
 	private FornecedorService fornecedorService;
 	
 	@GetMapping("/fornecedor/lista")
-	public String telaLista(Model model) {		
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
-		model.addAttribute("listagem", fornecedorService.obterLista());
+		model.addAttribute("listagem", fornecedorService.obterLista(usuario));
 		
 		return "fornecedor/lista";
 	}

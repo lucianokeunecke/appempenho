@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appempenho.model.domain.Fornecedor;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.repository.FornecedorRepository;
 import br.edu.infnet.appempenho.model.test.AppImpressao;
 
@@ -30,6 +31,11 @@ public class FornecedorService {
 	public Collection<Fornecedor> obterLista(){
 		
 		return (Collection<Fornecedor>) fornecedorRepository.findAll();
+	}
+	
+	public Collection<Fornecedor> obterLista(Usuario usuario){
+		
+		return (Collection<Fornecedor>) fornecedorRepository.obterLista(usuario.getId());
 	}
 
 }
