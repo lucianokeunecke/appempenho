@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appempenho.model.domain.Empenho;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.service.EmpenhoService;
 import br.edu.infnet.appempenho.model.service.FornecedorService;
 import br.edu.infnet.appempenho.model.service.ProcessoLicitatorioService;
@@ -33,10 +35,10 @@ public class EmpenhoController {
 	}
 	
 	@GetMapping(value = "/empenho")
-	public String telaCadastro(Model model) {
+	public String telaCadastro(Model model, @SessionAttribute("user") Usuario usuario) {
 		
-		model.addAttribute("fornecedores", fornecedorService.obterLista());
-		model.addAttribute("processosLicitatorios", processoLicitatorioService.obterLista());
+		model.addAttribute("fornecedores", fornecedorService.obterLista(usuario));
+		model.addAttribute("processosLicitatorios", processoLicitatorioService.obterLista(usuario));
 		
 		return "empenho/cadastro";
 	}
