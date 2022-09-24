@@ -1,6 +1,7 @@
 package br.edu.infnet.appempenho.model.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -30,6 +32,8 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	private LocalDateTime dataExpedicao;
 	private String objetoLicitacao;
 	private float valorEstimadoEdital;
+	@ManyToMany(mappedBy = "listaProcessosLicitatorios")
+	private List<Empenho> listaEmpenhos;
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;	
@@ -87,6 +91,14 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public List<Empenho> getListaEmpenhos() {
+		return listaEmpenhos;
+	}
+
+	public void setListaEmpenhos(List<Empenho> listaEmpenhos) {
+		this.listaEmpenhos = listaEmpenhos;
 	}
 
 	@Override

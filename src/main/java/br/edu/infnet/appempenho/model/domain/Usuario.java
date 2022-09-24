@@ -28,6 +28,9 @@ public class Usuario implements IPrinter {
 	@OneToMany
 	@JoinColumn(name = "idUsuario")
 	private List<ProcessoLicitatorio> listaProcessosLicitatorios;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Empenho> listaEmpenhos;
 
 	public int getId() {
 		return id;
@@ -75,6 +78,14 @@ public class Usuario implements IPrinter {
 
 	public void setListaProcessosLicitatorios(List<ProcessoLicitatorio> listaProcessosLicitatorios) {
 		this.listaProcessosLicitatorios = listaProcessosLicitatorios;
+	}
+
+	public List<Empenho> getListaEmpenhos() {
+		return listaEmpenhos;
+	}
+
+	public void setListaEmpenhos(List<Empenho> listaEmpenhos) {
+		this.listaEmpenhos = listaEmpenhos;
 	}
 
 	@Override
