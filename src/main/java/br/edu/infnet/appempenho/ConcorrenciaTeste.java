@@ -13,6 +13,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appempenho.model.domain.Concorrencia;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.exception.ValorMinimoCapitalInvalidoException;
 import br.edu.infnet.appempenho.model.service.ConcorrenciaService;
 
@@ -30,6 +31,9 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 		System.out.println("====================================================================================================================");
 		System.out.println("********************************************** CONCORRENCIA ********************************************************");
 		System.out.println("====================================================================================================================");
+		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
@@ -56,6 +60,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 							concorrencia.setEletronica(Boolean.parseBoolean(campos[1]));
 							concorrencia.setPrazoExecucao(campos[2]);
 							concorrencia.setValorMinimoCapital(Float.parseFloat(campos[3]));
+							concorrencia.setUsuario(usuario);
 							System.out.println("Valor Estimado do Edital R$ " + concorrencia.calcularValorEstimadoEdital());
 							concorrenciaService.incluir(concorrencia);
 						} catch (ValorMinimoCapitalInvalidoException e) {

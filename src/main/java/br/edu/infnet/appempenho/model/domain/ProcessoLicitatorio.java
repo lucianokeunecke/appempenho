@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.edu.infnet.appempenho.interfaces.IPrinter;
@@ -28,6 +30,9 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	private LocalDateTime dataExpedicao;
 	private String objetoLicitacao;
 	private float valorEstimadoEdital;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;	
 	
 	public abstract float calcularValorEstimadoEdital() throws ValorMinimoCapitalInvalidoException, IndiceReajusteZeradoNegativoException, ValorEstimadoDotacaoOrcamentariaException; 
 	
@@ -74,6 +79,14 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	@Override
 	public String toString() {
 		return numero + ";" + dataExpedicao + ";" + objetoLicitacao + ";" + valorEstimadoEdital;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

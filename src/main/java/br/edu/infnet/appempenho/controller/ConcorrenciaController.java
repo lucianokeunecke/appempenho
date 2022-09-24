@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appempenho.model.domain.Concorrencia;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.service.ConcorrenciaService;
 
 @Controller
@@ -17,9 +19,9 @@ public class ConcorrenciaController {
 	private ConcorrenciaService concorrenciaService;
 	
 	@GetMapping("/concorrencia/lista")
-	public String telaLista(Model model) {		
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
-		model.addAttribute("listagem", concorrenciaService.obterLista());
+		model.addAttribute("listagem", concorrenciaService.obterLista(usuario));
 		
 		return "concorrencia/lista";
 	}
@@ -31,7 +33,9 @@ public class ConcorrenciaController {
 	}	
 	
 	@PostMapping(value = "concorrencia/incluir")
-	public String incluir(Concorrencia concorrencia) {
+	public String incluir(Concorrencia concorrencia, @SessionAttribute("user") Usuario usuario) {
+		
+		concorrencia.setUsuario(usuario);
 		
 		concorrenciaService.incluir(concorrencia);
 		
