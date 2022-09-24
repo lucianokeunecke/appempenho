@@ -10,7 +10,7 @@ import br.edu.infnet.appempenho.interfaces.IPrinter;
 import br.edu.infnet.appempenho.model.exception.CnpjCpfInvalidoException;
 
 @Entity
-@Table
+@Table(name = "TFornecedor")
 public class Fornecedor implements IPrinter {
 	
 	@Id
@@ -49,14 +49,26 @@ public class Fornecedor implements IPrinter {
 
 	public int getCodigo() {
 		return codigo;
-	}	
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 	public String getNome() {
 		return nome;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public long getCnpjCpf() {
 		return cnpjCpf;
+	}
+
+	public void setCnpjCpf(long cnpjCpf) {
+		this.cnpjCpf = cnpjCpf;
 	}
 
 	@Override
