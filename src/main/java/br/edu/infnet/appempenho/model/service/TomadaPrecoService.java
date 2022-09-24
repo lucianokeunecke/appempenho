@@ -1,36 +1,35 @@
 package br.edu.infnet.appempenho.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appempenho.model.domain.TomadaPreco;
+import br.edu.infnet.appempenho.model.repository.TomadaPrecoRepository;
 import br.edu.infnet.appempenho.model.test.AppImpressao;
 
 @Service
 public class TomadaPrecoService {
 	
-	private static Map<Integer, TomadaPreco> mapaTomadaPreco = new HashMap<Integer, TomadaPreco>();
-	
-	private static Integer id = 1;
+	@Autowired
+	private TomadaPrecoRepository tomadaPrecoRepository;
 	
 	public void incluir(TomadaPreco tomadaPreco) {
 		
-		tomadaPreco.setId(id++);
-		
-		mapaTomadaPreco.put(tomadaPreco.getId(), tomadaPreco);
+		tomadaPrecoRepository.save(tomadaPreco);
 		
 		AppImpressao.relatorio("Inclusão da Tomada de Preço Nº " + tomadaPreco.getNumero(), tomadaPreco);
 	}
 	
 	public void excluir(Integer id) {
-		mapaTomadaPreco.remove(id);
+		
+		tomadaPrecoRepository.deleteById(id);
 	}
 	
 	public Collection<TomadaPreco> obterLista(){
-		return mapaTomadaPreco.values();
+		
+		return (Collection<TomadaPreco>) tomadaPrecoRepository.findAll();
 	}
 
 }
