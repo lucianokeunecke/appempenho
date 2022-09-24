@@ -25,6 +25,7 @@
 	        <th>Código</th>
 	        <th>Razão Social/Nome do Fornecedor</th>
 	        <th>CNPJ/CPF</th>
+	        <th>Usuário</th>
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -36,6 +37,7 @@
 		        <td>${b.codigo}</td>
 		        <td>${b.nome}</td>
 		        <td>${b.cnpjCpf}</td>
+		        <td>${b.usuario.nome}</td>
 		        <td><a href="/fornecedor/${b.id}/excluir">Excluir</a></td>
 		      </tr>    	  
     	  </c:forEach>

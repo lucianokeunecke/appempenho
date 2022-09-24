@@ -33,9 +33,6 @@ public class FornecedorTeste implements ApplicationRunner {
 		
 		Usuario usuario = new Usuario();
 		usuario.setId(1);
-		usuario.setEmail("admin@gmail.com");
-		usuario.setNome("Administrador");
-		usuario.setSenha("654321");
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
