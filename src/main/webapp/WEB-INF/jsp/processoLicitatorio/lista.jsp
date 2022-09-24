@@ -11,38 +11,33 @@
 <body>
 
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
-
+	
 	<div class="container mt-3">
 	  
-	  <h3>Classe: ProcessoLicitatorio</h3>
+	  <h3>Cadastro de Processo Licitatório</h3>
+	  
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	        <th>ID</th>
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
-	        <th>Valor Estimado do Edital</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr>
-	        <td>701</td>
-	        <td>15/07/2022</td>
-	        <td>Aquisição de bens patrimoniais</td>
-	        <td>75.000,00</td>
-	      </tr>
-	      <tr>
-	        <td>713</td>
-	        <td>19/07/2022</td>
-	        <td>Aquisição de peças de veículos</td>
-	        <td>105.000,00</td>
-	      </tr>
-	      <tr>
-	        <td>737</td>
-	        <td>31/07/2022</td>
-	        <td>Aquisição de materiais elétricos</td>
-	        <td>145.000,00</td>
-	      </tr>
+	    
+    	  <c:forEach var="b" items="${listagem}">
+		      <tr>
+		        <td>${b.id}</td>
+		        <td>${b.numero}</td>
+		        <td>${b.dataExpedicao}</td>
+		        <td>${b.objetoLicitacao}</td>
+		        <td><a href="/processoLicitatorio/${b.id}/excluir">Excluir</a></td>
+		      </tr>    	  
+    	  </c:forEach>
+	      
 	    </tbody>
 	  </table>
 	  

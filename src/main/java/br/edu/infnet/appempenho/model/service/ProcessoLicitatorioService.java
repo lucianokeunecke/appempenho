@@ -1,34 +1,30 @@
 package br.edu.infnet.appempenho.model.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appempenho.model.domain.ProcessoLicitatorio;
+import br.edu.infnet.appempenho.model.domain.Usuario;
+import br.edu.infnet.appempenho.model.repository.ProcessoLicitatorioRepository;
 
 @Service
 public class ProcessoLicitatorioService {
 	
 	@Autowired
-	private ConcorrenciaService concorrenciaService;
+	ProcessoLicitatorioRepository processoLicitatorioRepository;
 	
-	@Autowired
-	private PregaoService pregaoService;
+	public List<ProcessoLicitatorio> obterLista() {
+		return (List<ProcessoLicitatorio>) processoLicitatorioRepository.findAll();
+	}
 	
-	@Autowired
-	private TomadaPrecoService tomadaPrecoService;
+	public List<ProcessoLicitatorio> obterLista(Usuario usuario) {
+		return (List<ProcessoLicitatorio>) processoLicitatorioRepository.obterLista(usuario.getId());
+	}
 	
-	public List<ProcessoLicitatorio> obterLista(){
-		
-		List<ProcessoLicitatorio> listaProcessosLicitatorios = new ArrayList<ProcessoLicitatorio>();
-		
-		listaProcessosLicitatorios.addAll(concorrenciaService.obterLista());
-		listaProcessosLicitatorios.addAll(pregaoService.obterLista());
-		listaProcessosLicitatorios.addAll(tomadaPrecoService.obterLista());
-		
-		return listaProcessosLicitatorios;
-	}	
+	public void excluir(Integer id) {
+		processoLicitatorioRepository.deleteById(id);
+	}
 
 }
