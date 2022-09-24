@@ -13,6 +13,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appempenho.model.domain.TomadaPreco;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.exception.ValorEstimadoDotacaoOrcamentariaException;
 import br.edu.infnet.appempenho.model.service.TomadaPrecoService;
 
@@ -30,6 +31,9 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 		System.out.println("====================================================================================================================");
 		System.out.println("****************************************** TOMADA DE PRECO *********************************************************");
 		System.out.println("====================================================================================================================");
+		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
@@ -58,6 +62,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 							tomadaPreco.setPermiteSubcontratacao(Boolean.parseBoolean(campos[1]));
 							tomadaPreco.setCondicaoPagamento(campos[2]);
 							tomadaPreco.setValorEstimadoDotacaoOrcamentaria(Float.parseFloat(campos[3]));
+							tomadaPreco.setUsuario(usuario);
 							System.out.println("Valor Estimado do Edital R$ " + tomadaPreco.calcularValorEstimadoEdital());
 							tomadaPrecoService.incluir(tomadaPreco);
 						} catch (ValorEstimadoDotacaoOrcamentariaException e) {

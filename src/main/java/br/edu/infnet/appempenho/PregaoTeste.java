@@ -13,6 +13,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appempenho.model.domain.Pregao;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.exception.IndiceReajusteZeradoNegativoException;
 import br.edu.infnet.appempenho.model.service.PregaoService;
 
@@ -30,6 +31,9 @@ public class PregaoTeste implements ApplicationRunner {
 		System.out.println("====================================================================================================================");
 		System.out.println("************************************************* PREGAO ***********************************************************");
 		System.out.println("====================================================================================================================");
+		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
@@ -56,7 +60,8 @@ public class PregaoTeste implements ApplicationRunner {
 							pregao.setValorEstimadoEdital(550000);
 							pregao.setRegistroPreco(Boolean.parseBoolean(campos[1]));
 							pregao.setCriterioJulgamento(campos[2]);
-							pregao.setIndiceReajuste(Float.parseFloat(campos[3]));		
+							pregao.setIndiceReajuste(Float.parseFloat(campos[3]));
+							pregao.setUsuario(usuario);
 							System.out.println("Valor Estimado do Edital R$ " + pregao.calcularValorEstimadoEdital());
 							pregaoService.incluir(pregao);
 						} catch (IndiceReajusteZeradoNegativoException e) {

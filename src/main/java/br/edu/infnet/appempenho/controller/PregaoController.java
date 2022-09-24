@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appempenho.model.domain.Pregao;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.service.PregaoService;
 
 @Controller
@@ -17,9 +19,9 @@ public class PregaoController {
 	private PregaoService pregaoService;	
 	
 	@GetMapping("/pregao/lista")
-	public String telaLista(Model model) {		
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
-		model.addAttribute("listagem", pregaoService.obterLista());
+		model.addAttribute("listagem", pregaoService.obterLista(usuario));
 		
 		return "pregao/lista";
 	}	
@@ -31,7 +33,9 @@ public class PregaoController {
 	}	
 	
 	@PostMapping(value = "pregao/incluir")
-	public String incluir(Pregao pregao) {
+	public String incluir(Pregao pregao, @SessionAttribute("user") Usuario usuario) {
+		
+		pregao.setUsuario(usuario);
 		
 		pregaoService.incluir(pregao);
 		

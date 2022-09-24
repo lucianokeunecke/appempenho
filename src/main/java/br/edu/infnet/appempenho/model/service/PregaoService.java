@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appempenho.model.domain.Pregao;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.repository.PregaoRepository;
 import br.edu.infnet.appempenho.model.test.AppImpressao;
 
@@ -31,5 +32,10 @@ public class PregaoService {
 		
 		return (Collection<Pregao>) pregaoRepository.findAll();
 	}
+	
+	public Collection<Pregao> obterLista(Usuario usuario){
+		
+		return (Collection<Pregao>) pregaoRepository.obterLista(usuario.getId());
+	}	
 
 }
