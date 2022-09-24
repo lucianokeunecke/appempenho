@@ -1,7 +1,12 @@
 package br.edu.infnet.appempenho.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appempenho.model.exception.ValorMinimoCapitalInvalidoException;
 
+@Entity
+@Table(name = "TConcorrencia")
 public class Concorrencia extends ProcessoLicitatorio {
 	
 	private boolean eletronica;

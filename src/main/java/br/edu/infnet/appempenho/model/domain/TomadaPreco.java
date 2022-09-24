@@ -1,7 +1,12 @@
 package br.edu.infnet.appempenho.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appempenho.model.exception.ValorEstimadoDotacaoOrcamentariaException;
 
+@Entity
+@Table(name = "TTomadaPreco")
 public class TomadaPreco extends ProcessoLicitatorio {
 	
 	private boolean permiteSubcontratacao;

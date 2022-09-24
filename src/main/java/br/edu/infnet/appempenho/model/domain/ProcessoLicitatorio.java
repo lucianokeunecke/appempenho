@@ -3,13 +3,26 @@ package br.edu.infnet.appempenho.model.domain;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import br.edu.infnet.appempenho.interfaces.IPrinter;
 import br.edu.infnet.appempenho.model.exception.IndiceReajusteZeradoNegativoException;
 import br.edu.infnet.appempenho.model.exception.ValorEstimadoDotacaoOrcamentariaException;
 import br.edu.infnet.appempenho.model.exception.ValorMinimoCapitalInvalidoException;
 
+@Entity
+@Table(name = "TProcessoLicitatorio")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ProcessoLicitatorio implements IPrinter {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int numero;
 	private LocalDateTime dataExpedicao;
