@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -55,7 +55,7 @@ public class PregaoTeste implements ApplicationRunner {
 						try {
 							Pregao pregao = new Pregao();
 							pregao.setNumero(Integer.parseInt(campos[4]));
-							pregao.setDataExpedicao(LocalDateTime.now());
+							pregao.setDataExpedicao(LocalDate.now());
 							pregao.setObjetoLicitacao(campos[6]);
 							pregao.setValorEstimadoEdital(550000);
 							pregao.setRegistroPreco(Boolean.parseBoolean(campos[1]));

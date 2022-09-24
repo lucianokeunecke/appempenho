@@ -34,10 +34,13 @@ public class EmpenhoTeste implements ApplicationRunner {
 		
 		Concorrencia concorrencia1 = new Concorrencia();
 		concorrencia1.setId(1);
+		concorrencia1.setNumero(120);		
 		Concorrencia concorrencia2 = new Concorrencia();
 		concorrencia2.setId(2);
+		concorrencia2.setNumero(130);		
 		Concorrencia concorrencia3 = new Concorrencia();
 		concorrencia3.setId(3);
+		concorrencia3.setNumero(140);		
 		
 		listaProcessosLicitatorios.add(concorrencia1);
 		listaProcessosLicitatorios.add(concorrencia2);

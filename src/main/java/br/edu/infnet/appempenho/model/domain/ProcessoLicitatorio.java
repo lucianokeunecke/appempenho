@@ -1,6 +1,6 @@
 package br.edu.infnet.appempenho.model.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,7 +29,7 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int numero;
-	private LocalDateTime dataExpedicao;
+	private LocalDate dataExpedicao;
 	private String objetoLicitacao;
 	private float valorEstimadoEdital;
 	@ManyToMany(mappedBy = "listaProcessosLicitatorios")
@@ -56,11 +56,11 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 		this.numero = numero;
 	}
 
-	public LocalDateTime getDataExpedicao() {
+	public LocalDate getDataExpedicao() {
 		return dataExpedicao;
 	}
 
-	public void setDataExpedicao(LocalDateTime dataExpedicao) {
+	public void setDataExpedicao(LocalDate dataExpedicao) {
 		this.dataExpedicao = dataExpedicao;
 	}
 

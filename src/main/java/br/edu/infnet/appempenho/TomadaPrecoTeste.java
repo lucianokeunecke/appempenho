@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -56,7 +56,7 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 							
 							TomadaPreco tomadaPreco = new TomadaPreco();
 							tomadaPreco.setNumero(Integer.parseInt(campos[4]));
-							tomadaPreco.setDataExpedicao(LocalDateTime.now());
+							tomadaPreco.setDataExpedicao(LocalDate.now());
 							tomadaPreco.setObjetoLicitacao(campos[6]);
 							tomadaPreco.setValorEstimadoEdital(200000);
 							tomadaPreco.setPermiteSubcontratacao(Boolean.parseBoolean(campos[1]));

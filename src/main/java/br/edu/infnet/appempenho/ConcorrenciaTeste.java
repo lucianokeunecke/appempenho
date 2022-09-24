@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -55,7 +55,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 						try {						
 							Concorrencia concorrencia = new Concorrencia();
 							concorrencia.setNumero(Integer.parseInt(campos[4]));
-							concorrencia.setDataExpedicao(LocalDateTime.now());
+							concorrencia.setDataExpedicao(LocalDate.now());
 							concorrencia.setObjetoLicitacao(campos[6]);
 							concorrencia.setEletronica(Boolean.parseBoolean(campos[1]));
 							concorrencia.setPrazoExecucao(campos[2]);
