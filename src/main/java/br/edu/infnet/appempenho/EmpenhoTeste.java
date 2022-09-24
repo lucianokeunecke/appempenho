@@ -28,7 +28,7 @@ import br.edu.infnet.appempenho.model.exception.FornecedorNuloException;
 import br.edu.infnet.appempenho.model.service.EmpenhoService;
 
 @Component
-@Order(1)
+@Order(6)
 public class EmpenhoTeste implements ApplicationRunner {
 	
 	@Autowired

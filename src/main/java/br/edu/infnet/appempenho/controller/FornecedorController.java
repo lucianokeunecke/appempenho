@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appempenho.model.domain.Fornecedor;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.service.FornecedorService;
 
 @Controller
@@ -31,7 +33,9 @@ public class FornecedorController {
 	}
 	
 	@PostMapping(value = "fornecedor/incluir")
-	public String incluir(Fornecedor fornecedor) {
+	public String incluir(Fornecedor fornecedor, @SessionAttribute("user") Usuario usuario) {
+		
+		fornecedor.setUsuario(usuario);
 		
 		fornecedorService.incluir(fornecedor);
 		

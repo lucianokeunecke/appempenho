@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.edu.infnet.appempenho.interfaces.IPrinter;
@@ -19,6 +21,9 @@ public class Fornecedor implements IPrinter {
 	private int codigo;
 	private String nome;
 	private long cnpjCpf;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 
 	public Fornecedor() {
 		
@@ -69,6 +74,14 @@ public class Fornecedor implements IPrinter {
 
 	public void setCnpjCpf(long cnpjCpf) {
 		this.cnpjCpf = cnpjCpf;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

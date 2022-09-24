@@ -12,6 +12,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appempenho.model.domain.Fornecedor;
+import br.edu.infnet.appempenho.model.domain.Usuario;
 import br.edu.infnet.appempenho.model.exception.CnpjCpfInvalidoException;
 import br.edu.infnet.appempenho.model.service.FornecedorService;
 
@@ -29,6 +30,12 @@ public class FornecedorTeste implements ApplicationRunner {
 		System.out.println("====================================================================================================================");
 		System.out.println("*********************************************** FORNECEDOR *********************************************************");
 		System.out.println("====================================================================================================================");
+		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
+		usuario.setEmail("admin@gmail.com");
+		usuario.setNome("Administrador");
+		usuario.setSenha("654321");
 		
 		String diretorio = "D:/Keunecke/INFNET/Modulo 03/appempenho/src/main/resources/arquivos/";
 		
@@ -48,6 +55,7 @@ public class FornecedorTeste implements ApplicationRunner {
 						String[] campos = linha.split(";");
 						
 						Fornecedor fornecedor = new Fornecedor(Integer.parseInt(campos[0]), campos[1], Long.parseLong(campos[2]));
+						fornecedor.setUsuario(usuario);
 						fornecedorService.incluir(fornecedor);
 					} catch (CnpjCpfInvalidoException e) {
 						System.out.println("[ERROR - FORNECEDOR] " + e.getMessage());
