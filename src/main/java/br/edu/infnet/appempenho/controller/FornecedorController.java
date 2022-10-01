@@ -18,10 +18,16 @@ public class FornecedorController {
 	@Autowired
 	private FornecedorService fornecedorService;
 	
+	private String mensagem;
+	private String tipoMensagem;
+	
 	@GetMapping("/fornecedor/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
 		model.addAttribute("listagem", fornecedorService.obterLista(usuario));
+		
+		model.addAttribute("mensagem", mensagem);
+		model.addAttribute("tipoMensagem", tipoMensagem);
 		
 		return "fornecedor/lista";
 	}
@@ -39,13 +45,24 @@ public class FornecedorController {
 		
 		fornecedorService.incluir(fornecedor);
 		
+		mensagem = "Inclusão do fornecedor " + fornecedor.getNome() + " realizada com sucesso";
+		tipoMensagem = "alert-info";
+		
 		return "redirect:/fornecedor/lista";
 	}
 	
 	@GetMapping(value = "/fornecedor/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		fornecedorService.excluir(id);
+		try {
+			fornecedorService.excluir(id);
+			
+			mensagem = "Exclusão do fornecedor " + id + " realizada com sucesso";
+			tipoMensagem = "alert-info";
+		} catch (Exception e) {
+			mensagem = "Impossível realizar a exclusão do fornecedor " + id;
+			tipoMensagem = "alert-danger";
+		}
 		
 		return "redirect:/fornecedor/lista";
 	}
