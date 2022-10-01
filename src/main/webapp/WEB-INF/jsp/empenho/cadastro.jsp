@@ -10,6 +10,8 @@
 </head>
 <body>
 
+	<c:set var="ativaBotao" value="" />
+
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
@@ -33,24 +35,39 @@
 	    </div>	    
 	    
 	    <div class="mb-3 mt-3">
-	      <label>Fornecedor:</label>
+	    
+	      <c:if test="${not empty fornecedores}">	
+	      	<label>Fornecedor:</label>
 			  <select name="fornecedor" class="form-control" id="sel1">
-			  	<c:forEach var="f" items="${fornecedores}">
-			    	<option value="${f.id}">${f.nome}</option>
+				  <c:forEach var="f" items="${fornecedores}">
+				   	<option value="${f.id}">${f.nome}</option>
+				  </c:forEach>
+			  </select>	  
+		  </c:if>
+		  
+	      <c:if test="${empty fornecedores}">	
+	      	<label>Não existem Fornecedores cadastrados</label>
+	      	<c:set var="ativaBotao" value="disabled" />
+		  </c:if>    
+		      
+	    </div>	    
+	    
+	    <div class="mb-3 mt-3">	    
+		    <c:if test="${not empty processosLicitatorios}">
+		      <label>Lista de Processos Licitatórios:</label>
+			  	<c:forEach var="p" items="${processosLicitatorios}">
+					<div class="checkbox">
+					  <label><input type="checkbox" name="processosLicitatorios" value="${p.id}"> ${p.objetoLicitacao}</label>
+					</div>	      
 			  	</c:forEach>
-			  </select>	      
+		    </c:if>
+		    <c:if test="${empty processosLicitatorios}">
+		      <label>Não existem Processos Licitatórios cadastrados</label>
+		      <c:set var="ativaBotao" value="disabled" />
+		    </c:if>
 	    </div>	    
 	    
-	    <div class="mb-3 mt-3">
-	      <label>Lista de Processos Licitatórios:</label>
-		  	<c:forEach var="p" items="${processosLicitatorios}">
-				<div class="checkbox">
-				  <label><input type="checkbox" name="processosLicitatorios" value="${p.id}"> ${p.objetoLicitacao}</label>
-				</div>	      
-		  	</c:forEach>
-	    </div>	    
-	    
-	    <button type="submit" class="btn btn-primary">Cadastrar</button>
+	    <button ${ativaBotao} type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>
 	</div>	  
 	  
