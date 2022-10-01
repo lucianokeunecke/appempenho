@@ -32,8 +32,8 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	private LocalDate dataExpedicao;
 	private String objetoLicitacao;
 	private float valorEstimadoEdital;
-	@ManyToMany(mappedBy = "listaProcessosLicitatorios")
-	private List<Empenho> listaEmpenhos;
+	@ManyToMany(mappedBy = "processosLicitatorios")
+	private List<Empenho> empenhos;
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;	
@@ -91,14 +91,14 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}	
+
+	public List<Empenho> getEmpenhos() {
+		return empenhos;
 	}
 
-	public List<Empenho> getListaEmpenhos() {
-		return listaEmpenhos;
-	}
-
-	public void setListaEmpenhos(List<Empenho> listaEmpenhos) {
-		this.listaEmpenhos = listaEmpenhos;
+	public void setEmpenhos(List<Empenho> empenhos) {
+		this.empenhos = empenhos;
 	}
 
 	@Override

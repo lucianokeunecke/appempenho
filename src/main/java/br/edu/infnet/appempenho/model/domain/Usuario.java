@@ -24,13 +24,13 @@ public class Usuario implements IPrinter {
 	private String senha;	
 	@OneToMany
 	@JoinColumn(name = "idUsuario")
-	private List<Fornecedor> listaFornecedores;
+	private List<Fornecedor> fornecedores;
 	@OneToMany
 	@JoinColumn(name = "idUsuario")
-	private List<ProcessoLicitatorio> listaProcessosLicitatorios;
+	private List<ProcessoLicitatorio> processosLicitatorios;
 	@OneToMany
 	@JoinColumn(name = "idUsuario")
-	private List<Empenho> listaEmpenhos;
+	private List<Empenho> empenhos;
 
 	public int getId() {
 		return id;
@@ -63,29 +63,29 @@ public class Usuario implements IPrinter {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}	
-
-	public List<Fornecedor> getListaFornecedores() {
-		return listaFornecedores;
+	
+	public List<Fornecedor> getFornecedores() {
+		return fornecedores;
 	}
 
-	public void setListaFornecedores(List<Fornecedor> listaFornecedores) {
-		this.listaFornecedores = listaFornecedores;
+	public void setFornecedores(List<Fornecedor> fornecedores) {
+		this.fornecedores = fornecedores;
 	}
 
-	public List<ProcessoLicitatorio> getListaProcessosLicitatorios() {
-		return listaProcessosLicitatorios;
+	public List<ProcessoLicitatorio> getProcessosLicitatorios() {
+		return processosLicitatorios;
 	}
 
-	public void setListaProcessosLicitatorios(List<ProcessoLicitatorio> listaProcessosLicitatorios) {
-		this.listaProcessosLicitatorios = listaProcessosLicitatorios;
+	public void setProcessosLicitatorios(List<ProcessoLicitatorio> processosLicitatorios) {
+		this.processosLicitatorios = processosLicitatorios;
 	}
 
-	public List<Empenho> getListaEmpenhos() {
-		return listaEmpenhos;
+	public List<Empenho> getEmpenhos() {
+		return empenhos;
 	}
 
-	public void setListaEmpenhos(List<Empenho> listaEmpenhos) {
-		this.listaEmpenhos = listaEmpenhos;
+	public void setEmpenhos(List<Empenho> empenhos) {
+		this.empenhos = empenhos;
 	}
 
 	@Override

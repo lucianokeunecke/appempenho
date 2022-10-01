@@ -39,7 +39,7 @@
 		        <td>${b.data}</td>
 		        <td>${b.valor}</td>
 		        <td>${b.fornecedor.nome}</td>
-		        <td>${b.listaProcessosLicitatorios.size()}</td>
+		        <td>${b.processosLicitatorios.size()}</td>
 		        <td><a href="/empenho/${b.id}/excluir">Excluir</a></td>
 		      </tr>    	  
     	  </c:forEach>

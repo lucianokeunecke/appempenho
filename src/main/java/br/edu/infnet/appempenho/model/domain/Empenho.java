@@ -32,7 +32,7 @@ public class Empenho implements IPrinter {
 	@JoinColumn(name = "idFornecedor")
 	private Fornecedor fornecedor;
 	@ManyToMany(cascade = CascadeType.DETACH)
-	private Set<ProcessoLicitatorio> listaProcessosLicitatorios;
+	private Set<ProcessoLicitatorio> processosLicitatorios;
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
@@ -41,7 +41,7 @@ public class Empenho implements IPrinter {
 		
 	}
 
-	public Empenho(Fornecedor fornecedor, Set<ProcessoLicitatorio> listaProcessosLicitatorios) throws FornecedorNuloException, EmpenhoSemProcessoLicitatorioException {
+	public Empenho(Fornecedor fornecedor, Set<ProcessoLicitatorio> processosLicitatorios) throws FornecedorNuloException, EmpenhoSemProcessoLicitatorioException {
 		
 		if (fornecedor == null) {
 			throw new FornecedorNuloException("Fornecedor não informado.");
@@ -57,7 +57,7 @@ public class Empenho implements IPrinter {
 		
 		this.data = LocalDateTime.now();
 		this.fornecedor = fornecedor;
-		this.listaProcessosLicitatorios = listaProcessosLicitatorios;
+		this.processosLicitatorios = processosLicitatorios;
 	}
 
 	public int getId() {
@@ -98,14 +98,14 @@ public class Empenho implements IPrinter {
 
 	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
+	}	
+
+	public Set<ProcessoLicitatorio> getProcessosLicitatorios() {
+		return processosLicitatorios;
 	}
 
-	public Set<ProcessoLicitatorio> getListaProcessosLicitatorios() {
-		return listaProcessosLicitatorios;
-	}
-
-	public void setListaProcessosLicitatorios(Set<ProcessoLicitatorio> listaProcessosLicitatorios) {
-		this.listaProcessosLicitatorios = listaProcessosLicitatorios;
+	public void setProcessosLicitatorios(Set<ProcessoLicitatorio> processosLicitatorios) {
+		this.processosLicitatorios = processosLicitatorios;
 	}
 
 	public Usuario getUsuario() {
