@@ -27,9 +27,9 @@ public class EmpenhoController {
 	private ProcessoLicitatorioService processoLicitatorioService;
 	
 	@GetMapping("/empenho/lista")
-	public String telaLista(Model model) {		
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
-		model.addAttribute("listagem", empenhoService.obterLista());
+		model.addAttribute("listagem", empenhoService.obterLista(usuario));
 		
 		return "empenho/lista";
 	}
