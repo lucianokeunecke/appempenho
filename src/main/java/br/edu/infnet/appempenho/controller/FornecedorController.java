@@ -46,7 +46,7 @@ public class FornecedorController {
 		fornecedorService.incluir(fornecedor);
 		
 		mensagem = "Inclusão do fornecedor " + fornecedor.getNome() + " realizada com sucesso";
-		tipoMensagem = "alert-info";
+		tipoMensagem = "alert-success";
 		
 		return "redirect:/fornecedor/lista";
 	}
@@ -58,7 +58,7 @@ public class FornecedorController {
 			fornecedorService.excluir(id);
 			
 			mensagem = "Exclusão do fornecedor " + id + " realizada com sucesso";
-			tipoMensagem = "alert-info";
+			tipoMensagem = "alert-success";
 		} catch (Exception e) {
 			mensagem = "Impossível realizar a exclusão do fornecedor " + id;
 			tipoMensagem = "alert-danger";
