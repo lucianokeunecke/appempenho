@@ -44,11 +44,13 @@ public class EmpenhoController {
 	}
 	
 	@PostMapping(value = "empenho/incluir")
-	public String incluir(Empenho empenho) {
+	public String incluir(Empenho empenho, @SessionAttribute("user") Usuario usuario) {
 		
-		//empenhoService.incluir(empenho);
+		empenho.setUsuario(usuario);		
 		
-		return "redirect:/concorrencia/lista";
+		empenhoService.incluir(empenho);
+		
+		return "redirect:/empenho/lista";
 	}	
 	
 	@GetMapping("/empenho/{id}/excluir")
