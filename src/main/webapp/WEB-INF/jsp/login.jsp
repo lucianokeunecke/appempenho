@@ -14,6 +14,12 @@
 
 	<div class="container mt-3">
 	
+ 	<c:if test="${not empty mensagem}">
+		<div class="alert ${tipoMensagem}">
+		  <strong>Informação</strong> ${mensagem}
+		</div>
+	</c:if> 	
+	
 	  <h2>Autenticação</h2>
 	  <form action="/login" method="post">
 	    <div class="mb-3 mt-3">

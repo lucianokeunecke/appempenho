@@ -35,6 +35,7 @@ public class AppController {
 
 	@GetMapping(value = "/login")
 	public String telaLogin() {
+		
 		return "login";
 	}
 	
@@ -49,6 +50,9 @@ public class AppController {
 			
 			return "home";
 		}
+		
+		model.addAttribute("mensagem", "Usuário ou senha inválido");
+		model.addAttribute("tipoMensagem", "alert-danger");		
 		
 		return "login";
 	}
