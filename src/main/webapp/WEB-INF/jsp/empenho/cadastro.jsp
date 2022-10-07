@@ -24,10 +24,10 @@
 	      <input type="text" class="form-control" placeholder="Entre com o número" name="numero">
 	    </div>
 	    
-	    <div class="mb-3 mt-3">
-	      <label>Data:</label>
-	      <input type="date" class="form-control" placeholder="Entre com a data" name="data">
-	    </div>
+		<div class="mb-3 mt-3">
+			<label>Data:</label> 
+			<input type="datetime-local" class="form-control" placeholder="Entre com a data" name="data">
+		</div>
 	    
 	    <div class="mb-3 mt-3">
 	      <label>Valor:</label>

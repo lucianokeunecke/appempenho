@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import br.edu.infnet.appempenho.interfaces.IPrinter;
 import br.edu.infnet.appempenho.model.exception.EmpenhoSemProcessoLicitatorioException;
 import br.edu.infnet.appempenho.model.exception.FornecedorNuloException;
@@ -26,6 +28,7 @@ public class Empenho implements IPrinter {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int numero;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	private LocalDateTime data;
 	private float valor;
 	@OneToOne(cascade = CascadeType.DETACH)
