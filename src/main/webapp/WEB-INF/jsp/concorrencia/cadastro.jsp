@@ -39,7 +39,7 @@
 	    
 	    <div class="mb-3 mt-3">
 	      <label>Valor Mínimo de Capital:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o valor mínimo de capital" name="valorMinimoCapital">
+	      <input type="number" step="0.01" value="0.00" placeholder="0.00" class="form-control" placeholder="Entre com o valor mínimo de capital" name="valorMinimoCapital">
 	    </div>
 	    
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>

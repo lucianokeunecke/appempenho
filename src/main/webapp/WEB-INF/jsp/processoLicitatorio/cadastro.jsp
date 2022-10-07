@@ -19,5 +19,5 @@
 	    
 	    <div class="mb-3 mt-3">
 	      <label>Valor Estimado do Edital:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o valor estimado do edital" name="valorEstimadoEdital">
+	      <input type="number" step="0.01" value="0.00" placeholder="0.00" class="form-control" placeholder="Entre com o valor estimado do edital" name="valorEstimadoEdital">
 	    </div>

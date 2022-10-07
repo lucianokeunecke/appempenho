@@ -39,7 +39,7 @@
 	    
 	    <div class="mb-3 mt-3">
 	      <label>Índice de Reajuste:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o índice de reajuste" name="indiceReajuste">
+	      <input type="number" step="0.01" value="0.00" placeholder="0.00" class="form-control" placeholder="Entre com o índice de reajuste" name="indiceReajuste">
 	    </div>
 	    
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
