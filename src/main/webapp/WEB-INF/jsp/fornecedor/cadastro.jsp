@@ -18,7 +18,7 @@
 	  <form action="/fornecedor/incluir" method="post">
 	    <div class="mb-3 mt-3">
 	      <label>Código:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o código" name="codigo">
+	      <input type="number" class="form-control" placeholder="Entre com o código" name="codigo" min="1" max="99999999">
 	    </div>
 	    <div class="mb-3 mt-3">
 	      <label>Nome:</label>
@@ -26,7 +26,7 @@
 	    </div>
 	    <div class="mb-3 mt-3">
 	      <label>CNPJ/CPF:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o cnpj/cpf" name="cnpjCpf">
+	      <input type="number" class="form-control" placeholder="Entre com o cnpj/cpf" name="cnpjCpf" min="1" max="99999999999999">
 	    </div>
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>

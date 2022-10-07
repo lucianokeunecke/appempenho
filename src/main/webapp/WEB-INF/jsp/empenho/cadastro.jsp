@@ -21,7 +21,7 @@
 	  
 	    <div class="mb-3 mt-3">
 	      <label>Número:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o número" name="numero">
+	      <input type="number" class="form-control" placeholder="Entre com o número" name="numero" min="1" max="99999999">
 	    </div>
 	    
 		<div class="mb-3 mt-3">
