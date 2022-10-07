@@ -1,16 +1,20 @@
 P;AppEmpenho;Projeto de Gestão de Empenhos
 C;Empenho
+A;id;int;ID
 A;numero;int;Número do Empenho
 A;data;LocalDateTime;Data da Emissão do Empenho
 A;valor;float;Valor do Empenho
 C;Fornecedor
+A;id;int;ID
 A;codigo;int;Código do Fornecedor
 A;nome;String;Nome/Razão Social do Fornecedor
 A;cnpjCpf;long;CNPJ/CPF do Fornecedor
 C;ProcessoLicitatorio
+A;id;int;ID
 A;numero;int;Número do Processo Licitatório
 A;dataExpedicao;LocalDateTime;Data da Expedição do Processo Licitatório
 A;objetoLicitacao;String;Descrição do Objeto da Licitação
+A;valorEstimadoEdital;float;Valor Estimado do Edital
 C;Concorrencia
 A;eletronica;boolean;Indica se a Modalidade de Concorrência é Eletrônica
 A;prazoExecucao;String;Descrição do Prazo da Execução
@@ -18,7 +22,7 @@ A;valorMinimoCapital;float;Valor Mínimo de Capital
 C;Pregao
 A;registroPreco;boolean;Indica se a Modalidade de Pregão utiliza o Registro de Preço
 A;criterioJulgamento;String;Descrição do Critério de Julgamento
-A;valorEstimadoEdital;float;Valor Estimado do Edital
+A;indiceReajuste;float;Índice de Reajuste
 C;TomadaPreco
 A;permiteSubcontratacao;boolean;Indica se a Modalidade de Tomada de Preço Permite a Subcontratação
 A;condicaoPagamento;String;Descrição da Condição de Pagamento

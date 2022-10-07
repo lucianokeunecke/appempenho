@@ -57,10 +57,10 @@ public class PregaoTeste implements ApplicationRunner {
 							pregao.setNumero(Integer.parseInt(campos[4]));
 							pregao.setDataExpedicao(LocalDate.now());
 							pregao.setObjetoLicitacao(campos[6]);
-							pregao.setValorEstimadoEdital(550000);
 							pregao.setRegistroPreco(Boolean.parseBoolean(campos[1]));
 							pregao.setCriterioJulgamento(campos[2]);
 							pregao.setIndiceReajuste(Float.parseFloat(campos[3]));
+							pregao.setValorEstimadoEdital(Float.parseFloat(campos[7]));
 							pregao.setUsuario(usuario);
 							System.out.println("Valor Estimado do Edital R$ " + pregao.calcularValorEstimadoEdital());
 							pregaoService.incluir(pregao);

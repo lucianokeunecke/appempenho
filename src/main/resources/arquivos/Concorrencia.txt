@@ -1,5 +1,5 @@
-true;30 dias;500000.0;150;2022-08-27T07:45:07.505841100;Contratação de empresa especializada para execução de serviço de capeamento asfáltico
-false;45 dias;700000.0;153;2022-08-27T07:45:07.505841100;Contratação de empresa especializada para execução de serviço de engenharia
-true;1 ano e 2 meses;1000000.0;175;2022-08-27T07:45:07.506841700;Contratação de empresa especializada para execução de obra
-false;1 ano e 6 meses;600000.0;199;2022-08-27T07:45:07.506841700;Contratação de empresa especializada para execução de serviço de engenharia
-false;teste;49000.0;230;2022-08-27T07:45:07.506841700;Teste do valor minimo de capital
+true;30 dias;500000.0;150;2022-08-27T07:45:07.505841100;Contratação de empresa especializada para execução de serviço de capeamento asfáltico;120000.0
+false;45 dias;700000.0;153;2022-08-27T07:45:07.505841100;Contratação de empresa especializada para execução de serviço de engenharia;178000.0
+true;1 ano e 2 meses;1000000.0;175;2022-08-27T07:45:07.506841700;Contratação de empresa especializada para execução de obra;235000.0
+false;1 ano e 6 meses;600000.0;199;2022-08-27T07:45:07.506841700;Contratação de empresa especializada para execução de serviço de engenharia;340000.0
+false;teste;49000.0;230;2022-08-27T07:45:07.506841700;Teste do valor minimo de capital;415000.0

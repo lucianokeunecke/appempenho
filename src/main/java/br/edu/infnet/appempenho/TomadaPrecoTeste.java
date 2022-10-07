@@ -58,10 +58,10 @@ public class TomadaPrecoTeste implements ApplicationRunner {
 							tomadaPreco.setNumero(Integer.parseInt(campos[4]));
 							tomadaPreco.setDataExpedicao(LocalDate.now());
 							tomadaPreco.setObjetoLicitacao(campos[6]);
-							tomadaPreco.setValorEstimadoEdital(200000);
 							tomadaPreco.setPermiteSubcontratacao(Boolean.parseBoolean(campos[1]));
 							tomadaPreco.setCondicaoPagamento(campos[2]);
 							tomadaPreco.setValorEstimadoDotacaoOrcamentaria(Float.parseFloat(campos[3]));
+							tomadaPreco.setValorEstimadoEdital(Float.parseFloat(campos[7]));
 							tomadaPreco.setUsuario(usuario);
 							System.out.println("Valor Estimado do Edital R$ " + tomadaPreco.calcularValorEstimadoEdital());
 							tomadaPrecoService.incluir(tomadaPreco);

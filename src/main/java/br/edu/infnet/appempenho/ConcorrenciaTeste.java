@@ -60,6 +60,7 @@ public class ConcorrenciaTeste implements ApplicationRunner {
 							concorrencia.setEletronica(Boolean.parseBoolean(campos[1]));
 							concorrencia.setPrazoExecucao(campos[2]);
 							concorrencia.setValorMinimoCapital(Float.parseFloat(campos[3]));
+							concorrencia.setValorEstimadoEdital(Float.parseFloat(campos[7]));
 							concorrencia.setUsuario(usuario);
 							System.out.println("Valor Estimado do Edital R$ " + concorrencia.calcularValorEstimadoEdital());
 							concorrenciaService.incluir(concorrencia);
