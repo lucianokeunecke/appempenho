@@ -29,6 +29,7 @@
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
+	        <th>Valor Estimado Edital</th>
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -40,6 +41,7 @@
 		        <td>${b.numero}</td>
 		        <td>${b.dataExpedicao}</td>
 		        <td>${b.objetoLicitacao}</td>
+		        <td>${b.valorEstimadoEdital}</td>
 		        <td><a href="/processoLicitatorio/${b.id}/excluir">Excluir</a></td>
 		      </tr>    	  
     	  </c:forEach>

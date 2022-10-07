@@ -31,6 +31,7 @@
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
+	        <th>Valor Estimado Edital</th>
 	        <th>Permite Subcontratação</th>
 	        <th>Condição de Pagamento</th>
 	        <th>Valor Estimado Dotação Orçamentária</th>
@@ -45,6 +46,7 @@
 		        <td>${b.numero}</td>
 		        <td>${b.dataExpedicao}</td>
 		        <td>${b.objetoLicitacao}</td>
+		        <td>${b.valorEstimadoEdital}</td>
 		        <td>${b.permiteSubcontratacao}</td>
 		        <td>${b.condicaoPagamento}</td>
 		        <td>${b.valorEstimadoDotacaoOrcamentaria}</td>

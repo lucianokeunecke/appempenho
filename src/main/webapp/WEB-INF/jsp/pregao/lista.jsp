@@ -31,6 +31,7 @@
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
+	        <th>Valor Estimado Edital</th>
 	        <th>Registro de Preço</th>
 	        <th>Critério de Julgamento</th>
 	        <th>Indice de Reajuste</th>
@@ -45,6 +46,7 @@
 		        <td>${b.numero}</td>
 		        <td>${b.dataExpedicao}</td>
 		        <td>${b.objetoLicitacao}</td>
+		        <td>${b.valorEstimadoEdital}</td>
 		        <td>${b.registroPreco}</td>
 		        <td>${b.criterioJulgamento}</td>
 		        <td>${b.indiceReajuste}</td>

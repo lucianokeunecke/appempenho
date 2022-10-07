@@ -31,6 +31,7 @@
 	        <th>Número</th>
 	        <th>Data da Expedição</th>
 	        <th>Objeto da Licitação</th>
+	        <th>Valor Estimado Edital</th>
 	        <th>Eletrônica</th>
 	        <th>Prazo de Execução</th>
 	        <th>Valor Mínimo de Capital</th>
@@ -45,6 +46,7 @@
 		        <td>${b.numero}</td>
 		        <td>${b.dataExpedicao}</td>
 		        <td>${b.objetoLicitacao}</td>
+		        <td>${b.valorEstimadoEdital}</td>
 		        <td>${b.eletronica}</td>
 		        <td>${b.prazoExecucao}</td>
 		        <td>${b.valorMinimoCapital}</td>
