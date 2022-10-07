@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import br.edu.infnet.appempenho.interfaces.IPrinter;
 import br.edu.infnet.appempenho.model.exception.IndiceReajusteZeradoNegativoException;
 import br.edu.infnet.appempenho.model.exception.ValorEstimadoDotacaoOrcamentariaException;
@@ -29,6 +31,7 @@ public abstract class ProcessoLicitatorio implements IPrinter {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int numero;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	private LocalDate dataExpedicao;
 	private String objetoLicitacao;
 	private float valorEstimadoEdital;

@@ -7,10 +7,10 @@
 	      <input type="text" class="form-control" placeholder="Entre com o número" name="numero">
 	    </div>
 	    
-	    <div class="mb-3 mt-3">
-	      <label>Data da Expedição:</label>
-	      <input type="date" class="form-control" placeholder="Entre com a data da expedição" name="dataExpedicao">
-	    </div>
+		<div class="mb-3 mt-3">
+			<label>Data da Expedição:</label> 
+			<input type="datetime-local" class="form-control" placeholder="Entre com a data" name="dataExpedicao">
+		</div>
 	    
 	    <div class="mb-3 mt-3">
 	      <label>Objeto da Licitação:</label>
