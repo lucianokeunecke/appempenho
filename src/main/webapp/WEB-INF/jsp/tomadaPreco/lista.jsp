@@ -13,6 +13,12 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
+	
+ 	<c:if test="${not empty mensagem}">
+		<div class="alert ${tipoMensagem}">
+		  <strong>Informação</strong> ${mensagem}
+		</div>
+	</c:if>	
 	  
 	  <h3>Cadastro de Processo Licitatório: Tomada de Preço</h3>
 	  

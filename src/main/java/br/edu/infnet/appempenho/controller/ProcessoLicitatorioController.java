@@ -16,10 +16,16 @@ public class ProcessoLicitatorioController {
 	@Autowired
 	private ProcessoLicitatorioService processoLicitatorioService;
 	
+	private String mensagem;
+	private String tipoMensagem;
+	
 	@GetMapping("/processoLicitatorio/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
 		model.addAttribute("listagem", processoLicitatorioService.obterLista(usuario));
+		
+		model.addAttribute("mensagem", mensagem);
+		model.addAttribute("tipoMensagem", tipoMensagem);
 		
 		return "processoLicitatorio/lista";
 	}
@@ -27,7 +33,15 @@ public class ProcessoLicitatorioController {
 	@GetMapping("/processoLicitatorio/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		processoLicitatorioService.excluir(id);
+		try {
+			processoLicitatorioService.excluir(id);
+			
+			mensagem = "Exclusão do Processo Licitatório " + id + " realizado com sucesso";
+			tipoMensagem = "alert-success";
+		} catch (Exception e) {
+			mensagem = "Impossível realizar a exclusão do Processo Licitatório " + id;
+			tipoMensagem = "alert-danger";
+		}
 		
 		return "redirect:/processoLicitatorio/lista";
 	}

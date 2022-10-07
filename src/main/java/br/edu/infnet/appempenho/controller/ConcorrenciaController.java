@@ -18,10 +18,16 @@ public class ConcorrenciaController {
 	@Autowired
 	private ConcorrenciaService concorrenciaService;
 	
+	private String mensagem;
+	private String tipoMensagem;
+	
 	@GetMapping("/concorrencia/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
 		model.addAttribute("listagem", concorrenciaService.obterLista(usuario));
+		
+		model.addAttribute("mensagem", mensagem);
+		model.addAttribute("tipoMensagem", tipoMensagem);
 		
 		return "concorrencia/lista";
 	}
@@ -39,13 +45,24 @@ public class ConcorrenciaController {
 		
 		concorrenciaService.incluir(concorrencia);
 		
+		mensagem = "Inclusão da Concorrência Nº " + concorrencia.getNumero() + " realizada com sucesso";
+		tipoMensagem = "alert-success";
+		
 		return "redirect:/concorrencia/lista";
 	}		
 	
 	@GetMapping("/concorrencia/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		concorrenciaService.excluir(id);
+		try {
+			concorrenciaService.excluir(id);
+			
+			mensagem = "Exclusão da Concorrência " + id + " realizada com sucesso";
+			tipoMensagem = "alert-success";
+		} catch (Exception e) {
+			mensagem = "Impossível realizar a exclusão da Concorrência " + id;
+			tipoMensagem = "alert-danger";
+		}
 		
 		return "redirect:/concorrencia/lista";
 	}

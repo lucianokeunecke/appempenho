@@ -45,7 +45,7 @@ public class FornecedorController {
 		
 		fornecedorService.incluir(fornecedor);
 		
-		mensagem = "Inclusão do fornecedor " + fornecedor.getNome() + " realizada com sucesso";
+		mensagem = "Inclusão do Fornecedor " + fornecedor.getNome() + " realizado com sucesso";
 		tipoMensagem = "alert-success";
 		
 		return "redirect:/fornecedor/lista";
@@ -57,10 +57,10 @@ public class FornecedorController {
 		try {
 			fornecedorService.excluir(id);
 			
-			mensagem = "Exclusão do fornecedor " + id + " realizada com sucesso";
+			mensagem = "Exclusão do Fornecedor " + id + " realizada com sucesso";
 			tipoMensagem = "alert-success";
 		} catch (Exception e) {
-			mensagem = "Impossível realizar a exclusão do fornecedor " + id;
+			mensagem = "Impossível realizar a exclusão do Fornecedor " + id;
 			tipoMensagem = "alert-danger";
 		}
 		

@@ -26,10 +26,16 @@ public class EmpenhoController {
 	@Autowired
 	private ProcessoLicitatorioService processoLicitatorioService;
 	
+	private String mensagem;
+	private String tipoMensagem;
+	
 	@GetMapping("/empenho/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
 		model.addAttribute("listagem", empenhoService.obterLista(usuario));
+		
+		model.addAttribute("mensagem", mensagem);
+		model.addAttribute("tipoMensagem", tipoMensagem);
 		
 		return "empenho/lista";
 	}
@@ -50,13 +56,24 @@ public class EmpenhoController {
 		
 		empenhoService.incluir(empenho);
 		
+		mensagem = "Inclusão do Empenho Nº " + empenho.getNumero() + " realizado com sucesso";
+		tipoMensagem = "alert-success";
+		
 		return "redirect:/empenho/lista";
 	}	
 	
 	@GetMapping("/empenho/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		empenhoService.excluir(id);
+		try {
+			empenhoService.excluir(id);
+			
+			mensagem = "Exclusão do Empenho " + id + " realizado com sucesso";
+			tipoMensagem = "alert-success";
+		} catch (Exception e) {
+			mensagem = "Impossível realizar a exclusão do Empenho " + id;
+			tipoMensagem = "alert-danger";
+		}
 		
 		return "redirect:/empenho/lista";
 	}		

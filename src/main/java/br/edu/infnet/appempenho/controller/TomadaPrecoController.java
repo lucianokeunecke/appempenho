@@ -18,10 +18,16 @@ public class TomadaPrecoController {
 	@Autowired
 	private TomadaPrecoService tomadaPrecoService;
 	
+	private String mensagem;
+	private String tipoMensagem;
+	
 	@GetMapping("/tomadaPreco/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {		
 		
 		model.addAttribute("listagem", tomadaPrecoService.obterLista(usuario));
+		
+		model.addAttribute("mensagem", mensagem);
+		model.addAttribute("tipoMensagem", tipoMensagem);
 		
 		return "tomadaPreco/lista";
 	}
@@ -39,13 +45,24 @@ public class TomadaPrecoController {
 		
 		tomadaPrecoService.incluir(tomadaPreco);
 		
+		mensagem = "Inclusão da Tomada de Preço Nº " + tomadaPreco.getNumero() + " realizado com sucesso";
+		tipoMensagem = "alert-success";
+		
 		return "redirect:/tomadaPreco/lista";
 	}	
 	
 	@GetMapping("/tomadaPreco/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		tomadaPrecoService.excluir(id);
+		try {
+			tomadaPrecoService.excluir(id);
+			
+			mensagem = "Exclusão da Tomada de Preço " + id + " realizada com sucesso";
+			tipoMensagem = "alert-success";
+		} catch (Exception e) {
+			mensagem = "Impossível realizar a exclusão da Tomada de Preço " + id;
+			tipoMensagem = "alert-danger";
+		}
 		
 		return "redirect:/tomadaPreco/lista";
 	}	
